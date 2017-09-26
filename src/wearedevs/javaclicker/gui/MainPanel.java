@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import wearedevs.javaclicker.Main;
+import wearedevs.javaclicker.shop.ShopHandler;
 
 @SuppressWarnings("serial")
 public class MainPanel extends JPanel {
@@ -38,7 +39,8 @@ public class MainPanel extends JPanel {
 		shopButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		shopButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Main.main.setContentPane(Main.main.shopPanel);
+				ShopHandler.updateLayout();
+				Main.main.setContentPane(Main.shopPanel);
 			}
 		});
 		shopButton.setBounds(12, 377, 334, 55);

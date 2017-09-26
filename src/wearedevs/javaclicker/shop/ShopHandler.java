@@ -1,5 +1,6 @@
 package wearedevs.javaclicker.shop;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -9,7 +10,7 @@ import wearedevs.javaclicker.shop.items.perClickUpgrades.PerClick2;
 
 public class ShopHandler {
 
-	public static ArrayList<ShopItem> items;
+	public static ArrayList<ShopItem> items = new ArrayList<ShopItem>();
 	/**
 	 * @author ImDaveead
 	 */
@@ -27,6 +28,8 @@ public class ShopHandler {
 		
 		for(ShopItem item : items) {
 			JButton button = new JButton(item.getName());
+			
+			button.setSize(new Dimension(170, 50));
 			
 			Main.shopPanel.upgradesPanel.add(button);
 		}
