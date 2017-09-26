@@ -31,6 +31,10 @@ public class Main extends JFrame {
 	}
 
 	public Main() {
+		int clickCount = 0;
+		int inc = 1;
+		
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainPanel = new MainPanel();
 		

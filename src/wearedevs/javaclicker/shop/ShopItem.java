@@ -1,8 +1,5 @@
 package wearedevs.javaclicker.shop;
-/**
- * @author ImDaveead
- *
- */
+
 public class ShopItem {
 	public String name;
 	public int price;
