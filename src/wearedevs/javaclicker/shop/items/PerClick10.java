@@ -3,14 +3,14 @@ package wearedevs.javaclicker.shop.items;
 import wearedevs.javaclicker.Main;
 import wearedevs.javaclicker.shop.ShopItem;
 
-public class PerClick2 extends ShopItem {
+public class PerClick10 extends ShopItem {
 
 	public void onPurchase() {
-		Main.perClick = 2;
+		Main.perClick = 10;
 	}
 
 	public int getPrice() {
-		return 50;
+		return 2000;
 	}
 
 	public String getName() {
