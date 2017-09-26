@@ -36,9 +36,6 @@ public class ShopPanel extends JPanel {
 		add(upgradesPanel);
 		upgradesPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setSize(new Dimension(170, 50));
-		upgradesPanel.add(btnNewButton);
 		
 		JLabel labelTitle = new JLabel("The Shop");
 		labelTitle.setHorizontalAlignment(SwingConstants.CENTER);
