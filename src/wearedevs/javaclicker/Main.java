@@ -5,14 +5,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
 import wearedevs.javaclicker.gui.MainPanel;
 
 public class Main extends JFrame {
 
 	public static int clicks = 0;
-	public static int perClick = 0;
+	public static int perClick = 1;
 	
 	
 	public JPanel mainPanel;
