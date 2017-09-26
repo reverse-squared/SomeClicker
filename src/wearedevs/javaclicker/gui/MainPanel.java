@@ -19,7 +19,7 @@ public class MainPanel extends JPanel {
 		setLayout(null);
 		setBounds(Main.windowSize);
 		
-		labelClicks = new JLabel("");
+		labelClicks = new JLabel("Click the Button!");
 		labelClicks.setFont(new Font("Tahoma", Font.BOLD, 25));
 		labelClicks.setBounds(12, 13, 377, 34);
 		add(labelClicks);
@@ -49,7 +49,7 @@ public class MainPanel extends JPanel {
 	}
 
 	public void updateCounter() {
-		labelClicks.setText("Clicks: "+Main.CURRENCY_SYMBOL+Main.clicks);
+		labelClicks.setText("You have "+Main.clicks+" Clicks");
 		
 	}
 
