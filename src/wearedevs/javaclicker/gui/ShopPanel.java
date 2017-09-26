@@ -23,6 +23,7 @@ public class ShopPanel extends JPanel {
 		
 		JButton backBtn = new JButton("Go back");
 		backBtn.addActionListener(new ActionListener() {
+			@SuppressWarnings("static-access")
 			public void actionPerformed(ActionEvent e) {
 				Main.main.setContentPane(Main.main.mainPanel);
 			}
