@@ -1,20 +1,21 @@
-package wearedevs.javaclicker.shop.items;
+package wearedevs.javaclicker.shop.items.bombs;
 
 import wearedevs.javaclicker.Main;
 import wearedevs.javaclicker.shop.ShopItem;
 
-public class PerClick5 extends ShopItem {
+public class Bomb2 extends ShopItem {
 
 	public void onPurchase() {
-		Main.perClick = 5;
+		//Do Stuff
 	}
 
 	public int getPrice() {
-		return 200;
+		return 2000;
 	}
 
 	public String getName() {
-		return "2 Clicks Per Click";
+		//200 Clicks Per 10 Seconds
+		return "Click Bomb: Tier 2";
 	}
 
 }
