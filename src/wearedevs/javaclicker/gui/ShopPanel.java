@@ -44,6 +44,7 @@ public class ShopPanel extends JPanel {
 		labelTitle.setBounds(12, 13, 616, 67);
 		add(labelTitle);
 		
+		
 		JLabel labelClicks = new JLabel("You Have 0 Clicks");
 		labelClicks.setBounds(385, 410, 243, 16);
 		add(labelClicks);
