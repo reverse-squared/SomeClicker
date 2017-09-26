@@ -7,7 +7,7 @@ package wearedevs.javaclicker;
 public class AutoHandler {
 	public static Thread autoThread;
 	
-	public static int autoClick = 3;
+	public static int autoClick = 0;
 	public static int clickBomb = 0;
 	
 	public static boolean autoClickStarted = false;
@@ -17,9 +17,15 @@ public class AutoHandler {
 		autoClickStarted = true;
 		autoThread = new Thread(new Runnable() {
 			public void run() {
+				int bomb_count = 0;
+				
 				try {
 					while (autoClickStarted) {
-						System.out.println("e");
+						bomb_count++;
+						if (bomb_count>100) {
+							bomb_count = 0;
+							Main.clicks += clickBomb;
+						}
 						Main.clicks += autoClick/10d;
 						Main.updateCounter();
 						//TODO: Better Timer

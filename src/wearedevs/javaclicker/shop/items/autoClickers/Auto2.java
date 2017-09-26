@@ -1,11 +1,12 @@
 package wearedevs.javaclicker.shop.items.autoClickers;
 
+import wearedevs.javaclicker.AutoHandler;
 import wearedevs.javaclicker.shop.ShopItem;
 
 public class Auto2 extends ShopItem {
 
 	public void onPurchase() {
-		//Do Stuff
+		AutoHandler.autoClick = 10;
 	}
 
 	public int getPrice() {
