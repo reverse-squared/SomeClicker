@@ -21,6 +21,7 @@ public class Main extends JFrame {
 	public static ShopPanel shopPanel;
 	
 	public static final String VERSION = "DEV 0.1";
+	
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
 	
@@ -57,7 +58,6 @@ public class Main extends JFrame {
 	public static void updateCounter() {
 		mainPanel.labelClicks.setText("You have "+clicks+" Clicks");
 		shopPanel.labelClicks.setText(clicks+" Clicks");
-		
 	}
 
 }
