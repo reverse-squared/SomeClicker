@@ -25,9 +25,13 @@ public class ShopPanel extends JPanel {
 		backBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+<<<<<<< HEAD
 				Main.mainPanel.updateCounter();
 				
 				Main.main.setContentPane(Main.mainPanel);
+=======
+				lblClicks.setText("Clicks: " + Main.clicks);
+>>>>>>> 77bbca9854f9d5963d6e1d13e8b4fb0e78c6bc21
 			}
 		});
 		backBtn.setBounds(12, 398, 270, 40);
