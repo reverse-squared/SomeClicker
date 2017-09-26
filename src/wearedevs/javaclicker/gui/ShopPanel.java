@@ -26,6 +26,9 @@ public class ShopPanel extends JPanel {
 			@SuppressWarnings("static-access")
 			public void actionPerformed(ActionEvent e) {
 				Main.main.setContentPane(Main.main.mainPanel);
+				
+				//Updates Counter When Hitting Go Back
+				lblClicks.setText("Clicks: " + Main.clicks);
 			}
 		});
 		backBtn.setBounds(12, 398, 270, 40);
