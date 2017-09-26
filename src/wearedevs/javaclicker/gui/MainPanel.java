@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import wearedevs.javaclicker.Main;
 
+@SuppressWarnings("serial")
 public class MainPanel extends JPanel {
 	
 	public MainPanel() {

@@ -9,6 +9,7 @@ import javax.swing.UIManager;
 import wearedevs.javaclicker.gui.MainPanel;
 import wearedevs.javaclicker.gui.ShopPanel;
 
+@SuppressWarnings("serial")
 public class Main extends JFrame {
 
 	public static int clicks = 0;
