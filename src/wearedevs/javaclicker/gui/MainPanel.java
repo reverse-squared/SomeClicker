@@ -30,7 +30,7 @@ public class MainPanel extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				Main.clicks += Main.perClick;
 				
-				updateCounter();
+				Main.updateCounter();
 			}
 		});
 		clicker.setBounds(12, 58, 610, 100);
@@ -48,9 +48,9 @@ public class MainPanel extends JPanel {
 		add(shopButton);
 	}
 
+
 	public void updateCounter() {
 		labelClicks.setText("Clicks: " + Main.clicks);
 		
 	}
-
 }
