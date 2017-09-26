@@ -29,7 +29,7 @@ public class ShopHandler {
 		Main.shopPanel.upgradesPanel.removeAll();
 		
 		for(ShopItem item : items) {
-			JButton button = new JButton(item.getName());
+			JButton button = new JButton(item.getName() + " ("+Main.CURRENCY_SYMBOL+item.getPrice()+")");
 			
 			button.setSize(new Dimension(170, 50));
 			
