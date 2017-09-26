@@ -4,7 +4,10 @@ import javax.swing.JPanel;
 
 import wearedevs.javaclicker.Main;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+
 import java.awt.event.ActionListener;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
@@ -31,8 +34,6 @@ public class ShopPanel extends JPanel {
 		});
 		twoClicksPerButton.setBounds(12, 100, 270, 50);
 		add(twoClicksPerButton);
-		
-		
-		
+				
 	}
 }
