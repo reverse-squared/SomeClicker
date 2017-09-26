@@ -45,6 +45,8 @@ public class ShopPanel extends JPanel {
 		labelTitle.setBounds(12, 13, 616, 67);
 		add(labelTitle);
 		
+		labelClicks = new JLabel("You Have " + Main.clicks + " Clicks");
+		labelClicks.setBounds(290, 410, 345, 16);
 		labelClicks = new JLabel("0 Clicks");
 		labelClicks.setHorizontalAlignment(SwingConstants.RIGHT);
 		labelClicks.setFont(new Font("Tahoma", Font.BOLD, 25));
