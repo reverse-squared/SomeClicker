@@ -29,7 +29,7 @@ public class Main extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Main frame = new Main();
+					main = new Main();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -38,9 +38,6 @@ public class Main extends JFrame {
 	}
 
 	public Main() {
-		//Allow Static Access
-		main = this;
-		
 		//Init all panels
 		mainPanel = new MainPanel();
 		shopPanel = new ShopPanel();
