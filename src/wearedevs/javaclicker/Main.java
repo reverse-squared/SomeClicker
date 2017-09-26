@@ -8,7 +8,7 @@ import javax.swing.UIManager;
 
 import wearedevs.javaclicker.gui.MainPanel;
 import wearedevs.javaclicker.gui.ShopPanel;
-import wearedevs.javaclicker.shop.ShopHandler;
+import wearedevs.javaclicker.handlers.ShopHandler;
 
 @SuppressWarnings("serial")
 public class Main extends JFrame {

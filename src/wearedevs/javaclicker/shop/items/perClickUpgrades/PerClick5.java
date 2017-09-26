@@ -1,7 +1,7 @@
 package wearedevs.javaclicker.shop.items.perClickUpgrades;
 
 import wearedevs.javaclicker.Main;
-import wearedevs.javaclicker.shop.ShopHandler;
+import wearedevs.javaclicker.handlers.ShopHandler;
 import wearedevs.javaclicker.shop.ShopItem;
 import wearedevs.javaclicker.shop.items.autoClickers.Auto1;
 
