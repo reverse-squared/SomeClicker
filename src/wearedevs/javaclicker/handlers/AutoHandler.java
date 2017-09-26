@@ -1,5 +1,6 @@
-package wearedevs.javaclicker;
+package wearedevs.javaclicker.handlers;
 
+import wearedevs.javaclicker.Main;
 import wearedevs.util.RandomUtil;
 
 /**

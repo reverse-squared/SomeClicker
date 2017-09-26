@@ -1,4 +1,4 @@
-package wearedevs.javaclicker.shop;
+package wearedevs.javaclicker.handlers;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 
 import wearedevs.javaclicker.Main;
+import wearedevs.javaclicker.shop.ShopItem;
 import wearedevs.javaclicker.shop.items.perClickUpgrades.PerClick2;
 
 public class ShopHandler {

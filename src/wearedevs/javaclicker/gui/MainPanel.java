@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import wearedevs.javaclicker.Main;
-import wearedevs.javaclicker.shop.ShopHandler;
+import wearedevs.javaclicker.handlers.ShopHandler;
 
 @SuppressWarnings("serial")
 public class MainPanel extends JPanel {
