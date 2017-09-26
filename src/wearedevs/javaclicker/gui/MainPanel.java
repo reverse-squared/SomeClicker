@@ -19,8 +19,7 @@ public class MainPanel extends JPanel {
 		setLayout(null);
 		setBounds(Main.windowSize);
 		
-		
-		labelClicks = new JLabel("Click the button!");
+		labelClicks = new JLabel("");
 		labelClicks.setFont(new Font("Tahoma", Font.BOLD, 25));
 		labelClicks.setBounds(12, 13, 377, 34);
 		add(labelClicks);
@@ -30,6 +29,7 @@ public class MainPanel extends JPanel {
 		clicker.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Main.clicks += Main.perClick;
+				
 				updateCounter();
 			}
 		});
@@ -49,7 +49,7 @@ public class MainPanel extends JPanel {
 	}
 
 	public void updateCounter() {
-		labelClicks.setText("You have "+Main.clicks+" clicks");
+		labelClicks.setText("Clicks: "+Main.CURRENCY_SYMBOL+Main.clicks);
 		
 	}
 
