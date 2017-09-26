@@ -2,6 +2,7 @@ package wearedevs.javaclicker.shop;
 
 import java.util.ArrayList;
 
+import wearedevs.javaclicker.Main;
 import wearedevs.javaclicker.shop.items.perClickUpgrades.PerClick2;
 
 public class ShopHandler {
@@ -17,5 +18,14 @@ public class ShopHandler {
 	}
 	public static void unlock(ShopItem item) {
 		items.add(item);
+	}
+	public static void updateLayout() {
+		
+		Main.shopPanel.upgradesPanel.removeAll();
+		
+		for(ShopItem item : items) {
+			//Add Button
+		}
+		
 	}
 }
