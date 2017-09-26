@@ -1,4 +1,7 @@
 package wearedevs.javaclicker;
+
+import wearedevs.util.RandomUtil;
+
 /**
  * Handler for auto clicking related things
  * 
@@ -24,7 +27,7 @@ public class AutoHandler {
 						bomb_count++;
 						if (bomb_count>100) {
 							bomb_count = 0;
-							Main.clicks += clickBomb;
+							Main.clicks += clickBomb + RandomUtil.randomRange(clickBomb * -0.3, clickBomb * 0.3);
 						}
 						Main.clicks += autoClick/10d;
 						Main.updateCounter();
