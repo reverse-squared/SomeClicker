@@ -48,4 +48,9 @@ public class MainPanel extends JPanel {
 		add(shopButton);
 	}
 
+
+	public void updateCounter() {
+		labelClicks.setText("Clicks: " + Main.clicks);
+		
+	}
 }
