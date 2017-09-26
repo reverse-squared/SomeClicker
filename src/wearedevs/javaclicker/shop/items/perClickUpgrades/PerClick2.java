@@ -8,6 +8,7 @@ public class PerClick2 extends ShopItem {
 
 	public void onPurchase() {
 		Main.perClick = 2;
+		
 		ShopHandler.unlock(new PerClick5());
 	}
 
