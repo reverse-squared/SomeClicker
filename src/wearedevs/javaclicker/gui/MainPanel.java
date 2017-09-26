@@ -13,23 +13,24 @@ import wearedevs.javaclicker.shop.ShopHandler;
 
 @SuppressWarnings("serial")
 public class MainPanel extends JPanel {
+	public JLabel labelClicks;
 	
 	public MainPanel() {
 		setLayout(null);
 		setBounds(Main.windowSize);
 		
 		
-		JLabel lblClicks = new JLabel("Clicks: " + Main.clicks);
-		lblClicks.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblClicks.setBounds(12, 13, 226, 34);
-		add(lblClicks);
+		labelClicks = new JLabel("");
+		labelClicks.setFont(new Font("Tahoma", Font.BOLD, 25));
+		labelClicks.setBounds(12, 13, 226, 34);
+		add(labelClicks);
 		
 		JButton clicker = new JButton("Click Me!");
 		clicker.setFont(new Font("Tahoma", Font.BOLD, 20));
 		clicker.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Main.clicks += Main.perClick;
-				lblClicks.setText("Clicks: " + Main.clicks);
+				updateCounter();
 			}
 		});
 		clicker.setBounds(12, 58, 610, 100);
@@ -45,6 +46,11 @@ public class MainPanel extends JPanel {
 		});
 		shopButton.setBounds(12, 377, 334, 55);
 		add(shopButton);
+	}
+
+	public void updateCounter() {
+		labelClicks.setText("Clicks: "+Main.CURRENCY_SYMBOL+Main.clicks);
+		
 	}
 
 }

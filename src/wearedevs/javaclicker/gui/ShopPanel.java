@@ -23,12 +23,11 @@ public class ShopPanel extends JPanel {
 		
 		JButton backBtn = new JButton("Go Back");
 		backBtn.addActionListener(new ActionListener() {
-			@SuppressWarnings("static-access")
 			public void actionPerformed(ActionEvent e) {
-				Main.main.setContentPane(Main.main.mainPanel);
 				
-				//Updates Counter When Hitting Go Back
-				lblClicks.setText("Clicks: " + Main.clicks);
+				Main.mainPanel.updateCounter();
+				
+				Main.main.setContentPane(Main.mainPanel);
 			}
 		});
 		backBtn.setBounds(12, 398, 270, 40);
