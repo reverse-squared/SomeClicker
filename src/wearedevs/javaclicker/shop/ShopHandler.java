@@ -40,6 +40,7 @@ public class ShopHandler {
 						Main.clicks -= price;
 						item.onPurchase();
 						items.remove(item);
+						Main.updateCounter();
 						updateLayout();
 					}
 				}
