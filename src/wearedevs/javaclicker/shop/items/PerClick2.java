@@ -3,7 +3,7 @@ package wearedevs.javaclicker.shop.items;
 import wearedevs.javaclicker.Main;
 import wearedevs.javaclicker.shop.ShopItem;
 
-public class PerClick1 extends ShopItem {
+public class PerClick2 extends ShopItem {
 
 	public void onPurchase() {
 		Main.perClick = 2;
