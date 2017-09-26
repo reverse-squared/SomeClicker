@@ -1,6 +1,8 @@
 package wearedevs.javaclicker.shop;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -30,6 +32,17 @@ public class ShopHandler {
 			JButton button = new JButton(item.getName());
 			
 			button.setSize(new Dimension(170, 50));
+			
+			button.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					int price = item.getPrice();
+					if(price <= Main.clicks) {
+						Main.clicks -= price;
+						item.onPurchase();
+						updateLayout();
+					}
+				}
+			});
 			
 			Main.shopPanel.upgradesPanel.add(button);
 		}
