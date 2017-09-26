@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import wearedevs.javaclicker.Main;
-import wearedevs.javaclicker.shop.ShopHandler;
 import java.awt.Dimension;
 
 @SuppressWarnings("serial")
