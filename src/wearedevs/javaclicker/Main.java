@@ -4,9 +4,10 @@ import java.awt.EventQueue;
 import java.awt.Rectangle;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.UIManager;
+
 import wearedevs.javaclicker.gui.MainPanel;
+import wearedevs.javaclicker.gui.ShopPanel;
 
 public class Main extends JFrame {
 
@@ -15,7 +16,8 @@ public class Main extends JFrame {
 	
 	public static Main main;
 	
-	public JPanel mainPanel;
+	public MainPanel mainPanel;
+	public ShopPanel shopPanel;
 	
 	public static final String VERSION = "DEV 0.1";
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
@@ -27,7 +29,6 @@ public class Main extends JFrame {
 			public void run() {
 				try {
 					Main frame = new Main();
-					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -39,14 +40,19 @@ public class Main extends JFrame {
 		//Allow Static Access
 		main = this;
 		
+		//Init all panels
 		mainPanel = new MainPanel();
+		shopPanel = new ShopPanel();
 		
 		//Frame Properties
 		setResizable(false);
+		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker "+VERSION);
 		setContentPane(mainPanel);
+		
+		setVisible(true);
 	}
 
 }
