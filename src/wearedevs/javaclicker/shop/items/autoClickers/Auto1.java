@@ -1,9 +1,7 @@
 package wearedevs.javaclicker.shop.items.autoClickers;
 
-import wearedevs.javaclicker.Main;
 import wearedevs.javaclicker.shop.ShopHandler;
 import wearedevs.javaclicker.shop.ShopItem;
-import wearedevs.javaclicker.shop.items.perClickUpgrades.PerClick5;
 
 public class Auto1 extends ShopItem {
 
