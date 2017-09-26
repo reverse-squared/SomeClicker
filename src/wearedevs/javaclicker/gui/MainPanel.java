@@ -14,7 +14,7 @@ public class MainPanel extends JPanel {
 	
 	public MainPanel() {
 		setLayout(null);
-		setBounds(100, 100, 640, 480);
+		setBounds(Main.windowSize);
 		
 		
 		JLabel lblClicks = new JLabel("Clicks: " + Main.clicks);
