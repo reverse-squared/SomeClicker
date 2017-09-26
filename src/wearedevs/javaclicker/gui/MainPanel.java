@@ -37,7 +37,7 @@ public class MainPanel extends JPanel {
 		shopButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		shopButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//Do Stuff
+				Main.main.setContentPane(Main.main.shopPanel);
 			}
 		});
 		shopButton.setBounds(12, 377, 334, 55);
