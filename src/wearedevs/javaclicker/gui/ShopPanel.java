@@ -25,7 +25,7 @@ public class ShopPanel extends JPanel {
 		backBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Main.mainPanel.updateCounter();
+				Main.updateCounter();
 				
 				Main.main.setContentPane(Main.mainPanel);
 			}
@@ -45,9 +45,16 @@ public class ShopPanel extends JPanel {
 		labelTitle.setBounds(12, 13, 616, 67);
 		add(labelTitle);
 		
+<<<<<<< HEAD
 		
 		labelClicks = new JLabel("You Have " + Main.clicks + " Clicks");
 		labelClicks.setBounds(290, 410, 345, 16);
+=======
+		labelClicks = new JLabel("0 Clicks");
+		labelClicks.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelClicks.setFont(new Font("Tahoma", Font.BOLD, 25));
+		labelClicks.setBounds(282, 398, 346, 40);
+>>>>>>> 63b3a9c3b19a592935e909d2d2bc5898bd1808cb
 		add(labelClicks);
 	}
 }
