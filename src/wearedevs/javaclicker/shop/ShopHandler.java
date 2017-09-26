@@ -36,7 +36,7 @@ public class ShopHandler {
 			button.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					int price = item.getPrice();
-					if(price <= Main.clicks) {
+					if(Main.clicks <= price) {
 						Main.clicks -= price;
 						item.onPurchase();
 						items.remove(item);
