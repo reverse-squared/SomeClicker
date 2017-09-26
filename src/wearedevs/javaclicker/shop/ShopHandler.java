@@ -2,6 +2,8 @@ package wearedevs.javaclicker.shop;
 
 import java.util.ArrayList;
 
+import javax.swing.JButton;
+
 import wearedevs.javaclicker.Main;
 import wearedevs.javaclicker.shop.items.perClickUpgrades.PerClick2;
 
@@ -24,7 +26,9 @@ public class ShopHandler {
 		Main.shopPanel.upgradesPanel.removeAll();
 		
 		for(ShopItem item : items) {
-			//Add Button
+			JButton button = new JButton(item.getName());
+			
+			Main.shopPanel.upgradesPanel.add(button);
 		}
 		
 	}
