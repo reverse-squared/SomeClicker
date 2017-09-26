@@ -10,6 +10,8 @@ public class PerClick2 extends ShopItem {
 		Main.perClick = 2;
 		
 		ShopHandler.unlock(new PerClick5());
+		
+		Main.updateCounter();
 	}
 
 	public int getPrice() {
