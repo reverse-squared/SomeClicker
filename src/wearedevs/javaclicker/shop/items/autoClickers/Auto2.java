@@ -7,6 +7,7 @@ public class Auto2 extends ShopItem {
 
 	public void onPurchase() {
 		AutoHandler.autoClick = 10;
+
 	}
 
 	public int getPrice() {

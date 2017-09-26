@@ -39,12 +39,12 @@ public class MainPanel extends JPanel {
 		JButton shopButton = new JButton("The Shop");
 		shopButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		shopButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				ShopHandler.updateLayout();
 				Main.main.setContentPane(Main.shopPanel);
 			}
 		});
-		shopButton.setBounds(12, 377, 334, 55);
+		shopButton.setBounds(12, 398, 270, 40);
 		add(shopButton);
 	}
 

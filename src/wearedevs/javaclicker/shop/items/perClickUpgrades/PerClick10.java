@@ -7,6 +7,8 @@ public class PerClick10 extends ShopItem {
 
 	public void onPurchase() {
 		Main.perClick = 10;
+		
+		Main.updateCounter();
 	}
 
 	public int getPrice() {
