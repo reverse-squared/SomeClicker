@@ -1,11 +1,12 @@
 package wearedevs.javaclicker.shop.items.bombs;
 
+import wearedevs.javaclicker.AutoHandler;
 import wearedevs.javaclicker.shop.ShopItem;
 
 public class Bomb2 extends ShopItem {
 
 	public void onPurchase() {
-		//Do Stuff
+		AutoHandler.clickBomb = 200;
 	}
 
 	public int getPrice() {

@@ -25,9 +25,11 @@ public class AutoHandler {
 				try {
 					while (autoClickStarted) {
 						bomb_count++;
-						if (bomb_count>100) {
+						if (bomb_count>10) {
 							bomb_count = 0;
-							Main.clicks += clickBomb + RandomUtil.randomRange(clickBomb * -0.3, clickBomb * 0.3);
+							double bomb = (clickBomb + RandomUtil.randomRange(clickBomb * -0.15, clickBomb * 0.15));
+							System.out.println("ClickBomb: "+bomb);
+							Main.clicks += bomb;
 						}
 						Main.clicks += autoClick/10d;
 						Main.updateCounter();
