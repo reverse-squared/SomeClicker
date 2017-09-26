@@ -13,7 +13,7 @@ import wearedevs.javaclicker.shop.ShopHandler;
 @SuppressWarnings("serial")
 public class Main extends JFrame {
 
-	public static int clicks = 0;
+	public static double clicks = 100000;
 	public static int perClick = 1;
 	
 	public static Main main;
@@ -41,7 +41,6 @@ public class Main extends JFrame {
 	}
 
 	public Main() {
-		
 		//Init Shop
 		ShopHandler.initializeShop();
 		
@@ -61,9 +60,8 @@ public class Main extends JFrame {
 	}
 
 	public static void updateCounter() {
-		mainPanel.labelClicks.setText("Clicks: " + clicks);
-		shopPanel.labelClicks.setText("You Have " + clicks + " Clicks");
-		
+		mainPanel.labelClicks.setText("You have "+Math.round(clicks)+" Clicks");
+		shopPanel.labelClicks.setText(Math.round(clicks)+" Clicks");
 	}
 
 }
