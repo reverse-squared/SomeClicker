@@ -14,14 +14,26 @@ public class ShopPanel extends JPanel {
 		setLayout(null);
 		setBounds(Main.panelSize);
 		
-		JButton btnNewButton = new JButton("Go back");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton goBackButton = new JButton("Go back");
+		goBackButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Main.main.setContentPane(Main.main.mainPanel);
 			}
 		});
-		btnNewButton.setBounds(12, 13, 270, 69);
-		add(btnNewButton);
+		goBackButton.setBounds(12, 13, 270, 69);
+		add(goBackButton);
+		
+		//TODO: Properly Resize Button
+		JButton twoClicksPerButton = new JButton("Two Clicks Per Click");
+		twoClicksPerButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Do Stuff
+			}
+		});
+		twoClicksPerButton.setBounds(12, 100, 250, 75);
+		add(twoClicksPerButton);
+		
+		
 		
 	}
 }
