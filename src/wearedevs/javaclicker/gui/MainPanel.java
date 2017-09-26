@@ -49,7 +49,7 @@ public class MainPanel extends JPanel {
 	}
 
 	public void updateCounter() {
-		labelClicks.setText("You have "+Main.clicks+" Clicks");
+		labelClicks.setText("Clicks: " + Main.clicks);
 		
 	}
 
