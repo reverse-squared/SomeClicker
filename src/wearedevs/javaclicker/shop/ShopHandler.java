@@ -39,6 +39,7 @@ public class ShopHandler {
 					if(price <= Main.clicks) {
 						Main.clicks -= price;
 						item.onPurchase();
+						items.remove(item);
 						updateLayout();
 					}
 				}
