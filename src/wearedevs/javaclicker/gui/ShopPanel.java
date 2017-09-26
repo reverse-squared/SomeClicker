@@ -12,7 +12,7 @@ public class ShopPanel extends JPanel {
 
 	public ShopPanel() {
 		setLayout(null);
-		setBounds(Main.windowSize);
+		setBounds(10, 10, 640, 480);
 		
 		JButton btnNewButton = new JButton("Go back");
 		btnNewButton.addActionListener(new ActionListener() {
