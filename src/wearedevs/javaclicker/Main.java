@@ -58,6 +58,7 @@ public class Main extends JFrame {
 	public static void updateCounter() {
 		mainPanel.labelClicks.setText("You have "+clicks+" Clicks");
 		shopPanel.labelClicks.setText(clicks+" Clicks");
+		
 	}
 
 }
