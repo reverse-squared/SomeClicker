@@ -1,11 +1,15 @@
 package wearedevs.javaclicker.shop;
 
-public class ShopItem {
-	public String name;
-	public int price;
+public abstract class ShopItem {
+	public boolean unlocked;
 	
-	public ShopItem(String name, int price) {
-		this.name=name;
-		this.price=price;
+	public ShopItem() {
+		unlocked = false;
 	}
+	
+	public abstract void onPurchase();
+	
+	public abstract int getPrice();
+	
+	public abstract String getName();
 }
