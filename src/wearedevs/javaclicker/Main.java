@@ -13,7 +13,7 @@ import wearedevs.javaclicker.shop.ShopHandler;
 @SuppressWarnings("serial")
 public class Main extends JFrame {
 
-	public static double clicks = 100000;
+	public static double clicks = 0;
 	public static int perClick = 1;
 	
 	public static Main main;
