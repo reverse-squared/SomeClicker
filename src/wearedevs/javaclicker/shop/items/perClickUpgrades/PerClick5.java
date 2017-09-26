@@ -1,20 +1,20 @@
-package wearedevs.javaclicker.shop.items;
+package wearedevs.javaclicker.shop.items.perClickUpgrades;
 
 import wearedevs.javaclicker.Main;
 import wearedevs.javaclicker.shop.ShopItem;
 
-public class PerClick2 extends ShopItem {
+public class PerClick5 extends ShopItem {
 
 	public void onPurchase() {
-		Main.perClick = 2;
+		Main.perClick = 5;
 	}
 
 	public int getPrice() {
-		return 50;
+		return 200;
 	}
 
 	public String getName() {
-		return "2 Clicks Per Click";
+		return "5 Clicks Per Click";
 	}
 
 }
