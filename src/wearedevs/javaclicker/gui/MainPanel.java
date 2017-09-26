@@ -22,7 +22,7 @@ public class MainPanel extends JPanel {
 		
 		labelClicks = new JLabel("Click the button!");
 		labelClicks.setFont(new Font("Tahoma", Font.BOLD, 25));
-		labelClicks.setBounds(12, 13, 226, 34);
+		labelClicks.setBounds(12, 13, 377, 34);
 		add(labelClicks);
 		
 		JButton clicker = new JButton("Click Me!");

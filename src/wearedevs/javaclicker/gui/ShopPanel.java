@@ -15,6 +15,7 @@ import wearedevs.javaclicker.Main;
 @SuppressWarnings("serial")
 public class ShopPanel extends JPanel {
 	public JPanel upgradesPanel;
+	public JLabel labelClicks;
 
 	public ShopPanel() {
 		setLayout(null);
@@ -45,8 +46,8 @@ public class ShopPanel extends JPanel {
 		add(labelTitle);
 		
 		
-		JLabel labelClicks = new JLabel("You Have 0 Clicks");
-		labelClicks.setBounds(385, 410, 243, 16);
+		labelClicks = new JLabel("You Have 0 Clicks");
+		labelClicks.setBounds(283, 410, 345, 16);
 		add(labelClicks);
 		
 	}
