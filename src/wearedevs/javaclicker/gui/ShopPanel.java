@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import wearedevs.javaclicker.Main;
-import java.awt.Dimension;
 
 @SuppressWarnings("serial")
 public class ShopPanel extends JPanel {

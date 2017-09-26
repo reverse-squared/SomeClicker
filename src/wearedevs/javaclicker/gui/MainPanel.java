@@ -19,7 +19,6 @@ public class MainPanel extends JPanel {
 		setLayout(null);
 		setBounds(Main.windowSize);
 		
-		
 		labelClicks = new JLabel("");
 		labelClicks.setFont(new Font("Tahoma", Font.BOLD, 25));
 		labelClicks.setBounds(12, 13, 226, 34);
@@ -30,6 +29,7 @@ public class MainPanel extends JPanel {
 		clicker.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Main.clicks += Main.perClick;
+				
 				updateCounter();
 			}
 		});
