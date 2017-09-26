@@ -1,6 +1,5 @@
 package wearedevs.javaclicker.shop.items.bombs;
 
-import wearedevs.javaclicker.Main;
 import wearedevs.javaclicker.shop.ShopItem;
 
 public class Bomb2 extends ShopItem {
