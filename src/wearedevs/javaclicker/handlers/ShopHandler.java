@@ -13,11 +13,13 @@ import wearedevs.javaclicker.shop.items.perClickUpgrades.PerClick2;
 
 public class ShopHandler {
 
-	public static ArrayList<ShopItem> items = new ArrayList<ShopItem>();
+	public static ArrayList<ShopItem> items;
 	/**
+	 * run once ok
 	 * @author ImDaveead
 	 */
 	public static void initializeShop() {
+		items = new ArrayList<ShopItem>();
 		//Insert All Things By Default;
 		unlock(new PerClick2());
 		
@@ -28,6 +30,8 @@ public class ShopHandler {
 	public static void updateLayout() {
 		
 		Main.shopPanel.upgradesPanel.removeAll();
+		
+		Main.shopPanel.upgradesPanel.repaint();
 		
 		for(ShopItem item : items) {
 			JButton button = new JButton(item.getName() + " ("+item.getPrice()+" Clicks)");
