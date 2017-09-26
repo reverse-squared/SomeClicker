@@ -25,11 +25,9 @@ public class MainPanel extends JPanel {
 		JButton clicker = new JButton("Click Me!");
 		clicker.setFont(new Font("Tahoma", Font.BOLD, 20));
 		clicker.addActionListener(new ActionListener() {
-			int clickCount = 0;
-			
 			public void actionPerformed(ActionEvent arg0) {
-				clickCount += Main.perClick;
-				lblClicks.setText("Clicks: " + clickCount);
+				Main.clicks += Main.perClick;
+				lblClicks.setText("Clicks: " + Main.clicks);
 			}
 		});
 		clicker.setBounds(12, 58, 610, 100);
