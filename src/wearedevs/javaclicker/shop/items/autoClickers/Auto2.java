@@ -16,7 +16,7 @@ public class Auto2 extends ShopItem {
 
 	public String getName() {
 		//10 Clicks a Second
-		return "Auto Clicker: Tier 1";
+		return "Auto Clicker: Tier 2";
 	}
 
 }
