@@ -38,7 +38,6 @@ public class MainPanel extends JPanel {
 		JButton shopButton = new JButton("The Shop");
 		shopButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		shopButton.addActionListener(new ActionListener() {
-			@SuppressWarnings("static-access")
 			public void actionPerformed(ActionEvent arg0) {
 				ShopHandler.updateLayout();
 				Main.main.setContentPane(Main.shopPanel);
