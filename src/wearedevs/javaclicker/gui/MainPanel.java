@@ -32,6 +32,16 @@ public class MainPanel extends JPanel {
 		});
 		clicker.setBounds(12, 58, 610, 100);
 		add(clicker);
+		
+		JButton shopButton = new JButton("The Shop");
+		shopButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+		shopButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//Do Stuff
+			}
+		});
+		shopButton.setBounds(12, 377, 334, 55);
+		add(shopButton);
 	}
 
 }
