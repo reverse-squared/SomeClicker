@@ -24,6 +24,7 @@ public class Main extends JFrame {
 	public static final String VERSION = "DEV 0.1";
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
+	public static final String CURRENCY_SYMBOL = "\u20A1";
 	
 	public static void main(String[] args) throws Exception {
 		System.out.println("Loading Java Clicker "+VERSION);
