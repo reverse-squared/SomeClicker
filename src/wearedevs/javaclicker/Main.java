@@ -48,9 +48,6 @@ public class Main extends JFrame {
 		mainPanel = new MainPanel();
 		shopPanel = new ShopPanel();
 		
-		//Init Auto Click
-		AutoHandler.initAutoThread();
-		
 		//Frame Properties
 		setResizable(false);
 		setLayout(null);
