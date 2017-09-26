@@ -54,4 +54,10 @@ public class Main extends JFrame {
 		setVisible(true);
 	}
 
+	public static void updateCounter() {
+		mainPanel.labelClicks.setText("You have "+clicks+" Clicks");
+		mainPanel.labelClicks.setText(clicks+" Clicks");
+		
+	}
+
 }
