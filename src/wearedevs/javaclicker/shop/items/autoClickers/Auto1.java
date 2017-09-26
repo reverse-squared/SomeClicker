@@ -7,6 +7,8 @@ import wearedevs.javaclicker.shop.items.perClickUpgrades.PerClick5;
 
 public class Auto1 extends ShopItem {
 
+	//THIS IS A TEST!!!!
+	
 	public void onPurchase() {
 		
 		ShopHandler.unlock(new Auto2());
