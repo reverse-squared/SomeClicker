@@ -8,6 +8,7 @@ import javax.swing.UIManager;
 
 import wearedevs.javaclicker.gui.MainPanel;
 import wearedevs.javaclicker.gui.ShopPanel;
+import wearedevs.javaclicker.shop.ShopHandler;
 
 @SuppressWarnings("serial")
 public class Main extends JFrame {
@@ -39,6 +40,9 @@ public class Main extends JFrame {
 	}
 
 	public Main() {
+		//Init Shop
+		ShopHandler.initializeShop();
+		
 		//Init all panels
 		mainPanel = new MainPanel();
 		shopPanel = new ShopPanel();

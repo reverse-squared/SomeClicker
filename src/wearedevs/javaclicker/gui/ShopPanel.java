@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 
 import wearedevs.javaclicker.Main;
 import wearedevs.javaclicker.shop.ShopHandler;
+import java.awt.Dimension;
 
 @SuppressWarnings("serial")
 public class ShopPanel extends JPanel {
@@ -35,15 +36,15 @@ public class ShopPanel extends JPanel {
 		add(upgradesPanel);
 		upgradesPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		ShopHandler.updateLayout();
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setSize(new Dimension(170, 50));
+		upgradesPanel.add(btnNewButton);
 		
 		JLabel labelTitle = new JLabel("The Shop");
 		labelTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		labelTitle.setFont(new Font("Tahoma", Font.BOLD, 36));
 		labelTitle.setBounds(12, 13, 616, 67);
 		add(labelTitle);
-		
-		
 		
 	}
 }
