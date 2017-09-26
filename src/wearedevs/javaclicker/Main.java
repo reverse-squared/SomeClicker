@@ -62,7 +62,6 @@ public class Main extends JFrame {
 	public static void updateCounter() {
 		mainPanel.labelClicks.setText("You have "+Math.round(clicks)+" Clicks");
 		shopPanel.labelClicks.setText(Math.round(clicks)+" Clicks");
-		
 	}
 
 }

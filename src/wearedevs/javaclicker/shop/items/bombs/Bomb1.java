@@ -13,6 +13,7 @@ public class Bomb1 extends ShopItem {
 		
 		//Init AutoClicker
 		AutoHandler.initAutoThread();
+
 	}
 
 	public int getPrice() {

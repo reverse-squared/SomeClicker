@@ -12,6 +12,8 @@ public class PerClick7 extends ShopItem {
 		
 		ShopHandler.unlock(new PerClick10());
 		ShopHandler.unlock(new Bomb1());
+		
+		Main.updateCounter();
 	}
 
 	public int getPrice() {

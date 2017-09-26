@@ -1,6 +1,7 @@
 package wearedevs.javaclicker.shop.items.autoClickers;
 
 import wearedevs.javaclicker.AutoHandler;
+import wearedevs.javaclicker.Main;
 import wearedevs.javaclicker.shop.ShopHandler;
 import wearedevs.javaclicker.shop.ShopItem;
 
@@ -13,6 +14,7 @@ public class Auto1 extends ShopItem {
 		
 		//Init Auto Clicker
 		AutoHandler.initAutoThread();
+
 	}
 
 	public int getPrice() {
