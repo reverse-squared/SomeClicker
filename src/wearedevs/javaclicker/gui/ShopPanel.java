@@ -21,14 +21,14 @@ public class ShopPanel extends JPanel {
 		setLayout(null);
 		setBounds(Main.panelSize);
 		
-		JButton backBtn = new JButton("Go back");
+		JButton backBtn = new JButton("Go Back");
 		backBtn.addActionListener(new ActionListener() {
 			@SuppressWarnings("static-access")
 			public void actionPerformed(ActionEvent e) {
 				Main.main.setContentPane(Main.main.mainPanel);
 			}
 		});
-		backBtn.setBounds(12, 398, 270, 69);
+		backBtn.setBounds(12, 398, 270, 40);
 		add(backBtn);
 		
 		upgradesPanel = new JPanel();
