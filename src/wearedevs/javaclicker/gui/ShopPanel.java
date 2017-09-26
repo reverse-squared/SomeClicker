@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import wearedevs.javaclicker.Main;
-import java.awt.Dimension;
 
 @SuppressWarnings("serial")
 public class ShopPanel extends JPanel {
@@ -24,14 +23,10 @@ public class ShopPanel extends JPanel {
 		JButton backBtn = new JButton("Go Back");
 		backBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-<<<<<<< HEAD
+			
 				Main.mainPanel.updateCounter();
 				
 				Main.main.setContentPane(Main.mainPanel);
-=======
-				lblClicks.setText("Clicks: " + Main.clicks);
->>>>>>> 77bbca9854f9d5963d6e1d13e8b4fb0e78c6bc21
 			}
 		});
 		backBtn.setBounds(12, 398, 270, 40);
@@ -48,6 +43,10 @@ public class ShopPanel extends JPanel {
 		labelTitle.setFont(new Font("Tahoma", Font.BOLD, 36));
 		labelTitle.setBounds(12, 13, 616, 67);
 		add(labelTitle);
+		
+		JLabel labelClicks = new JLabel("You Have 0 Clicks");
+		labelClicks.setBounds(385, 410, 243, 16);
+		add(labelClicks);
 		
 	}
 }
