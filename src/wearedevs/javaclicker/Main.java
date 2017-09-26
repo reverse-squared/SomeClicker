@@ -11,7 +11,11 @@ import wearedevs.javaclicker.gui.MainPanel;
 
 public class Main extends JFrame {
 
-	private JPanel mainPanel;
+	public static int clicks = 0;
+	public static int perClick = 0;
+	
+	
+	public JPanel mainPanel;
 	
 	public static final String VERSION = "DEV 0.1";
 	
@@ -31,15 +35,15 @@ public class Main extends JFrame {
 	}
 
 	public Main() {
-		int clickCount = 0;
-		int inc = 1;
 		
-		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainPanel = new MainPanel();
 		
-		//Set Bounds Identical to Panel
-		setBounds(mainPanel.getBounds());
+		//Frame Properties
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
+		setTitle("Java Clicker "+VERSION);
+		setContentPane(mainPanel);
 	}
 
 }
