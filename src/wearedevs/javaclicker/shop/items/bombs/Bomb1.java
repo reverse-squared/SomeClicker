@@ -1,13 +1,15 @@
 package wearedevs.javaclicker.shop.items.bombs;
 
+import wearedevs.javaclicker.Main;
 import wearedevs.javaclicker.shop.ShopHandler;
 import wearedevs.javaclicker.shop.ShopItem;
 
 public class Bomb1 extends ShopItem {
 
 	public void onPurchase() {
-		
 		ShopHandler.unlock(new Bomb2());
+		
+		Main.updateCounter();
 	}
 
 	public int getPrice() {
