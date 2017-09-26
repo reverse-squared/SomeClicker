@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import wearedevs.javaclicker.gui.MainPanel;
 
+@SuppressWarnings("serial")
 public class Main extends JFrame {
 
 	public static int clicks = 0;
