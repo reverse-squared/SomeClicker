@@ -23,14 +23,13 @@ public class ShopPanel extends JPanel {
 		goBackButton.setBounds(12, 13, 270, 69);
 		add(goBackButton);
 		
-		//TODO: Properly Resize Button
 		JButton twoClicksPerButton = new JButton("Two Clicks Per Click");
 		twoClicksPerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Do Stuff
 			}
 		});
-		twoClicksPerButton.setBounds(12, 100, 250, 75);
+		twoClicksPerButton.setBounds(12, 100, 270, 50);
 		add(twoClicksPerButton);
 		
 		
