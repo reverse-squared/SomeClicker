@@ -8,7 +8,6 @@ import javax.swing.UIManager;
 
 import wearedevs.javaclicker.gui.MainPanel;
 import wearedevs.javaclicker.gui.ShopPanel;
-import wearedevs.javaclicker.shop.ShopHandler;
 
 @SuppressWarnings("serial")
 public class Main extends JFrame {
@@ -18,12 +17,16 @@ public class Main extends JFrame {
 	
 	public static Main main;
 	
-	public static MainPanel mainPanel;
-	public static ShopPanel shopPanel;
+	public MainPanel mainPanel;
+	public ShopPanel shopPanel;
 	
 	public static final String VERSION = "DEV 0.1";
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
+<<<<<<< HEAD
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
+=======
+	public static final Rectangle panelSize = new Rectangle(1, 100, 640, 480);
+>>>>>>> 82816224bbd2a19e964da92583c029cac941c0b5
 	
 	public static void main(String[] args) throws Exception {
 		System.out.println("Loading Java Clicker "+VERSION);
@@ -40,9 +43,6 @@ public class Main extends JFrame {
 	}
 
 	public Main() {
-		//Init Shop
-		ShopHandler.initializeShop();
-		
 		//Init all panels
 		mainPanel = new MainPanel();
 		shopPanel = new ShopPanel();
