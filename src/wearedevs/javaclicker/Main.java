@@ -1,6 +1,7 @@
 package wearedevs.javaclicker;
 
 import java.awt.EventQueue;
+import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,10 +13,12 @@ public class Main extends JFrame {
 	public static int clicks = 0;
 	public static int perClick = 1;
 	
+	public static Main main;
 	
 	public JPanel mainPanel;
 	
 	public static final String VERSION = "DEV 0.1";
+	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	
 	public static void main(String[] args) throws Exception {
 		System.out.println("Loading Java Clicker "+VERSION);
@@ -33,6 +36,8 @@ public class Main extends JFrame {
 	}
 
 	public Main() {
+		//Allow Static Access
+		main = this;
 		
 		mainPanel = new MainPanel();
 		
