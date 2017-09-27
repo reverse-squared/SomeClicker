@@ -5,7 +5,7 @@ import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Factory2 extends ShopItem {
 
-	//TODO: 20 Clicks Every 5 Seconds
+	//TODO: 30 Clicks Every 5 Seconds
 	public void onPurchase() {
 		ShopHandler.unlock(new Factory3());
 	}
