@@ -8,7 +8,6 @@ public class Factory8 extends ShopItem {
 
 	public void onPurchase() {
 		AutoHandler.factory = 80;
-		ShopHandler.unlock(new Factory8());
 	}
 
 	public int getPrice() {
