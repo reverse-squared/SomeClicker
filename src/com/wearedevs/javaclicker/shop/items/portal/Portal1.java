@@ -7,7 +7,7 @@ public class Portal1 extends ShopItem {
 	//TODO: 500 Clicks Every 15 Seconds
 	
 	public void onPurchase() {
-		//TODO: Make Mine Cycle
+		//TODO: Make Portal Cycle
 	}
 
 	public int getPrice() {
