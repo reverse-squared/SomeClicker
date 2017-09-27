@@ -1,4 +1,4 @@
-package com.wearedevs.util;
+package com.wearedevs.javaclicker.util;
 
 import java.util.concurrent.ThreadLocalRandom;
 
