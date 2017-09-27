@@ -1,7 +1,6 @@
 package com.wearedevs.javaclicker.shop.items.factories;
 
 import com.wearedevs.javaclicker.handlers.AutoHandler;
-import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Factory8 extends ShopItem {
