@@ -28,7 +28,7 @@ public class MainPanel extends JPanel {
 		clicker.setFont(new Font("Tahoma", Font.BOLD, 20));
 		clicker.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int rand = (int) Math.floor(Math.random() * 3);
+				int rand = (int) Math.ceil(Math.random() * 20);
 				
 				if(rand == 20) {
 					Main.clicks += Main.perClick * 2;
