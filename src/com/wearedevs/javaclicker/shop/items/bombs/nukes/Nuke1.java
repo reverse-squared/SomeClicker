@@ -1,23 +1,23 @@
-package com.wearedevs.javaclicker.shop.items.bombs;
+package com.wearedevs.javaclicker.shop.items.bombs.nukes;
 
 import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
-public class Bomb5 extends ShopItem {
+public class Nuke1 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.clickBomb = 5000;
+		AutoHandler.clickBomb = 900;
 		
-		ShopHandler.unlock(new Bomb6());
+		ShopHandler.unlock(new Nuke1());
 	}
 
 	public int getPrice() {
-		return 5000;
+		return 18000;
 	}
 
 	public String getName() {
-		return "Click Bomb: Tier 5";
+		return "Click Bomb: Tier 9";
 	}
 
 }
