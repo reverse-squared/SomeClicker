@@ -7,7 +7,7 @@ import com.wearedevs.javaclicker.shop.ShopItem;
 public class Auto1 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.autoClick = 5;
+		AutoHandler.autoClick = 3;
 		
 		ShopHandler.unlock(new Auto2());
 		
@@ -21,7 +21,6 @@ public class Auto1 extends ShopItem {
 	}
 
 	public String getName() {
-		//5 Clicks a Second
 		return "Auto Clicker: Tier 1";
 	}
 
