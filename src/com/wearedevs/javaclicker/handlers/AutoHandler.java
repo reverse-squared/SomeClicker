@@ -35,6 +35,7 @@ public class AutoHandler {
 					while (autoClickStarted) {
 						bomb_count++;
 						factory_count++;
+						mine_count++;
 						
 						if (bomb_count > 100) {
 							bomb_count = 0;
