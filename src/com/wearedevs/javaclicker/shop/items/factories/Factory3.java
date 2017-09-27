@@ -1,14 +1,13 @@
 package com.wearedevs.javaclicker.shop.items.factories;
 
-import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
-public class Factory1 extends ShopItem {
+public class Factory3 extends ShopItem {
 
 	//TODO: 10 Clicks Every 5 Seconds
 	public void onPurchase() {
 		//TODO: Add Factory Cycle
-		ShopHandler.unlock(new Factory2());
+		//TODO: Add Factory 2
 	}
 
 	public int getPrice() {
