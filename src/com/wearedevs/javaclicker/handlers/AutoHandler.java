@@ -1,7 +1,7 @@
-package wearedevs.javaclicker.handlers;
+package com.wearedevs.javaclicker.handlers;
 
-import wearedevs.javaclicker.Main;
-import wearedevs.util.RandomUtil;
+import com.wearedevs.javaclicker.Main;
+import com.wearedevs.util.RandomUtil;
 
 /**
  * Handler for auto clicking related things

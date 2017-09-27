@@ -1,4 +1,4 @@
-package wearedevs.javaclicker;
+package com.wearedevs.javaclicker;
 
 import java.awt.EventQueue;
 import java.awt.Rectangle;
@@ -6,9 +6,9 @@ import java.awt.Rectangle;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-import wearedevs.javaclicker.gui.MainPanel;
-import wearedevs.javaclicker.gui.ShopPanel;
-import wearedevs.javaclicker.handlers.ShopHandler;
+import com.wearedevs.javaclicker.gui.MainPanel;
+import com.wearedevs.javaclicker.gui.ShopPanel;
+import com.wearedevs.javaclicker.handlers.ShopHandler;
 
 @SuppressWarnings("serial")
 public class Main extends JFrame {

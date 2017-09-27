@@ -1,4 +1,4 @@
-package wearedevs.javaclicker.gui;
+package com.wearedevs.javaclicker.gui;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import wearedevs.javaclicker.Main;
+import com.wearedevs.javaclicker.Main;
 
 @SuppressWarnings("serial")
 public class ShopPanel extends JPanel {

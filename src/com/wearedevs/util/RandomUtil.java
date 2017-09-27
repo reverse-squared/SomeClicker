@@ -1,4 +1,4 @@
-package wearedevs.util;
+package com.wearedevs.util;
 
 import java.util.concurrent.ThreadLocalRandom;
 
