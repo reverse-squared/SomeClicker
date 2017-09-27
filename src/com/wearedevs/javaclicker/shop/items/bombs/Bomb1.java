@@ -23,7 +23,6 @@ public class Bomb1 extends ShopItem {
 	}
 
 	public String getName() {
-		//100 Clicks Per 10 Seconds
 		return "Click Bomb: Tier 1";
 	}
 
