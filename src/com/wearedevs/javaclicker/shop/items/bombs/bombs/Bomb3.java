@@ -1,4 +1,4 @@
-package com.wearedevs.javaclicker.shop.items.bombs;
+package com.wearedevs.javaclicker.shop.items.bombs.bombs;
 
 import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
