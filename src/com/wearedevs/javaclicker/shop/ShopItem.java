@@ -1,4 +1,4 @@
-package wearedevs.javaclicker.shop;
+package com.wearedevs.javaclicker.shop;
 
 public abstract class ShopItem {
 	public boolean unlocked;

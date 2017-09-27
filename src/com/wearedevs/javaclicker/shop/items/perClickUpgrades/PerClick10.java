@@ -1,7 +1,7 @@
-package wearedevs.javaclicker.shop.items.perClickUpgrades;
+package com.wearedevs.javaclicker.shop.items.perClickUpgrades;
 
-import wearedevs.javaclicker.Main;
-import wearedevs.javaclicker.shop.ShopItem;
+import com.wearedevs.javaclicker.Main;
+import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class PerClick10 extends ShopItem {
 

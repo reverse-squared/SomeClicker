@@ -1,4 +1,4 @@
-package wearedevs.javaclicker.gui;
+package com.wearedevs.javaclicker.gui;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -8,8 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import wearedevs.javaclicker.Main;
-import wearedevs.javaclicker.handlers.ShopHandler;
+import com.wearedevs.javaclicker.Main;
+import com.wearedevs.javaclicker.handlers.ShopHandler;
 
 @SuppressWarnings("serial")
 public class MainPanel extends JPanel {

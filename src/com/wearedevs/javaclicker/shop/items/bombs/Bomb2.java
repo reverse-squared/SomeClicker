@@ -1,7 +1,7 @@
-package wearedevs.javaclicker.shop.items.bombs;
+package com.wearedevs.javaclicker.shop.items.bombs;
 
-import wearedevs.javaclicker.handlers.AutoHandler;
-import wearedevs.javaclicker.shop.ShopItem;
+import com.wearedevs.javaclicker.handlers.AutoHandler;
+import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Bomb2 extends ShopItem {
 
