@@ -1,23 +1,23 @@
-package com.wearedevs.javaclicker.shop.items.autoClickers;
+package com.wearedevs.javaclicker.shop.items.bombs;
 
 import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
-public class Auto4 extends ShopItem {
+public class Bomb4 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.autoClick = 12;
-
-		ShopHandler.unlock(new Auto314159265());
+		AutoHandler.clickBomb = 4000;
+		
+		ShopHandler.unlock(new Bomb5());
 	}
 
 	public int getPrice() {
-		return 4000;
+		return 5000;
 	}
 
 	public String getName() {
-		return "Auto Clicker: Tier 4";
+		return "Click Bomb: Tier 4";
 	}
 
 }
