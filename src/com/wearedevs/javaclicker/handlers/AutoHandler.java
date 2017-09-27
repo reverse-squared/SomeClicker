@@ -14,6 +14,7 @@ public class AutoHandler {
 	public static int autoClick = 0;
 	public static int clickBomb = 0;
 	public static int factory = 0;
+	public static int mine = 0;
 	
 	public static boolean autoClickStarted = false;
 	public static boolean factoryStarted = false;
@@ -29,6 +30,7 @@ public class AutoHandler {
 			public void run() {
 				int bomb_count = 0;
 				int factory_count = 0;
+				int mine_count = 0;
 				
 				try {
 					while (autoClickStarted) {
@@ -45,6 +47,12 @@ public class AutoHandler {
 							factory_count = 0;
 							
 							Main.clicks += factory;
+						}
+						
+						if(mine_count > 10) {
+							mine_count = 0;
+							
+							Main.clicks += mine;
 						}
 						
 						Main.clicks += autoClick / 10d;
