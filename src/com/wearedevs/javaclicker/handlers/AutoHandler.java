@@ -13,9 +13,10 @@ public class AutoHandler {
 	
 	public static int autoClick = 0;
 	public static int clickBomb = 0;
-	public static int clickFactory = 0;
+	public static int factory = 0;
 	
 	public static boolean autoClickStarted = false;
+	public static boolean factoryStarted = false;
 	
 	public static void initAutoThread() {
 		if(autoClickStarted) {
@@ -27,24 +28,23 @@ public class AutoHandler {
 		autoThread = new Thread(new Runnable() {
 			public void run() {
 				int bomb_count = 0;
-				int fact_count = 0;
+				int factory_count = 0;
 				
 				try {
 					while (autoClickStarted) {
-						if(clickBomb>0) bomb_count++;
+						bomb_count++;
+						factory_count++;
 						
-						if (bomb_count>100) {
+						if (bomb_count > 100) {
 							bomb_count = 0;
 							double bomb = (clickBomb + RandomUtil.randomRange(clickBomb * -0.15, clickBomb * 0.15));
 							Main.clicks += bomb;
 						}
 						
-						if(clickFactory>0) fact_count++;
-						
-						if (fact_count>50) {
-							fact_count = 0;
-							double bomb = (clickFactory + RandomUtil.randomRange(clickFactory * -0.15, clickFactory * 0.15));
-							Main.clicks += bomb;
+						if(factory_count > 50) {
+							factory_count = 0;
+							
+							Main.clicks += factory;
 						}
 						
 						Main.clicks += autoClick / 10d;

@@ -1,12 +1,12 @@
 package com.wearedevs.javaclicker.shop.items.factories;
 
+import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Factory3 extends ShopItem {
 
-	//TODO: 30 Clicks Every 5 Seconds
 	public void onPurchase() {
-		
+		AutoHandler.factory = 30;
 	}
 
 	public int getPrice() {
@@ -14,6 +14,6 @@ public class Factory3 extends ShopItem {
 	}
 
 	public String getName() {
-		return "Click Factory: Tier 2";
+		return "Click Factory: Tier 3";
 	}
 }
