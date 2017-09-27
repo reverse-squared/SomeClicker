@@ -4,17 +4,16 @@ import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Factory3 extends ShopItem {
 
-	//TODO: 10 Clicks Every 5 Seconds
+	//TODO: 30 Clicks Every 5 Seconds
 	public void onPurchase() {
-		//TODO: Add Factory Cycle
-		//TODO: Add Factory 2
+		
 	}
 
 	public int getPrice() {
-		return 1000;
+		return 3500;
 	}
 
 	public String getName() {
-		return "Click Factory: Tier 1";
+		return "Click Factory: Tier 2";
 	}
 }
