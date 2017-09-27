@@ -4,18 +4,18 @@ import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
-public class Factory3 extends ShopItem {
+public class Factory6 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.factory = 30;
-		ShopHandler.unlock(new Factory4());
+		AutoHandler.factory = 60;
+		ShopHandler.unlock(new Factory7());
 	}
 
 	public int getPrice() {
-		return 3500;
+		return 10000;
 	}
 
 	public String getName() {
-		return "Click Factory: Tier 3";
+		return "Click Factory: Tier 6";
 	}
 }
