@@ -7,6 +7,9 @@ public class Mine1 extends ShopItem{
 	
 	public void onPurchase() {
 		AutoHandler.mine = 2;
+		
+		//Init AutoClicker
+		AutoHandler.initAutoThread();
 	}
 
 	public int getPrice() {
