@@ -15,7 +15,7 @@ public class Portal1 extends ShopItem {
 	}
 
 	public String getName() {
-		return "Click Portal: Tier 2";
+		return "Click Portal: Tier 1";
 	}
 
 }
