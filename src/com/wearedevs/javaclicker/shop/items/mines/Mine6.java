@@ -1,7 +1,6 @@
 package com.wearedevs.javaclicker.shop.items.mines;
 
 import com.wearedevs.javaclicker.handlers.AutoHandler;
-import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Mine6 extends ShopItem{
