@@ -17,7 +17,6 @@ public class AutoHandler {
 	public static int mine = 0;
 	
 	public static boolean autoClickStarted = false;
-	public static boolean factoryStarted = false;
 	
 	public static void initAutoThread() {
 		if(autoClickStarted) {
