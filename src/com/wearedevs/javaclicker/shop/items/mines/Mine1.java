@@ -1,13 +1,12 @@
 package com.wearedevs.javaclicker.shop.items.mines;
 
+import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Mine1 extends ShopItem{
-
-	//TODO: 2 Clicks a Second
 	
 	public void onPurchase() {
-		//TODO: Make Mine Cycle
+		AutoHandler.mine = 2;
 	}
 
 	public int getPrice() {
