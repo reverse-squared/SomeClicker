@@ -9,7 +9,6 @@ import javax.swing.JButton;
 
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.shop.ShopItem;
-import com.wearedevs.javaclicker.shop.items.mines.Mine1;
 import com.wearedevs.javaclicker.shop.items.perClickUpgrades.PerClick2;
 
 public class ShopHandler {
@@ -21,9 +20,9 @@ public class ShopHandler {
 	 */
 	public static void initializeShop() {
 		items = new ArrayList<ShopItem>();
+		
 		//Insert All Things By Default;
 		unlock(new PerClick2());
-		unlock(new Mine1());
 		
 	}
 	public static void unlock(ShopItem item) {
