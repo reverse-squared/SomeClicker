@@ -1,13 +1,15 @@
 package com.wearedevs.javaclicker.shop.items.autoClickers;
 
 import com.wearedevs.javaclicker.handlers.AutoHandler;
+import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Auto3 extends ShopItem {
 
 	public void onPurchase() {
 		AutoHandler.autoClick = 8;
-
+		
+		ShopHandler.unlock(new Auto4());
 	}
 
 	public int getPrice() {
