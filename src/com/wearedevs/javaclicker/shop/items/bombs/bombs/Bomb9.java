@@ -6,15 +6,15 @@ import com.wearedevs.javaclicker.shop.ShopItem;
 public class Bomb9 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.clickBomb = 1000;
+		AutoHandler.clickBomb = 900;
 	}
 
 	public int getPrice() {
-		return 20000;
+		return 18000;
 	}
 
 	public String getName() {
-		return "Click Nuke: Tier 1";
+		return "Click Bomb: Tier 9";
 	}
 
 }
