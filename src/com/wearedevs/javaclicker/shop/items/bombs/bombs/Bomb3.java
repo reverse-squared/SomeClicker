@@ -3,6 +3,7 @@ package com.wearedevs.javaclicker.shop.items.bombs.bombs;
 import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
+import com.wearedevs.javaclicker.shop.items.mines.Mine1;
 
 public class Bomb3 extends ShopItem {
 
@@ -10,6 +11,7 @@ public class Bomb3 extends ShopItem {
 		AutoHandler.clickBomb = 300;
 		
 		ShopHandler.unlock(new Bomb4());
+		ShopHandler.unlock(new Mine1());
 	}
 
 	public int getPrice() {
