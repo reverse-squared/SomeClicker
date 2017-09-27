@@ -1,12 +1,14 @@
 package com.wearedevs.javaclicker.shop.items.factories;
 
+import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Factory2 extends ShopItem {
 
-	//TODO: 20 Clicks Every 5 Seconds
 	public void onPurchase() {
+		AutoHandler.factory = 20;
+		
 		ShopHandler.unlock(new Factory3());
 	}
 
