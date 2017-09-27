@@ -1,6 +1,7 @@
 package com.wearedevs.javaclicker.shop.items.perClickUpgrades;
 
 import com.wearedevs.javaclicker.Main;
+import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class PerClick15 extends ShopItem {
@@ -8,6 +9,7 @@ public class PerClick15 extends ShopItem {
 	public void onPurchase() {
 		Main.perClick = 15;
 		
+		ShopHandler.unlock(new PerClick18());
 		Main.updateCounter();
 	}
 
