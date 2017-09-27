@@ -49,6 +49,7 @@ public class AutoHandler {
 			}
 			
 		});
+		
 		autoThread.start();
 	}
 }
