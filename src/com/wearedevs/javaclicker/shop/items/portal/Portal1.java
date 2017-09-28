@@ -1,5 +1,6 @@
 package com.wearedevs.javaclicker.shop.items.portal;
 
+import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Portal1 extends ShopItem {
@@ -7,7 +8,10 @@ public class Portal1 extends ShopItem {
 	//TODO: 500 Clicks Every 15 Seconds
 	
 	public void onPurchase() {
-		//TODO: Make Portal Cycle
+		AutoHandler.portal = 500;
+		
+		//Init AutoClicker
+		AutoHandler.initAutoThread();
 	}
 
 	public int getPrice() {
