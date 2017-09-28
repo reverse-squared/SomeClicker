@@ -3,7 +3,11 @@ package com.wearedevs.javaclicker.gui;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -32,10 +36,12 @@ public class MainPanel extends JPanel {
 				
 				if(rand == 20) {
 					Main.clicks += Main.perClick * 2;
+					playSound("res/sound/click.wav");
 					
 					Main.updateCounter();
 				} else {
 					Main.clicks += Main.perClick;
+					playSound("res/sound/click.wav");
 					
 					Main.updateCounter();	
 				}
@@ -59,6 +65,19 @@ public class MainPanel extends JPanel {
 
 	public void updateCounter() {
 		labelClicks.setText("Clicks: " + Main.clicks);
-		
 	}
+	
+	public void playSound(String soundName) {
+		try {
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioInputStream);
+			clip.start();
+			
+		} catch(Exception ex) {
+			System.out.println("Error with playing sound.");
+			ex.printStackTrace( );
+			
+		}
+    }
 }
