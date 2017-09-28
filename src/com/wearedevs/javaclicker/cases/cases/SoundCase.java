@@ -9,23 +9,43 @@ public class SoundCase extends Case {
 	public WeightedCollection<CaseOutcome> getAllOutcomes() {
 		WeightedCollection<CaseOutcome> out = new WeightedCollection<CaseOutcome>();
 		
-		//Bomb Click
+		//Bomb
 		out.add(1, new CaseOutcome() {
 			public void onOutcome() {
 				//If it gets chosen
 			}
 			public String getName() {
-				return "Bomb Click";
+				return "Bomb Click Sound";
 			}
 		});
 		
-		//Rainbow Click
+		//Rainbow
 		out.add(1, new CaseOutcome() {
 			public void onOutcome() {
 				//If it gets chosen
 			}
 			public String getName() {
-				return "Rainbow Click";
+				return "Rainbow Click Sound";
+			}
+		});
+		
+		//Airhorn
+		out.add(1, new CaseOutcome() {
+			public void onOutcome() {
+				//If it gets chosen
+			}
+			public String getName() {
+				return "Airhorn Click Sound";
+			}
+		});
+		
+		//Fart
+		out.add(1, new CaseOutcome() {
+			public void onOutcome() {
+				//If it gets chosen
+			}
+			public String getName() {
+				return "Fart Click Sound";
 			}
 		});
 		
@@ -33,7 +53,7 @@ public class SoundCase extends Case {
 	}
 
 	public String getName() {
-		return "SoundCase";
+		return "Sound Case";
 	}
 
 }
