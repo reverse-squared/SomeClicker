@@ -8,7 +8,6 @@ import javax.swing.UIManager;
 
 import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
-import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 
 @SuppressWarnings("serial")
