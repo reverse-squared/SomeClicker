@@ -54,7 +54,7 @@ public class Main extends JFrame {
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
-		setTitle("Java Clicker "+VERSION);
+		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
 		
 		setVisible(true);
