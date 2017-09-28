@@ -31,9 +31,4 @@ public class Notification {
             System.err.println("System tray not supported!");
         }
     }
-    public static void main(String[] args) {
-		init("Test","A thing","textures/icon.png");
-		
-		displayNotif("YOOOOOO", "Thats KEWL", MessageType.INFO);
-	}
 }
