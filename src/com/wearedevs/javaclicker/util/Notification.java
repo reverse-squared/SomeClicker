@@ -10,6 +10,7 @@ public class Notification {
             System.err.println("System tray not supported!");
             return;
         }
+        
         SystemTray tray = SystemTray.getSystemTray();
 		Image image = Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(iconPath));
         trayIcon = new TrayIcon(image, name);
@@ -24,6 +25,7 @@ public class Notification {
 			e.printStackTrace();
 		}
 	}
+	
     public static void displayNotif(String title, String desc, MessageType type) {
         if (SystemTray.isSupported()) {
         	trayIcon.displayMessage(title, desc, type);
