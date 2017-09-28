@@ -1,6 +1,6 @@
 package com.wearedevs.javaclicker.cases;
 
-public class Case {
+public abstract class Case {
 	public static void openCase() {
 		
 	}
