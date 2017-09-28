@@ -15,6 +15,7 @@ public class Main extends JFrame {
 
 	public static double clicks = 0;
 	public static int perClick = 1;
+	public static double clickMultiplier = 1.0;
 	
 	public static Main main;
 	
