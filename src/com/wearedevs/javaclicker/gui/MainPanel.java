@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
+import com.wearedevs.javaclicker.util.RandomUtil;
 
 @SuppressWarnings("serial")
 public class MainPanel extends JPanel {
@@ -32,19 +33,18 @@ public class MainPanel extends JPanel {
 		clicker.setFont(new Font("Tahoma", Font.BOLD, 20));
 		clicker.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int rand = (int) Math.ceil(Math.random() * 20);
+				int click = Main.perClick;
 				
-				if(rand == 20) {
-					Main.clicks += Main.perClick * 2;
-					playSound("res/sound/click.wav");
-					
-					Main.updateCounter();
-				} else {
-					Main.clicks += Main.perClick;
-					playSound("res/sound/click.wav");
-					
-					Main.updateCounter();	
+				if(RandomUtil.randomRange(1, 20) == 10) {
+					click *= 2;
 				}
+				
+				if(RandomUtil.randomRange(1, 500) == 10) {
+					click *= 10;
+				}
+				
+				Main.clicks += click;
+				Main.updateCounter();	
 			}
 		});
 		clicker.setBounds(12, 58, 610, 100);
@@ -66,18 +66,4 @@ public class MainPanel extends JPanel {
 	public void updateCounter() {
 		labelClicks.setText("Clicks: " + Main.clicks);
 	}
-	
-	public void playSound(String soundName) {
-		try {
-			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
-			Clip clip = AudioSystem.getClip();
-			clip.open(audioInputStream);
-			clip.start();
-			
-		} catch(Exception ex) {
-			System.out.println("Error with playing sound.");
-			ex.printStackTrace( );
-			
-		}
-    }
 }
