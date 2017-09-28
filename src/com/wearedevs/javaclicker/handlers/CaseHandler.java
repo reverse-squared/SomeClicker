@@ -16,5 +16,4 @@ public class CaseHandler {
 		chosen.getClass();
 		
 	}
-
 }

@@ -63,5 +63,9 @@ public class Main extends JFrame {
 		mainPanel.labelClicks.setText("Clicks: " + Math.round(clicks));
 		shopPanel.labelClicks.setText(Math.round(clicks)+" Clicks");
 	}
+	
+	public int random() {
+		return (int) Math.ceil(Math.random() * 100);
+	}
 
 }
