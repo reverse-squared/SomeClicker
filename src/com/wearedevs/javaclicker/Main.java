@@ -2,6 +2,7 @@ package com.wearedevs.javaclicker;
 
 import java.awt.EventQueue;
 import java.awt.Rectangle;
+import java.awt.TrayIcon.MessageType;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
@@ -9,12 +10,14 @@ import javax.swing.UIManager;
 import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
+import com.wearedevs.javaclicker.util.Notification;
 
 @SuppressWarnings("serial")
 public class Main extends JFrame {
 
 	public static double clicks = 0;
 	public static int perClick = 1;
+	public static double clickMultiplier = 1.0;
 	
 	public static Main main;
 	
@@ -55,6 +58,9 @@ public class Main extends JFrame {
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
+		
+		Notification.init("Java Clicker 0.4 DEV", "Java Clicker 0.4 DEV", "textures/icon.png");
+		Notification.displayNotif("You Have a New Case!", "Press the Cases Button to Open It!", MessageType.INFO);
 		
 		setVisible(true);
 	}
