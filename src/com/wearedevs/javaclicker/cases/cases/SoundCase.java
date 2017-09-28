@@ -1,23 +1,39 @@
 package com.wearedevs.javaclicker.cases.cases;
 
-import java.util.ArrayList;
-
 import com.wearedevs.javaclicker.cases.Case;
+import com.wearedevs.javaclicker.cases.CaseOutcome;
+import com.wearedevs.javaclicker.util.WeightedCollection;
 
 public class SoundCase extends Case {
-	public ArrayList<String> getAllOutcomes() {
-		ArrayList<String> list = new ArrayList<String>();
-		return null;
-	}
-	public String getOutcome() {
-		//Do your randomness
+
+	public WeightedCollection<CaseOutcome> getAllOutcomes() {
+		WeightedCollection<CaseOutcome> out = new WeightedCollection<CaseOutcome>();
 		
+		//Bomb Click
+		out.add(1, new CaseOutcome() {
+			public void onOutcome() {
+				//If it gets chosen
+			}
+			public String getName() {
+				return "Bomb Click";
+			}
+		});
 		
-		return null;
+		//Rainbow Click
+		out.add(1, new CaseOutcome() {
+			public void onOutcome() {
+				//If it gets chosen
+			}
+			public String getName() {
+				return "Rainbow Click";
+			}
+		});
+		
+		return out;
 	}
+
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "SoundCase";
 	}
 
 }

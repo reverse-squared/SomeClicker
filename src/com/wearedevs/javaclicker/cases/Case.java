@@ -1,6 +1,6 @@
 package com.wearedevs.javaclicker.cases;
 
-import java.util.ArrayList;
+import com.wearedevs.javaclicker.util.WeightedCollection;
 
 public abstract class Case {
 	
@@ -8,9 +8,7 @@ public abstract class Case {
 	 * When the case is open
 	 * @return ArrayList of all things
 	 */
-	public abstract ArrayList<String> getAllOutcomes();
-	
-	public abstract String getOutcome();
+	public abstract WeightedCollection<CaseOutcome> getAllOutcomes();
 	
 	public abstract String getName();
 }
