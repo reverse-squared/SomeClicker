@@ -46,7 +46,7 @@ public class ShopHandler {
 					if(Main.clicks >= price) {
 						Main.clicks -= price;
 						item.onPurchase();
-						
+						SoundHandler.playSound("res/sound/buy.wav");
 						items.remove(item);
 						Main.updateCounter();
 						updateLayout();
