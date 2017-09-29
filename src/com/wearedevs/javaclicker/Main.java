@@ -22,7 +22,7 @@ public class Main extends JFrame {
 	public static MainPanel mainPanel;
 	public static ShopPanel shopPanel;
 	
-	public static final String VERSION = "DEV 0.4";
+	public static final String VERSION = "DEV 0.5";
 	
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
