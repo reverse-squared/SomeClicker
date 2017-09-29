@@ -2,8 +2,6 @@ package com.wearedevs.javaclicker;
 
 import java.awt.EventQueue;
 import java.awt.Rectangle;
-import java.awt.TrayIcon.MessageType;
-
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
@@ -24,7 +22,7 @@ public class Main extends JFrame {
 	public static MainPanel mainPanel;
 	public static ShopPanel shopPanel;
 	
-	public static final String VERSION = "DEV 0.4";
+	public static final String VERSION = "DEV 0.5";
 	
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
@@ -60,7 +58,9 @@ public class Main extends JFrame {
 		setContentPane(mainPanel);
 		
 		Notification.init("Java Clicker 0.4 DEV", "Java Clicker 0.4 DEV", "textures/icon.png");
-		Notification.displayNotif("You Have a New Case!", "Press the Cases Button to Open It!", MessageType.INFO);
+		
+		//TODO: Move to Case Getter Thingy
+//		Notification.displayNotif("You Have a New Case!", "Press the Cases Button to Open It!", MessageType.INFO);
 		
 		setVisible(true);
 	}
