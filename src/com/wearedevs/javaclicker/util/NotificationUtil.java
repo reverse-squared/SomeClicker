@@ -3,7 +3,7 @@ package com.wearedevs.javaclicker.util;
 import java.awt.*;
 import java.awt.TrayIcon.MessageType;
 
-public class Notification {
+public class NotificationUtil {
 	public static TrayIcon trayIcon;
 	public static void init(String name, String tooltip, String iconPath) {
         if (!SystemTray.isSupported()) {
