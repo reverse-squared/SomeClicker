@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.shop.ShopItem;
 import com.wearedevs.javaclicker.shop.items.perClickUpgrades.PerClick2;
-import com.wearedevs.javaclicker.util.SoundHandler;
+import com.wearedevs.javaclicker.util.SoundUtil;
 
 public class ShopHandler {
 
@@ -46,7 +46,7 @@ public class ShopHandler {
 					if(Main.clicks >= price) {
 						Main.clicks -= price;
 						item.onPurchase();
-						SoundHandler.playSound("res/sound/buy.wav");
+						SoundUtil.playSound("res/sound/buy.wav");
 						items.remove(item);
 						Main.updateCounter();
 						updateLayout();

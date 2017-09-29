@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.util.RandomUtil;
-import com.wearedevs.javaclicker.util.SoundHandler;
+import com.wearedevs.javaclicker.util.SoundUtil;
 
 @SuppressWarnings("serial")
 public class MainPanel extends JPanel {
@@ -33,15 +33,15 @@ public class MainPanel extends JPanel {
 				
 				if(RandomUtil.randomRange(1, 20) == 10) {
 					click *= 2;
-					SoundHandler.playSound("res/sound/clickSound/click.wav");
+					SoundUtil.playSound("res/sound/clickSound/click.wav");
 				}
 				
 				if(RandomUtil.randomRange(1, 500) == 10) {
 					click *= 10;
-					SoundHandler.playSound("res/sound/clickSound/click.wav");
+					SoundUtil.playSound("res/sound/clickSound/click.wav");
 				}else {
 					Main.clicks += click;
-					SoundHandler.playSound("res/sound/clickSound/click.wav");
+					SoundUtil.playSound("res/sound/clickSound/click.wav");
 				}
 							
 				Main.updateCounter();	

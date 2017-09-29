@@ -8,7 +8,7 @@ import javax.swing.UIManager;
 import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
-import com.wearedevs.javaclicker.util.Notification;
+import com.wearedevs.javaclicker.util.NotificationUtil;
 
 @SuppressWarnings("serial")
 public class Main extends JFrame {
@@ -57,7 +57,7 @@ public class Main extends JFrame {
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
 		
-		Notification.init("Java Clicker 0.4 DEV", "Java Clicker 0.4 DEV", "textures/icon.png");
+		NotificationUtil.init("Java Clicker 0.4 DEV", "Java Clicker 0.4 DEV", "textures/icon.png");
 		
 		//TODO: Move to Case Getter Thingy
 //		Notification.displayNotif("You Have a New Case!", "Press the Cases Button to Open It!", MessageType.INFO);
