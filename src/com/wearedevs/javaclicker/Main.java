@@ -87,6 +87,8 @@ public class Main extends JFrame {
 		}
 		
 		Main.clicks += click;
+		
+		//Test What Sound is Selected in Options Panel
 		SoundUtil.playSound("res/sound/clickSound/click.wav");
 	
 		GetCase.checkCases();		
