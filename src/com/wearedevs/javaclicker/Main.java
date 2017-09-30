@@ -2,11 +2,13 @@ package com.wearedevs.javaclicker;
 
 import java.awt.EventQueue;
 import java.awt.Rectangle;
+
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
 import com.wearedevs.javaclicker.cases.GetCase;
 import com.wearedevs.javaclicker.gui.MainPanel;
+import com.wearedevs.javaclicker.gui.OptionsPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.util.NotificationUtil;
@@ -25,6 +27,7 @@ public class Main extends JFrame {
 	
 	public static MainPanel mainPanel;
 	public static ShopPanel shopPanel;
+	public static OptionsPanel optionsPanel;
 	
 	public static final String VERSION = "DEV 0.5";
 	
@@ -52,6 +55,7 @@ public class Main extends JFrame {
 		//Init all panels
 		mainPanel = new MainPanel();
 		shopPanel = new ShopPanel();
+		optionsPanel = new OptionsPanel();
 		
 		//Frame Properties
 		setResizable(false);

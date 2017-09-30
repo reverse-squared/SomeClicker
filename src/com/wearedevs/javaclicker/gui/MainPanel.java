@@ -16,7 +16,7 @@ public class MainPanel extends JPanel {
 	
 	public MainPanel() {
 		setLayout(null);
-		setBounds(Main.windowSize);
+		setBounds(Main.panelSize);
 		
 		labelClicks = new JLabel("Click the Button!");
 		labelClicks.setFont(new Font("Tahoma", Font.BOLD, 25));
@@ -43,5 +43,16 @@ public class MainPanel extends JPanel {
 		});
 		shopButton.setBounds(12, 398, 270, 40);
 		add(shopButton);
+		
+		JButton optionButton = new JButton("Options");
+		optionButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+		optionButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ShopHandler.updateLayout();
+				Main.main.setContentPane(Main.optionsPanel);
+			}
+		});
+		optionButton.setBounds(350, 398, 270, 40);
+		add(optionButton);
 	}	
 }
