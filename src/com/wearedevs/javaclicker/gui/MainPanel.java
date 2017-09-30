@@ -44,9 +44,4 @@ public class MainPanel extends JPanel {
 		shopButton.setBounds(12, 398, 270, 40);
 		add(shopButton);
 	}
-
-
-	public void updateCounter() {
-		labelClicks.setText("Clicks: " + Main.clicks);
-	}
 }
