@@ -62,9 +62,6 @@ public class Main extends JFrame {
 		
 		NotificationUtil.init("Java Clicker 0.4 DEV", "Java Clicker 0.4 DEV", "textures/icon.png");
 		
-		//TODO: Move to Case Getter Thingy
-//		Notification.displayNotif("You Have a New Case!", "Press the Cases Button to Open It!", MessageType.INFO);
-		
 		setVisible(true);
 	}
 
