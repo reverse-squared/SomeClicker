@@ -31,11 +31,11 @@ public class GetCase {
 	
 	public static void giveCases() {
 		if(get100case) {
-					
+			//TODO: Add Achieved Cases to an Array?
 		}
 
 		if(get500case) {
-			
+			//TODO: Add Achieved Cases to an Array?
 		}
 	}
 }
