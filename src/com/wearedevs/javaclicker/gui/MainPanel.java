@@ -9,8 +9,6 @@ import javax.swing.JPanel;
 
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
-import com.wearedevs.javaclicker.util.RandomUtil;
-import com.wearedevs.javaclicker.util.SoundUtil;
 
 @SuppressWarnings("serial")
 public class MainPanel extends JPanel {
@@ -29,22 +27,7 @@ public class MainPanel extends JPanel {
 		clicker.setFont(new Font("Tahoma", Font.BOLD, 20));
 		clicker.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int click = Main.perClick;
-				
-				if(RandomUtil.randomRange(1, 20) == 10) {
-					click *= 2;
-					SoundUtil.playSound("res/sound/clickSound/click.wav");
-				}
-				
-				if(RandomUtil.randomRange(1, 500) == 10) {
-					click *= 10;
-					SoundUtil.playSound("res/sound/clickSound/click.wav");
-				}
-				
-				Main.clicks += click;
-				SoundUtil.playSound("res/sound/clickSound/click.wav");
-			
-				Main.updateCounter();	
+				Main.click();	
 			}
 		});
 		clicker.setBounds(12, 58, 610, 100);

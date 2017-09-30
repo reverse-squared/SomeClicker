@@ -9,6 +9,8 @@ import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.util.NotificationUtil;
+import com.wearedevs.javaclicker.util.RandomUtil;
+import com.wearedevs.javaclicker.util.SoundUtil;
 
 @SuppressWarnings("serial")
 public class Main extends JFrame {
@@ -69,6 +71,21 @@ public class Main extends JFrame {
 	public static void updateCounter() {
 		mainPanel.labelClicks.setText("Clicks: " + Math.round(clicks));
 		shopPanel.labelClicks.setText(Math.round(clicks)+" Clicks");
+	}
+	
+	public static void click() {
+		if(RandomUtil.randomRange(1, 20) == 10) {
+			perClick *= 2;
+		}
+		
+		if(RandomUtil.randomRange(1, 500) == 10) {
+			perClick *= 10;
+		}
+		
+		Main.clicks += perClick;
+		SoundUtil.playSound("res/sound/clickSound/click.wav");
+	
+		Main.updateCounter();
 	}
 
 }
