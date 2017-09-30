@@ -85,7 +85,7 @@ public class Main extends JFrame {
 		Main.clicks += click;
 		SoundUtil.playSound("res/sound/clickSound/click.wav");
 	
-		GetCase.checkCases();
+		GetCase.checkCases();		
 		updateCounter();
 	}
 
