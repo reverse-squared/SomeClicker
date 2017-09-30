@@ -15,9 +15,8 @@ public class GetCase {
 				return;
 			}
 			
-			//Give Case Code Here
-			NotificationUtil.displayNotif("You Have a New Case!", "Press the Cases Button to Open It!", MessageType.INFO);
 			get100case = true;
+			giveCases();
 		}
 		
 		if(Main.clicks >= 500) {
@@ -25,9 +24,18 @@ public class GetCase {
 				return;
 			}
 			
-			//Give Case Code Here
-			NotificationUtil.displayNotif("You Have a New Case!", "Press the Cases Button to Open It!", MessageType.INFO);
 			get500case = true;
+			giveCases();
+		}
+	}
+	
+	public static void giveCases() {
+		if(get100case) {
+					
+		}
+
+		if(get500case) {
+			
 		}
 	}
 }
