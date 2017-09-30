@@ -29,18 +29,19 @@ public class MainPanel extends JPanel {
 		clicker.setFont(new Font("Tahoma", Font.BOLD, 20));
 		clicker.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int click = Main.perClick;
+				double clicks = Main.clicks;
+				int perClick = Main.perClick;
 				
 				if(RandomUtil.randomRange(1, 20) == 10) {
-					click *= 2;
+					clicks += perClick * 2;
 					SoundUtil.playSound("res/sound/clickSound/click.wav");
 				}
 				
 				if(RandomUtil.randomRange(1, 500) == 10) {
-					click *= 10;
+					clicks += perClick * 100;
 					SoundUtil.playSound("res/sound/clickSound/click.wav");
 				}else {
-					Main.clicks += click;
+					clicks += perClick;
 					SoundUtil.playSound("res/sound/clickSound/click.wav");
 				}
 							
