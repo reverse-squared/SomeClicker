@@ -9,7 +9,7 @@ public class ClickCase extends Case {
 	public WeightedCollection<CaseOutcome> getAllOutcomes() {
 		WeightedCollection<CaseOutcome> out = new WeightedCollection<CaseOutcome>();
 		
-		//Bomb
+		//500 Clicks
 		out.add(60, new CaseOutcome() {
 			public void onOutcome() {
 				//If it gets chosen
@@ -19,7 +19,7 @@ public class ClickCase extends Case {
 			}
 		});
 		
-		//Rainbow
+		//1000 Clicks
 		out.add(30, new CaseOutcome() {
 			public void onOutcome() {
 				//If it gets chosen
@@ -29,7 +29,7 @@ public class ClickCase extends Case {
 			}
 		});
 		
-		//Airhorn
+		//5000 Clicks
 		out.add(10, new CaseOutcome() {
 			public void onOutcome() {
 				//If it gets chosen
@@ -39,21 +39,11 @@ public class ClickCase extends Case {
 			}
 		});
 		
-		//Fart
-		out.add(20, new CaseOutcome() {
-			public void onOutcome() {
-				//If it gets chosen
-			}
-			public String getName() {
-				return "Click Case";
-			}
-		});
-		
 		return out;
 	}
 
 	public String getName() {
-		return "Sound Case";
+		return "Click Case";
 	}
 
 }
