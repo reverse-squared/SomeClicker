@@ -1,9 +1,6 @@
 package com.wearedevs.javaclicker.cases;
 
-import java.awt.TrayIcon.MessageType;
-
 import com.wearedevs.javaclicker.Main;
-import com.wearedevs.javaclicker.util.NotificationUtil;
 
 public class GetCase {
 	private static boolean get100case = false;

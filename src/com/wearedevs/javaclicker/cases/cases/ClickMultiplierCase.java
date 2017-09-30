@@ -4,56 +4,47 @@ import com.wearedevs.javaclicker.cases.Case;
 import com.wearedevs.javaclicker.cases.CaseOutcome;
 import com.wearedevs.javaclicker.util.WeightedCollection;
 
-public class ClickCase extends Case {
+public class ClickMultiplierCase extends Case {
 
 	public WeightedCollection<CaseOutcome> getAllOutcomes() {
 		WeightedCollection<CaseOutcome> out = new WeightedCollection<CaseOutcome>();
 		
-		//Bomb
-		out.add(60, new CaseOutcome() {
+		//Double Clicks
+		out.add(94, new CaseOutcome() {
 			public void onOutcome() {
 				//If it gets chosen
 			}
 			public String getName() {
-				return "500 Clicks";
+				return "Permanent Double Clicks";
 			}
 		});
 		
-		//Rainbow
-		out.add(30, new CaseOutcome() {
+		//Triple Clicks
+		out.add(5, new CaseOutcome() {
 			public void onOutcome() {
 				//If it gets chosen
 			}
 			public String getName() {
-				return "1000 Clicks";
+				return "Permanent Triple Clicks";
 			}
 		});
 		
-		//Airhorn
-		out.add(10, new CaseOutcome() {
+		//Quadruple Clicks
+		out.add(1, new CaseOutcome() {
 			public void onOutcome() {
 				//If it gets chosen
 			}
 			public String getName() {
-				return "5000 Clicks";
-			}
-		});
-		
-		//Fart
-		out.add(20, new CaseOutcome() {
-			public void onOutcome() {
-				//If it gets chosen
-			}
-			public String getName() {
-				return "Click Case";
+				return "Permanent Quadruple Clicks";
 			}
 		});
 		
 		return out;
+		
 	}
 
 	public String getName() {
-		return "Sound Case";
+		return "Click Mutiplier Case";
 	}
 
 }
