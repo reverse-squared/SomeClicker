@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
+import com.wearedevs.javaclicker.cases.GetCase;
 import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
@@ -84,6 +85,7 @@ public class Main extends JFrame {
 		Main.clicks += click;
 		SoundUtil.playSound("res/sound/clickSound/click.wav");
 	
+		GetCase.checkCases();
 		updateCounter();
 	}
 
