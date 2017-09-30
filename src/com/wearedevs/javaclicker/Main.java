@@ -74,18 +74,20 @@ public class Main extends JFrame {
 	}
 	
 	public static void click() {
+		int click = perClick;
+		
 		if(RandomUtil.randomRange(1, 20) == 10) {
-			perClick *= 2;
+			click *= 2;
 		}
 		
 		if(RandomUtil.randomRange(1, 500) == 10) {
-			perClick *= 10;
+			click *= 10;
 		}
 		
-		Main.clicks += perClick;
+		Main.clicks += click;
 		SoundUtil.playSound("res/sound/clickSound/click.wav");
 	
-		Main.updateCounter();
+		updateCounter();
 	}
 
 }
