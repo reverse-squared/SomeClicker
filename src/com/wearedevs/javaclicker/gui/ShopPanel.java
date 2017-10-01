@@ -20,6 +20,11 @@ public class ShopPanel extends JPanel {
 	public ShopPanel() {
 		setLayout(null);
 		setBounds(Main.panelSize);
+
+		shopPanel = new JPanel();
+		shopPanel.setBounds(12, 75, 616, 311);
+		add(shopPanel);
+		shopPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JButton backBtn = new JButton("Go Back");
 		backBtn.addActionListener(new ActionListener() {
@@ -32,12 +37,6 @@ public class ShopPanel extends JPanel {
 		});
 		backBtn.setBounds(12, 398, 270, 40);
 		add(backBtn);
-		
-		shopPanel = new JPanel();
-		shopPanel.setBounds(12, 75, 616, 311);
-		add(shopPanel);
-		shopPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
 		
 		JLabel labelTitle = new JLabel("The Shop");
 		labelTitle.setHorizontalAlignment(SwingConstants.CENTER);
