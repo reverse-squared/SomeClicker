@@ -60,7 +60,7 @@ public class MainPanel extends JPanel {
 		caseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ShopHandler.updateLayout();
-				Main.main.setContentPane(Main.shopPanel);
+				Main.main.setContentPane(Main.casePanel);
 			}
 		});
 		caseButton.setBounds(12, 350, 608, 40);

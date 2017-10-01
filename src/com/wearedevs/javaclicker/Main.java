@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 
 import com.wearedevs.javaclicker.cases.GetCase;
+import com.wearedevs.javaclicker.gui.CasePanel;
 import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.OptionsPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
@@ -29,6 +30,7 @@ public class Main extends JFrame {
 	public static MainPanel mainPanel;
 	public static ShopPanel shopPanel;
 	public static OptionsPanel optionsPanel;
+	public static CasePanel casePanel;
 	
 	public static final String VERSION = "DEV 0.5";
 	
@@ -57,6 +59,7 @@ public class Main extends JFrame {
 		mainPanel = new MainPanel();
 		shopPanel = new ShopPanel();
 		optionsPanel = new OptionsPanel();
+		casePanel = new CasePanel();
 		
 		//Frame Properties
 		setResizable(false);
