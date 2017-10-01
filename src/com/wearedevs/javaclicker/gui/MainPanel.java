@@ -78,5 +78,15 @@ public class MainPanel extends JPanel {
 		});
 		optionButton.setBounds(350, 398, 270, 40);
 		add(optionButton);
+		
+		JButton toggleReactor = new JButton("Toggle Reactor");
+		toggleReactor.setFont(new Font("Tahoma", Font.BOLD, 17));
+		toggleReactor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Do Stuff
+			}
+		});
+		toggleReactor.setBounds(12, 170, 270, 40);
+		add(toggleReactor);
 	}	
 }

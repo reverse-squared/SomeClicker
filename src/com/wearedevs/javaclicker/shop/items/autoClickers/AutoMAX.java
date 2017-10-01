@@ -14,7 +14,7 @@ public class AutoMAX extends ShopItem {
 	}
 
 	public String getName() {
-		return "Auto Clicker: Tier 5";
+		return "Auto Clicker: MAX";
 	}
 
 }
