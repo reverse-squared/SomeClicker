@@ -31,6 +31,7 @@ public class Main extends JFrame {
 	public static ShopPanel shopPanel;
 	public static OptionsPanel optionsPanel;
 	public static CasePanel casePanel;
+	public static InfoPanel infoPanel;
 	
 	public static final String VERSION = "DEV 0.5";
 	
@@ -60,6 +61,7 @@ public class Main extends JFrame {
 		shopPanel = new ShopPanel();
 		optionsPanel = new OptionsPanel();
 		casePanel = new CasePanel();
+		infoPanel = new InfoPanel();
 		
 		//Frame Properties
 		setResizable(false);
