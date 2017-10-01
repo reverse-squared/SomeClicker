@@ -40,8 +40,6 @@ public class OptionsPanel extends JPanel {
 		lblSelectYourClick.setBounds(12, 13, 213, 27);
 		add(lblSelectYourClick);
 		
-		refreshSoundChoice();
-		
 		clickSound = new JComboBox<Sound>();
 		clickSound.setBounds(224, 17, 97, 22);
 		clickSound.addActionListener(new ActionListener() {
@@ -51,6 +49,8 @@ public class OptionsPanel extends JPanel {
 			}
 		});
 		add(clickSound);
+		
+		refreshSoundChoice();
 	}
 
 	public static void refreshSoundChoice() {
