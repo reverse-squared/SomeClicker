@@ -8,13 +8,13 @@ import com.wearedevs.javaclicker.shop.items.portal.Portal1;
 public class Nuke2 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.clickBomb = 5000;
+		AutoHandler.clickBomb = 2000;
 		
 		ShopHandler.unlock(new Nuke3());
 	}
 
 	public int getPrice() {
-		return 50000;
+		return 40000;
 	}
 
 	public String getName() {
