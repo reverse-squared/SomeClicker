@@ -15,7 +15,7 @@ import com.wearedevs.javaclicker.sound.Sound;
 @SuppressWarnings("serial")
 public class OptionsPanel extends JPanel {
 	
-	Sound[] clickSounds = new Sound[] {
+	public Sound[] clickSounds = new Sound[] {
 			new Sound("Default", "default.wav"),
 			new Sound("Bomb", "bomb.wav"),
 			new Sound("Airhorn", "airhorn.wav"),
