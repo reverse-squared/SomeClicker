@@ -72,6 +72,8 @@ public class MainPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				ShopHandler.updateLayout();
 				Main.main.setContentPane(Main.optionsPanel);
+				
+				OptionsPanel.refreshSoundChoice();
 			}
 		});
 		optionButton.setBounds(350, 398, 270, 40);
