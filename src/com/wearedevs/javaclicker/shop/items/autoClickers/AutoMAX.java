@@ -10,7 +10,7 @@ public class AutoMAX extends ShopItem {
 	}
 
 	public int getPrice() {
-		return 100000;
+		return 314159265;
 	}
 
 	public String getName() {
