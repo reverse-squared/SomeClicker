@@ -17,7 +17,7 @@ import com.wearedevs.javaclicker.sound.Sound;
 @SuppressWarnings("serial")
 public class OptionsPanel extends JPanel {
 	
-	public JComboBox<Sound> clickSound;
+	public static JComboBox<Sound> clickSound;
 	
 	public OptionsPanel() {
 		setLayout(null);
@@ -54,7 +54,7 @@ public class OptionsPanel extends JPanel {
 		add(clickSound);
 	}
 
-	public void refreshSoundChoice() {
+	public static void refreshSoundChoice() {
 		clickSound.setModel(new DefaultComboBoxModel<Sound>((Sound[]) SoundHandler.clickSounds.toArray()));
 	}
 }
