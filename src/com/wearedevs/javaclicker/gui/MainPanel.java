@@ -63,7 +63,7 @@ public class MainPanel extends JPanel {
 				Main.main.setContentPane(Main.infoPanel);
 			}
 		});
-		infoButton.setBounds(300, 398, 270, 40);
+		infoButton.setBounds(290, 398, 53, 40);
 		add(infoButton);
 		
 		JButton optionButton = new JButton("Options");

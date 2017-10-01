@@ -8,6 +8,7 @@ import javax.swing.UIManager;
 
 import com.wearedevs.javaclicker.cases.GetCase;
 import com.wearedevs.javaclicker.gui.CasePanel;
+import com.wearedevs.javaclicker.gui.InfoPanel;
 import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.OptionsPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
