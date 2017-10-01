@@ -34,12 +34,14 @@ public class AutoHandler {
 
 			public void run() {
 				ticks++;
+				
 				if(ticks>=60) {
 					ticks = 0;
 					seconds++;
 					//just in case
 					seconds = Math.round(seconds);
 				}
+				
 				//MINE: Ever Second
 				if(ticks == 0) {
 					//Every Second is the MINE
