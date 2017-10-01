@@ -1,4 +1,4 @@
-package utils;
+package com.wearedevs.javaclicker.util;
 
 public class GameLoop {
 	/**

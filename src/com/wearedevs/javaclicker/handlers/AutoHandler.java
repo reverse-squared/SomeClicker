@@ -1,8 +1,7 @@
 package com.wearedevs.javaclicker.handlers;
 
 import com.wearedevs.javaclicker.Main;
-
-import utils.GameLoop;
+import com.wearedevs.javaclicker.util.GameLoop;
 
 /**
  * Handler for auto clicking related things
