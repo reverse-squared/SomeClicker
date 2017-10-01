@@ -54,5 +54,16 @@ public class MainPanel extends JPanel {
 		});
 		optionButton.setBounds(350, 398, 270, 40);
 		add(optionButton);
+		
+		JButton caseButton = new JButton("Cases");
+		caseButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+		caseButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ShopHandler.updateLayout();
+				Main.main.setContentPane(Main.shopPanel);
+			}
+		});
+		caseButton.setBounds(12, 350, 608, 40);
+		add(caseButton);
 	}	
 }
