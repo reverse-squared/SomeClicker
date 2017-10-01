@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 import com.wearedevs.javaclicker.Main;
 
 public class InfoPanel extends JPanel {
+	private static final long serialVersionUID = -1523225555156016420L;
 
 	public InfoPanel() {
 		setLayout(null);
