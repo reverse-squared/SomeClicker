@@ -55,7 +55,7 @@ public class Main extends JFrame {
 	}
 
 	public Main() {
-		SoundHandler.unlock(new Sound("Default","default.wav"));
+		SoundHandler.unlock(new Sound("Default", "default.wav"));
 		
 		//Init Shop
 		ShopHandler.initializeShop();
