@@ -13,7 +13,7 @@ import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.OptionsPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
-import com.wearedevs.javaclicker.sound.Sound;
+import com.wearedevs.javaclicker.handlers.SoundHandler;
 import com.wearedevs.javaclicker.util.NotificationUtil;
 import com.wearedevs.javaclicker.util.RandomUtil;
 import com.wearedevs.javaclicker.util.SoundUtil;
@@ -96,7 +96,7 @@ public class Main extends JFrame {
 		Main.clicks += click;
 		
 		//TODO: Test What Sound is Selected in Options Panel
-		SoundUtil.playSound("res/sound/clickSound/" + Sound.currentSound.fname);
+		SoundUtil.playSound("res/sound/clickSound/" + SoundHandler.currentSound.fname);
 	
 		GetCase.checkCases();		
 		updateCounter();
