@@ -24,7 +24,7 @@ public class Main extends JFrame {
 
 	public static double clicks = 0;
 	public static int perClick = 1;
-	public static double multiplier = 1.0;
+	public static double multiplier = 1;
 	
 	public static Main main;
 	
@@ -95,9 +95,8 @@ public class Main extends JFrame {
 			click *= 10;
 		}
 		
-		Main.clicks += click;
+		Main.clicks += click * multiplier;
 		
-		//TODO: Test What Sound is Selected in Options Panel
 		SoundUtil.playSound("res/sound/clickSound/" + SoundHandler.currentSound.fname);
 	
 		GetCase.checkCases();		
