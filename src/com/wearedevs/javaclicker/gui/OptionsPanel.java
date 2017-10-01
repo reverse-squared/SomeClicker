@@ -45,7 +45,7 @@ public class OptionsPanel extends JPanel {
 		JComboBox<Object> clickSound = new JComboBox<Object>(clickSounds);
 		clickSound.setBounds(224, 17, 97, 22);
 		add(clickSound);
-		String selectedSound = (String) clickSound.getSelectedItem();
+		String selectedSound = String.valueOf(clickSound.getSelectedItem());
 	}
 
 }
