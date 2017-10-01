@@ -33,6 +33,17 @@ public class MainPanel extends JPanel {
 		clicker.setBounds(12, 58, 610, 100);
 		add(clicker);
 		
+		JButton caseButton = new JButton("Cases");
+		caseButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+		caseButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ShopHandler.updateLayout();
+				Main.main.setContentPane(Main.casePanel);
+			}
+		});
+		caseButton.setBounds(12, 350, 608, 40);
+		add(caseButton);
+		
 		JButton shopButton = new JButton("The Shop");
 		shopButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		shopButton.addActionListener(new ActionListener() {
@@ -44,6 +55,17 @@ public class MainPanel extends JPanel {
 		shopButton.setBounds(12, 398, 270, 40);
 		add(shopButton);
 		
+		JButton infoButton = new JButton("?");
+		infoButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+		infoButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ShopHandler.updateLayout();
+				Main.main.setContentPane(Main.infoPanel);
+			}
+		});
+		infoButton.setBounds(300, 398, 270, 40);
+		add(infoButton);
+		
 		JButton optionButton = new JButton("Options");
 		optionButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		optionButton.addActionListener(new ActionListener() {
@@ -54,16 +76,5 @@ public class MainPanel extends JPanel {
 		});
 		optionButton.setBounds(350, 398, 270, 40);
 		add(optionButton);
-		
-		JButton caseButton = new JButton("Cases");
-		caseButton.setFont(new Font("Tahoma", Font.BOLD, 17));
-		caseButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ShopHandler.updateLayout();
-				Main.main.setContentPane(Main.casePanel);
-			}
-		});
-		caseButton.setBounds(12, 350, 608, 40);
-		add(caseButton);
 	}	
 }
