@@ -85,7 +85,11 @@ public class Main extends JFrame {
 	}
 	
 	public static void click() {
-		double click = perClick * multiplier;
+		click(perClick);
+	}
+	
+	public static void click(double ammount) {
+		double click = ammount * multiplier;
 		
 		if(RandomUtil.randomRange(1, 20) == 10) {
 			click *= 2;
