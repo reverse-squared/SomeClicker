@@ -1,5 +1,7 @@
 package com.wearedevs.javaclicker.handlers;
 
+import java.lang.management.ClassLoadingMXBean;
+
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.util.GameLoop;
 
@@ -16,6 +18,10 @@ public class AutoHandler {
 	public static int factory = 0;
 	public static int mine = 0;
 	public static int portal = 0;
+	public static int reactorGen;
+	public static int reactorSuck;
+	public static int reactorSucked;
+	public static boolean reactorOn = true;
 	
 	public static boolean autoClickStarted = false;
 	
@@ -63,6 +69,17 @@ public class AutoHandler {
 				//FACTORY: Every 15 Seconds
 				if(seconds % 15 == 0 && ticks == 0) {
 					Main.click(portal);
+				}
+				
+				//REACTOR CODE
+				if(reactorOn) {
+					double before = Main.clicks;
+					Main.clicks=Math.max(0, Main.clicks-reactorSuck);
+					reactorSucked += before - Main.clicks;
+					if(reactorSucked>reactorSuck*60) {
+						reactorSucked = 0;
+						Main.clicks += reactorGen + reactorSuck * 60;
+					}
 				}
 				
 				Main.updateCounter();
