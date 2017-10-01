@@ -10,18 +10,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.wearedevs.javaclicker.Main;
+import com.wearedevs.javaclicker.sound.Sound;
 
 @SuppressWarnings("serial")
 public class OptionsPanel extends JPanel {
 	
-	public static String selectedSound = "Default";
-	
-	String[] clickSounds = new String[] {
-			"Default",
-			"Bomb",
-			"Rainbow",
-			"Airhorn",
-			"Fart"
+	Sound[] clickSounds = new Sound[] {
+			new Sound("Default", "default.wav"),
+			new Sound("Bomb", "bomb.wav"),
+			new Sound("Airhorn", "airhorn.wav"),
+			new Sound("Fart", "fart.wav"),
+			new Sound("Rainbow", "rainbow.wav")
 	};
 	
 	public OptionsPanel() {
@@ -45,10 +44,15 @@ public class OptionsPanel extends JPanel {
 		lblSelectYourClick.setBounds(12, 13, 213, 27);
 		add(lblSelectYourClick);
 		
-		JComboBox<Object> clickSound = new JComboBox<Object>(clickSounds);
+		JComboBox<Sound> clickSound = new JComboBox<Sound>(clickSounds);
 		clickSound.setBounds(224, 17, 97, 22);
+		clickSound.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sound.currentSound = (Sound) clickSound.getSelectedItem();
+				
+			}
+		});
 		add(clickSound);
-		String selectedSound = String.valueOf(clickSound.getSelectedItem());
 	}
 
 }
