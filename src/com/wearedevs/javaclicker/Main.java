@@ -85,10 +85,14 @@ public class Main extends JFrame {
 	}
 	
 	public static void click() {
-		click(perClick);
+		click(perClick, SoundHandler.currentSound);
 	}
 	
 	public static void click(double ammount) {
+		click(ammount, null);
+	}
+	
+	public static void click(double ammount, Sound sound) {
 		double click = ammount * multiplier;
 		
 		if(RandomUtil.randomRange(1, 20) == 10) {
@@ -100,8 +104,8 @@ public class Main extends JFrame {
 		}
 		
 		Main.clicks += click * multiplier;
-		
-		SoundUtil.playSound("res/sound/clickSound/" + SoundHandler.currentSound.fname);
+		if(sound!=null)
+			SoundUtil.playSound("res/sound/clickSound/" + sound.fname);
 	
 		GetCase.checkCases();		
 		updateCounter();

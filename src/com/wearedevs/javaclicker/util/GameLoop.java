@@ -40,6 +40,7 @@ public class GameLoop {
 				}
 			}
 		});
+		thread.start();
 	}
 	/**
 	 * A Game Loop
