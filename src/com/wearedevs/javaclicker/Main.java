@@ -34,7 +34,7 @@ public class Main extends JFrame {
 	public static CasePanel casePanel;
 	public static InfoPanel infoPanel;
 	
-	public static final String VERSION = "DEV 0.5";
+	public static final String VERSION = "DEV 0.246";
 	
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
@@ -74,7 +74,7 @@ public class Main extends JFrame {
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
 		
-		NotificationUtil.init("Java Clicker 0.4 DEV", "Java Clicker 0.4 DEV", "textures/icon.png");
+		NotificationUtil.init("Java Clicker "+VERSION, "Java Clicker "+VERSION, "textures/icon.png");
 		
 		setVisible(true);
 	}
