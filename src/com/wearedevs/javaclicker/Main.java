@@ -14,6 +14,7 @@ import com.wearedevs.javaclicker.gui.OptionsPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundHandler;
+import com.wearedevs.javaclicker.sound.Sound;
 import com.wearedevs.javaclicker.util.NotificationUtil;
 import com.wearedevs.javaclicker.util.RandomUtil;
 import com.wearedevs.javaclicker.util.SoundUtil;
@@ -54,6 +55,8 @@ public class Main extends JFrame {
 	}
 
 	public Main() {
+		SoundHandler.unlock(add(new Sound("Default","default.wav")));
+		
 		//Init Shop
 		ShopHandler.initializeShop();
 		
