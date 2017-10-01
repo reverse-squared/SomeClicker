@@ -51,17 +51,17 @@ public class AutoHandler {
 				Main.click(autoClick/60);
 				
 				//BOMB: Every 10 Seconds
-				if(seconds % 10 == 0) {
+				if(seconds % 10 == 0 && ticks == 0) {
 					Main.click(clickBomb);
 				}
 				
 				//PORTAL: Every 15 Seconds
-				if(seconds % 15 == 0) {
+				if(seconds % 15 == 0 && ticks == 0) {
 					Main.click(mine);
 				}
 				
 				//FACTORY: Every 15 Seconds
-				if(seconds % 15 == 0) {
+				if(seconds % 15 == 0 && ticks == 0) {
 					Main.click(portal);
 				}
 				

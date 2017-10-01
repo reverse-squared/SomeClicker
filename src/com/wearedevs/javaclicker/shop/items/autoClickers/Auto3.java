@@ -7,7 +7,7 @@ import com.wearedevs.javaclicker.shop.ShopItem;
 public class Auto3 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.autoClick = 8;
+		AutoHandler.autoClick = 10;
 		
 		ShopHandler.unlock(new Auto4());
 	}

@@ -5,21 +5,20 @@ import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 import com.wearedevs.javaclicker.shop.items.portal.Portal1;
 
-public class Nuke1 extends ShopItem {
+public class Nuke2 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.clickBomb = 1000;
+		AutoHandler.clickBomb = 5000;
 		
-		ShopHandler.unlock(new Portal1());
-		ShopHandler.unlock(new Nuke2());
+		ShopHandler.unlock(new Nuke3());
 	}
 
 	public int getPrice() {
-		return 20000;
+		return 50000;
 	}
 
 	public String getName() {
-		return "Click Nuke: Tier 1";
+		return "Click Nuke: Tier 2";
 	}
 
 }
