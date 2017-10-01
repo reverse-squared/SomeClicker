@@ -31,9 +31,9 @@ public class ShopHandler {
 	}
 	public static void updateLayout() {
 		
-		Main.shopPanel.upgradesPanel.removeAll();
+		Main.shopPanel.shopPanel.removeAll();
 		
-		Main.shopPanel.upgradesPanel.repaint();
+		Main.shopPanel.shopPanel.repaint();
 		
 		for(ShopItem item : items) {
 			JButton button = new JButton(item.getName() + " ("+item.getPrice()+" Clicks)");
@@ -54,7 +54,7 @@ public class ShopHandler {
 				}
 			});
 			
-			Main.shopPanel.upgradesPanel.add(button);
+			Main.shopPanel.shopPanel.add(button);
 		}
 		
 	}

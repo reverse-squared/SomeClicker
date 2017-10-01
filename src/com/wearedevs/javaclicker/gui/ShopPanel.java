@@ -14,7 +14,7 @@ import com.wearedevs.javaclicker.Main;
 
 @SuppressWarnings("serial")
 public class ShopPanel extends JPanel {
-	public JPanel upgradesPanel;
+	public JPanel shopPanel;
 	public JLabel labelClicks;
 
 	public ShopPanel() {
@@ -33,10 +33,10 @@ public class ShopPanel extends JPanel {
 		backBtn.setBounds(12, 398, 270, 40);
 		add(backBtn);
 		
-		upgradesPanel = new JPanel();
-		upgradesPanel.setBounds(12, 75, 616, 311);
-		add(upgradesPanel);
-		upgradesPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		shopPanel = new JPanel();
+		shopPanel.setBounds(12, 75, 616, 311);
+		add(shopPanel);
+		shopPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		
 		JLabel labelTitle = new JLabel("The Shop");
