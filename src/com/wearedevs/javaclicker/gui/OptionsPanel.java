@@ -14,6 +14,8 @@ import com.wearedevs.javaclicker.Main;
 @SuppressWarnings("serial")
 public class OptionsPanel extends JPanel {
 	
+	public static String selectedSound = "Default";
+	
 	String[] clickSounds = new String[] {
 			"Default",
 			"Bomb",
