@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 import com.wearedevs.javaclicker.Main;
 
 public class CasePanel extends JPanel {
+	private static final long serialVersionUID = -2856455613720020251L;
 
 	public CasePanel() {
 		setLayout(null);
