@@ -24,7 +24,7 @@ public class Main extends JFrame {
 
 	public static double clicks = 0;
 	public static int perClick = 1;
-	public static double multiplier = 1;
+	public static double multiplier = 1.0;
 	
 	public static Main main;
 	
@@ -85,7 +85,7 @@ public class Main extends JFrame {
 	}
 	
 	public static void click() {
-		int click = perClick;
+		double click = perClick * multiplier;
 		
 		if(RandomUtil.randomRange(1, 20) == 10) {
 			click *= 2;
