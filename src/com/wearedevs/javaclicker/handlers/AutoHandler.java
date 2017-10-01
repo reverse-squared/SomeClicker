@@ -1,5 +1,7 @@
 package com.wearedevs.javaclicker.handlers;
 
+import com.wearedevs.javaclicker.Main;
+
 import utils.GameLoop;
 
 /**
@@ -10,7 +12,7 @@ import utils.GameLoop;
 public class AutoHandler {
 	public static GameLoop game_loop;
 	
-	public static int autoClick = 0;
+	public static double autoClick = 0;
 	public static int clickBomb = 0;
 	public static int factory = 0;
 	public static int mine = 0;
@@ -33,8 +35,36 @@ public class AutoHandler {
 			public void run() {
 				ticks++;
 				if(ticks>=60) {
+					ticks = 0;
 					seconds++;
+					//just in case
+					seconds = Math.round(seconds);
 				}
+				//MINE: Ever Second
+				if(ticks == 0) {
+					//Every Second is the MINE
+					Main.click(mine);
+				}
+				
+				//AUTOCLICKER: Every Tick add
+				Main.click(autoClick/60);
+				
+				//BOMB: Every 10 Seconds
+				if(seconds % 10 == 0) {
+					Main.click(clickBomb);
+				}
+				
+				//PORTAL: Every 15 Seconds
+				if(seconds % 15 == 0) {
+					Main.click(mine);
+				}
+				
+				//FACTORY: Every 15 Seconds
+				if(seconds % 15 == 0) {
+					Main.click(portal);
+				}
+				
+				Main.updateCounter();
 			}
 		});
 	}
