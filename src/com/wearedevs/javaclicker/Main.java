@@ -2,10 +2,6 @@ package com.wearedevs.javaclicker;
 
 import java.awt.EventQueue;
 import java.awt.Rectangle;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 

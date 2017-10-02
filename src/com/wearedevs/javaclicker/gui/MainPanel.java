@@ -87,5 +87,7 @@ public class MainPanel extends JPanel {
 			}
 		});
 		toggleReactor.setBounds(12, 170, 270, 40);
+		add(toggleReactor);
+		toggleReactor.setEnabled(false);
 	}	
 }
