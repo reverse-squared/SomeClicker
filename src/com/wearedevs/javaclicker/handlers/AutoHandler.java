@@ -1,7 +1,5 @@
 package com.wearedevs.javaclicker.handlers;
 
-import java.lang.management.ClassLoadingMXBean;
-
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.util.GameLoop;
 
