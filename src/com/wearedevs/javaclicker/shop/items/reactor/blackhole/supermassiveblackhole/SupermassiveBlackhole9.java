@@ -20,7 +20,7 @@ public class SupermassiveBlackhole9 extends ShopItem {
 	}
 
 	public String getName() {
-		return "Blackhole: Tier 1";
+		return "Blackhole: Tier 9";
 	}
 
 }
