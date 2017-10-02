@@ -50,6 +50,7 @@ public class ShopHandler {
 						items.remove(item);
 						Main.updateCounter();
 						updateLayout();
+						SaveHandler.save();
 					}
 				}
 			});
