@@ -1,9 +1,9 @@
-package com.wearedevs.javaclicker.shop.items.reactor.blackhole;
+package com.wearedevs.javaclicker.shop.items.reactor.blackhole.blackhole;
 
 import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
-public class Blackhole8 extends ShopItem {
+public class Blackhole2 extends ShopItem {
 
 	public void onPurchase() {
 		//TODO: Fix This
@@ -17,7 +17,7 @@ public class Blackhole8 extends ShopItem {
 	}
 
 	public String getName() {
-		return "Blackhole: Tier 8";
+		return "Blackhole: Tier 2";
 	}
 
 }

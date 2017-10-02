@@ -1,4 +1,4 @@
-package com.wearedevs.javaclicker.shop.items.reactor.blackhole;
+package com.wearedevs.javaclicker.shop.items.reactor.blackhole.blackhole;
 
 import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
