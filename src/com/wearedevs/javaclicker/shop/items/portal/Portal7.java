@@ -8,14 +8,14 @@ public class Portal7 extends ShopItem {
 	//TODO: 500 Clicks Every 15 Seconds
 	
 	public void onPurchase() {
-		AutoHandler.portal = 15000;
+		AutoHandler.portal = 200000;
 		
 		//Init AutoClicker
 		AutoHandler.initAutoThread();
 	}
 
 	public int getPrice() {
-		return 120000;
+		return 2000000;
 	}
 
 	public String getName() {
