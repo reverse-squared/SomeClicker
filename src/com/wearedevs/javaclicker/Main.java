@@ -55,9 +55,7 @@ public class Main extends JFrame {
 		});
 	}
 
-	public Main() {
-		SaveHandler.load();
-		
+	public Main() {		
 		SoundUnlocker.unlock(new Sound("Default", "default.wav"));		
 		
 		//Init Shop
@@ -81,6 +79,8 @@ public class Main extends JFrame {
 		NotificationUtil.init("Java Clicker "+VERSION, "Java Clicker "+VERSION, "textures/icon.png");
 		
 		setVisible(true);
+		
+		SaveHandler.load();
 	}
 
 	/**
