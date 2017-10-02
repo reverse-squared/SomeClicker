@@ -21,7 +21,7 @@ public class SaveHandler {
 	
 	public static void load() {
 		if(exists) {
-			//Read clicks.txt
+			//TODO: Read clicks.txt
 		}else {
 			save();
 		}
