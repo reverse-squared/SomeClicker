@@ -9,9 +9,6 @@ public class Blackhole1 extends ShopItem {
 		//TODO: Fix This
 		AutoHandler.reactorGen = 10000;
 		AutoHandler.reactorSuck = 10; // 6000 sucked
-		
-		//Init AutoClicker
-		AutoHandler.initAutoThread();
 	}
 
 	public int getPrice() {
