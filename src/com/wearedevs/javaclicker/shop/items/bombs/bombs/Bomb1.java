@@ -12,9 +12,6 @@ public class Bomb1 extends ShopItem {
 		
 		ShopHandler.unlock(new Bomb2());
 		ShopHandler.unlock(new Factory1());
-		
-		//Init AutoClicker
-		AutoHandler.initAutoThread();
 
 	}
 
