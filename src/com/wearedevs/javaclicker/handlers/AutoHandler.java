@@ -40,7 +40,7 @@ public class AutoHandler {
 			public void run() {
 				ticks++;
 				
-				if(ticks>=60) {
+				if(ticks >= 60) {
 					ticks = 0;
 					seconds++;
 					//just in case
@@ -54,7 +54,7 @@ public class AutoHandler {
 				}
 				
 				//AUTOCLICKER: Every Tick add
-				Main.click(autoClick/60);
+				Main.click(autoClick / 60);
 				
 				//BOMB: Every 10 Seconds
 				if(seconds % 10 == 0 && ticks == 0) {
