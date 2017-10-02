@@ -88,14 +88,23 @@ public class Main extends JFrame {
 		shopPanel.labelClicks.setText(Math.round(clicks)+" Clicks");
 	}
 	
+	/**
+	 * Uses Default Values | Calls The Other Click Method
+	 */
 	public static void click() {
 		click(perClick, SoundUnlocker.currentSound);
 	}
 	
-	public static void click(double ammount) {
-		click(ammount, null);
+	/**
+	 * Making {@code click(amount of clicks) work.}
+	 */
+	public static void click(double amount) {
+		click(amount, null);
 	}
 	
+	/**
+	 * Handles All the Clicking
+	 */
 	public static void click(double ammount, Sound sound) {
 		double click = ammount * multiplier;
 		

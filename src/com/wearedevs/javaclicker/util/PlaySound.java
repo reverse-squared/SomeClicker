@@ -10,6 +10,9 @@ import javax.sound.sampled.Clip;
  * Used For Playing Sounds
  */
 public class PlaySound {
+	/**
+	 * @param soundName The Path to the Sound Like {@code res/sound/clickSound/default.wav}
+	 */
 	public static void playSound(String soundName) {
 		try {
 			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
