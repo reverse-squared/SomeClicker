@@ -3,7 +3,6 @@ package com.wearedevs.javaclicker.shop.items.bombs.nukes;
 import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
-import com.wearedevs.javaclicker.shop.items.portal.Portal1;
 
 public class Nuke3 extends ShopItem {
 
