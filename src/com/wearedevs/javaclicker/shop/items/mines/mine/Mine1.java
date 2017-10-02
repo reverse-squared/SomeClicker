@@ -10,9 +10,6 @@ public class Mine1 extends ShopItem{
 		AutoHandler.mine = 2;
 		
 		ShopHandler.unlock(new Mine2());
-		
-		//Init AutoClicker
-		AutoHandler.initAutoThread();
 	}
 
 	public int getPrice() {

@@ -8,9 +8,6 @@ public class Reactor1 extends ShopItem {
 	public void onPurchase() {
 		AutoHandler.reactorGen = 20000;
 		AutoHandler.reactorSuck = 10; // 6000 sucked
-		
-		//Init AutoClicker
-		AutoHandler.initAutoThread();
 	}
 
 	public int getPrice() {
