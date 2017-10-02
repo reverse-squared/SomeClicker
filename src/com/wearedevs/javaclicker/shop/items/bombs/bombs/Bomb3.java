@@ -3,7 +3,7 @@ package com.wearedevs.javaclicker.shop.items.bombs.bombs;
 import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
-import com.wearedevs.javaclicker.shop.items.mines.Mine1;
+import com.wearedevs.javaclicker.shop.items.mines.mine.Mine1;
 
 public class Bomb3 extends ShopItem {
 
