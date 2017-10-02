@@ -6,7 +6,7 @@ import com.wearedevs.javaclicker.shop.ShopItem;
 public class Reactor1 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.reactorGen = 10000;
+		AutoHandler.reactorGen = 20000;
 		AutoHandler.reactorSuck = 10; // 6000 sucked
 		
 		AutoHandler.initAutoThread();
