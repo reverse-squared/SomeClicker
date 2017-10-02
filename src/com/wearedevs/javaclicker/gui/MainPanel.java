@@ -10,8 +10,11 @@ import javax.swing.JPanel;
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 
-@SuppressWarnings("serial")
+/**
+ * The Main Panel Showing the Main Stuff
+ */
 public class MainPanel extends JPanel {
+	private static final long serialVersionUID = 1L;
 	public JLabel labelClicks;
 	
 	public MainPanel() {

@@ -2,6 +2,9 @@ package com.wearedevs.javaclicker.cases;
 
 import com.wearedevs.javaclicker.Main;
 
+/**
+ * Handles When and What Case a User Should Get.
+ */
 public class GetCase {
 	private static boolean get100case = false;
 	private static boolean get500case = false;

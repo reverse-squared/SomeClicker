@@ -11,6 +11,9 @@ import javax.swing.SwingConstants;
 
 import com.wearedevs.javaclicker.Main;
 
+/**
+ * The Visual Panel for Showing Everything that Has to Do With Information About the Game.
+ */
 public class InfoPanel extends JPanel {
 	private static final long serialVersionUID = -1523225555156016420L;
 

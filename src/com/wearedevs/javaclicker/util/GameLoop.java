@@ -1,11 +1,9 @@
 package com.wearedevs.javaclicker.util;
 
 public class GameLoop {
-	/**
-	 * 
-	 */
 	public boolean running = true;
 	public Thread thread;
+	
 	/**
 	 * A Game Loop
 	 * set running to false to stop
@@ -13,23 +11,26 @@ public class GameLoop {
 	 * @param tps The Speed of calling tick.run()
 	 * @param tick A <code>Runnable</code> that is ran `tps` times a second
 	 * @param onCycle called every cycle
-	 */
-			
+	 */	
 	public GameLoop(int tps, Runnable tick, Runnable onCycle) {
 		thread = new Thread(new Runnable() {
 			public void run() {
 				running = true;
+				
 				long lastTime = System.nanoTime();
 				double ns = 1000000000 / tps;
 				double delta = 0;
+				
 				while(running) {
 					long now = System.nanoTime();
 					delta += (now - lastTime) / ns;
 					lastTime = now;
+					
 					while (delta >= 1) {
 						tick.run();
 						delta--;
 					}
+					
 					onCycle.run();
 				}
 				try {
@@ -40,8 +41,10 @@ public class GameLoop {
 				}
 			}
 		});
+		
 		thread.start();
 	}
+	
 	/**
 	 * A Game Loop
 	 * set running to false to stop

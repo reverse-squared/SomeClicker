@@ -12,8 +12,11 @@ import javax.swing.SwingConstants;
 
 import com.wearedevs.javaclicker.Main;
 
-@SuppressWarnings("serial")
+/**
+ * The Panel for The User to Buy Upgrades to Progress in the Game.
+ */
 public class ShopPanel extends JPanel {
+	private static final long serialVersionUID = 1L;
 	public JPanel shopPanel;
 	public JLabel labelClicks;
 

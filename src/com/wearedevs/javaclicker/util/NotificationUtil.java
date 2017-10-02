@@ -3,6 +3,9 @@ package com.wearedevs.javaclicker.util;
 import java.awt.*;
 import java.awt.TrayIcon.MessageType;
 
+/**
+ * Used For Playing Desktop Notifications to Notify The User About aNew Event, Such as Getting a New Case.
+ */
 public class NotificationUtil {
 	public static TrayIcon trayIcon;
 	public static void init(String name, String tooltip, String iconPath) {
