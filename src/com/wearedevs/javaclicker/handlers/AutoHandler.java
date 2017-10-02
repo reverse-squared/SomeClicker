@@ -20,7 +20,7 @@ public class AutoHandler {
 	public static int portal = 0;
 	public static int reactorGen;
 	public static int reactorSuck;
-	public static int reactorSucked;
+	public static double reactorSucked;
 	public static boolean reactorOn = true;
 	
 	public static boolean autoClickStarted = false;
@@ -74,8 +74,9 @@ public class AutoHandler {
 				//REACTOR CODE
 				if(reactorOn) {
 					double before = Main.clicks;
-					Main.clicks=Math.max(0, Main.clicks-reactorSuck);
+					Main.clicks=Math.max(0d, Main.clicks-(double)reactorSuck/60d);
 					reactorSucked += before - Main.clicks;
+					System.out.println(reactorSucked);
 					if(reactorSucked>reactorSuck*60) {
 						reactorSucked = 0;
 						Main.clicks += reactorGen + reactorSuck * 60;
