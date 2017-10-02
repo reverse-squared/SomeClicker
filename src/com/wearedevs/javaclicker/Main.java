@@ -15,6 +15,7 @@ import com.wearedevs.javaclicker.gui.InfoPanel;
 import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.OptionsPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
+import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundHandler;
 import com.wearedevs.javaclicker.sound.Sound;
@@ -57,16 +58,9 @@ public class Main extends JFrame {
 	}
 
 	public Main() {
-		SoundHandler.unlock(new Sound("Default", "default.wav"));
+		SaveHandler.load();
 		
-		File file = new File("clicks.txt");
-		try{
-		    PrintWriter writer = new PrintWriter(file);
-		    writer.println(clicks);
-		    writer.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}		
+		SoundHandler.unlock(new Sound("Default", "default.wav"));		
 		
 		//Init Shop
 		ShopHandler.initializeShop();
@@ -119,7 +113,8 @@ public class Main extends JFrame {
 		if(sound!=null)
 			SoundUtil.playSound("res/sound/clickSound/" + sound.fname);
 	
-		GetCase.checkCases();		
+		SaveHandler.save();
+		GetCase.checkCases();	
 		updateCounter();
 	}
 
