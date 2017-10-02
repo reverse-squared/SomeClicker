@@ -10,9 +10,6 @@ public class Factory1 extends ShopItem {
 		AutoHandler.factory = 10;
 		
 		ShopHandler.unlock(new Factory2());
-		
-		//Init Factory Thread
-		AutoHandler.initAutoThread();
 	}
 
 	public int getPrice() {
