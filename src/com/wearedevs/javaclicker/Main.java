@@ -13,15 +13,17 @@ import com.wearedevs.javaclicker.gui.OptionsPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
 import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
-import com.wearedevs.javaclicker.handlers.SoundHandler;
+import com.wearedevs.javaclicker.handlers.SoundUnlocker;
 import com.wearedevs.javaclicker.sound.Sound;
 import com.wearedevs.javaclicker.util.NotificationUtil;
 import com.wearedevs.javaclicker.util.RandomUtil;
-import com.wearedevs.javaclicker.util.SoundUtil;
+import com.wearedevs.javaclicker.util.PlaySound;
 
-@SuppressWarnings("serial")
+/**
+ * Main, Where Everything Starts
+ */
 public class Main extends JFrame {
-
+	private static final long serialVersionUID = 1L;
 	public static double clicks = 0;
 	public static int perClick = 1;
 	public static double multiplier = 1.0;
@@ -56,7 +58,7 @@ public class Main extends JFrame {
 	public Main() {
 		SaveHandler.load();
 		
-		SoundHandler.unlock(new Sound("Default", "default.wav"));		
+		SoundUnlocker.unlock(new Sound("Default", "default.wav"));		
 		
 		//Init Shop
 		ShopHandler.initializeShop();
@@ -87,7 +89,7 @@ public class Main extends JFrame {
 	}
 	
 	public static void click() {
-		click(perClick, SoundHandler.currentSound);
+		click(perClick, SoundUnlocker.currentSound);
 	}
 	
 	public static void click(double ammount) {
@@ -107,7 +109,7 @@ public class Main extends JFrame {
 		
 		Main.clicks += click * multiplier;
 		if(sound!=null)
-			SoundUtil.playSound("res/sound/clickSound/" + sound.fname);
+			PlaySound.playSound("res/sound/clickSound/" + sound.fname);
 	
 		SaveHandler.save();
 		GetCase.checkCases();	

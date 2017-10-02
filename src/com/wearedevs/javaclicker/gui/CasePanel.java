@@ -11,6 +11,9 @@ import javax.swing.SwingConstants;
 
 import com.wearedevs.javaclicker.Main;
 
+/**
+ * The Visual Panel for Showing Everything that Has to Do With Cases.
+ */
 public class CasePanel extends JPanel {
 	private static final long serialVersionUID = -2856455613720020251L;
 

@@ -11,12 +11,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.wearedevs.javaclicker.Main;
-import com.wearedevs.javaclicker.handlers.SoundHandler;
+import com.wearedevs.javaclicker.handlers.SoundUnlocker;
 import com.wearedevs.javaclicker.sound.Sound;
 
-@SuppressWarnings("serial")
+/**
+ * The Panel for Changing Options Like Click Sounds and Backgrounds 
+ */
 public class OptionsPanel extends JPanel {
-	
+	private static final long serialVersionUID = 1L;
 	public static JComboBox<Sound> clickSound;
 	
 	public OptionsPanel() {
@@ -44,7 +46,7 @@ public class OptionsPanel extends JPanel {
 		clickSound.setBounds(224, 17, 97, 22);
 		clickSound.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				SoundHandler.currentSound = (Sound) clickSound.getSelectedItem();
+				SoundUnlocker.currentSound = (Sound) clickSound.getSelectedItem();
 				
 			}
 		});
@@ -54,6 +56,6 @@ public class OptionsPanel extends JPanel {
 	}
 
 	public static void refreshSoundChoice() {
-		clickSound.setModel(new DefaultComboBoxModel<Sound>(SoundHandler.clickSounds.toArray(new Sound[] {})));
+		clickSound.setModel(new DefaultComboBoxModel<Sound>(SoundUnlocker.clickSounds.toArray(new Sound[] {})));
 	}
 }

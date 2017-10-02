@@ -2,7 +2,7 @@ package com.wearedevs.javaclicker.cases.cases;
 
 import com.wearedevs.javaclicker.cases.Case;
 import com.wearedevs.javaclicker.cases.CaseOutcome;
-import com.wearedevs.javaclicker.handlers.SoundHandler;
+import com.wearedevs.javaclicker.handlers.SoundUnlocker;
 import com.wearedevs.javaclicker.sound.Sound;
 import com.wearedevs.javaclicker.util.WeightedCollection;
 
@@ -14,7 +14,7 @@ public class SoundCase extends Case {
 		//Bomb
 		out.add(60, new CaseOutcome() {
 			public void onOutcome() {
-				SoundHandler.unlock(new Sound("Bomb", "bomb.wav"));
+				SoundUnlocker.unlock(new Sound("Bomb", "bomb.wav"));
 			}
 			public String getName() {
 				return "Bomb Click Sound";

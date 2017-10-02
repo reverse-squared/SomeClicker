@@ -3,6 +3,10 @@ package com.wearedevs.javaclicker.util;
 import java.util.NavigableMap;
 import java.util.Random;
 import java.util.TreeMap;
+
+/**
+ * Probability Stuff
+ */
 public class WeightedCollection<E> {
     
     private NavigableMap<Integer, E> map = new TreeMap<Integer, E>();

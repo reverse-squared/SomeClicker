@@ -4,7 +4,7 @@ import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.util.GameLoop;
 
 /**
- * Handler for auto clicking related things
+ * Handler for auto clicking related things.
  * 
  * @author ImDaveead
  */
