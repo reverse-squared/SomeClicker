@@ -14,7 +14,6 @@ import com.wearedevs.javaclicker.gui.OptionsPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundHandler;
-import com.wearedevs.javaclicker.shop.items.reactor.Reactor1;
 import com.wearedevs.javaclicker.sound.Sound;
 import com.wearedevs.javaclicker.util.NotificationUtil;
 import com.wearedevs.javaclicker.util.RandomUtil;
