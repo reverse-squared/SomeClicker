@@ -1,14 +1,11 @@
 package com.wearedevs.javaclicker.handlers;
 
-import java.awt.List;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-
 import com.wearedevs.javaclicker.Main;
 
 /**
@@ -16,7 +13,6 @@ import com.wearedevs.javaclicker.Main;
  *
  */
 public class SaveHandler {
-	static ArrayList<Integer> list = new ArrayList<Integer>();
 	
 	static File file = new File("clicks.txt");
 	static boolean exists = file.exists();
@@ -46,17 +42,19 @@ public class SaveHandler {
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
 				}
-			    String text = null;
+			    
+			    String savedClicks = null;
 
 			    try {
-					while ((text = reader.readLine()) != null) {
-					    list.add(Integer.parseInt(text));
+					while ((savedClicks = reader.readLine()) != null) {					    
+					    double loadedClicks = Double.parseDouble(savedClicks);
+					    Main.clicks = loadedClicks;
+					    Main.updateCounter();
 					}
 				} catch (NumberFormatException | IOException e) {
 					e.printStackTrace();
 				}
 			    
-				Main.clicks = text;
 			}finally {
 				
 			}
