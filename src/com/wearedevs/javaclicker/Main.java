@@ -2,6 +2,9 @@ package com.wearedevs.javaclicker;
 
 import java.awt.EventQueue;
 import java.awt.Rectangle;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
@@ -55,6 +58,15 @@ public class Main extends JFrame {
 
 	public Main() {
 		SoundHandler.unlock(new Sound("Default", "default.wav"));
+		
+		File file = new File("clicks.txt");
+		try{
+		    PrintWriter writer = new PrintWriter(file);
+		    writer.println(clicks);
+		    writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
 		
 		//Init Shop
 		ShopHandler.initializeShop();
