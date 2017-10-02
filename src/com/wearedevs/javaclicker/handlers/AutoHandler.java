@@ -77,9 +77,9 @@ public class AutoHandler {
 					Main.clicks=Math.max(0d, Main.clicks-(double)reactorSuck/60d);
 					reactorSucked += before - Main.clicks;
 					System.out.println(reactorSucked);
-					if(reactorSucked>reactorSuck*60) {
+					if(reactorSucked>reactorSuck*15) {
 						reactorSucked = 0;
-						Main.clicks += reactorGen + reactorSuck * 60;
+						Main.clicks += reactorGen + reactorSuck * 15;
 					}
 				}
 				
