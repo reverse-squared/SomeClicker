@@ -3,7 +3,7 @@ package com.wearedevs.javaclicker.shop.items.reactor.blackhole.universedestoryer
 import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
-public class UniverseDestroyerHole2 extends ShopItem {
+public class UniverseDestroyerBlackhole2 extends ShopItem {
 
 	public void onPurchase() {
 		//TODO: Fix This
@@ -20,7 +20,7 @@ public class UniverseDestroyerHole2 extends ShopItem {
 	}
 
 	public String getName() {
-		return "Blackhole: Tier 1";
+		return "Universe Destoryer Blackhole: Tier 2";
 	}
 
 }
