@@ -1,6 +1,7 @@
 package com.wearedevs.javaclicker.handlers;
 
 import com.wearedevs.javaclicker.Main;
+import com.wearedevs.javaclicker.cases.GetCase;
 import com.wearedevs.javaclicker.util.GameLoop;
 
 /**
@@ -33,7 +34,7 @@ public class AutoHandler {
 		
 		autoClickStarted = true;
 		
-		game_loop = new GameLoop(60,new Runnable() {
+		game_loop = new GameLoop(60, new Runnable() {
 
 			public void run() {
 				ticks++;
@@ -82,6 +83,8 @@ public class AutoHandler {
 				}
 				
 				Main.updateCounter();
+				SaveHandler.save();
+				GetCase.checkCases();
 			}
 		});
 	}
