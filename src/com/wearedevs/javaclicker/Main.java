@@ -83,6 +83,9 @@ public class Main extends JFrame {
 		setVisible(true);
 	}
 
+	/**
+	 * Updates the Counter
+	 */
 	public static void updateCounter() {
 		mainPanel.labelClicks.setText("Clicks: " + Math.round(clicks));
 		shopPanel.labelClicks.setText(Math.round(clicks)+" Clicks");
