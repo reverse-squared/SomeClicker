@@ -5,10 +5,13 @@ import com.wearedevs.javaclicker.util.WeightedCollection;
 public abstract class Case {
 	
 	/**
-	 * When the case is open
-	 * @return ArrayList of all things
+	 * When The Case is Open
+	 * @return ArrayList of All Things
 	 */
 	public abstract WeightedCollection<CaseOutcome> getAllOutcomes();
 	
+	/**
+	 * @return The Name of the Case
+	 */
 	public abstract String getName();
 }
