@@ -121,11 +121,7 @@ public class Main extends JFrame {
 		
 		Main.clicks += click * multiplier;
 		if(sound!=null)
-			PlaySound.playSound("res/sound/clickSound/" + sound.fname);
-	
-		SaveHandler.save();
-		GetCase.checkCases();	
-		updateCounter();
+			PlaySound.playSound("res/sound/clickSound/" + sound.fname);	
 	}
 
 }
