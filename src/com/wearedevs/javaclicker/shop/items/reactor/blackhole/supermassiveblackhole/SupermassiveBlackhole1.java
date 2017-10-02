@@ -1,12 +1,13 @@
-package com.wearedevs.javaclicker.shop.items.reactor.reactor;
+package com.wearedevs.javaclicker.shop.items.reactor.blackhole.supermassiveblackhole;
 
 import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
-public class Reactor1 extends ShopItem {
+public class SupermassiveBlackhole1 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.reactorGen = 20000;
+		//TODO: Fix This
+		AutoHandler.reactorGen = 10000;
 		AutoHandler.reactorSuck = 10; // 6000 sucked
 		
 		//Init AutoClicker
@@ -14,11 +15,12 @@ public class Reactor1 extends ShopItem {
 	}
 
 	public int getPrice() {
+		//TODO: Fix Prices
 		return 100000;
 	}
 
 	public String getName() {
-		return "Reactor: Tier 1";
+		return "Blackhole: Tier 1";
 	}
 
 }
