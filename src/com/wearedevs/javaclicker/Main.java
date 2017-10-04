@@ -55,7 +55,7 @@ public class Main extends JFrame {
 		});
 	}
 
-	public Main() {		
+	public Main() {	
 		SoundUnlocker.unlock(new Sound("Default", "default.wav"));		
 		
 		//Init Shop
@@ -81,6 +81,12 @@ public class Main extends JFrame {
 		setVisible(true);
 		
 		SaveHandler.load();
+		
+		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+			public void run() {
+				SaveHandler.save();
+			}
+		}));
 	}
 
 	/**
