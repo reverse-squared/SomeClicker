@@ -8,17 +8,32 @@ import com.wearedevs.javaclicker.util.WeightedCollection;
 
 public class CaseHandler {
 	public static ArrayList<Case> caseList = new ArrayList<Case>();
+	public static int caseSpd;
+	/**
+	 * extra c because {@code case} keyword
+	 */
+	public static Case ccase;
+	public static WeightedCollection<CaseOutcome> caseOutcomes;
 	
 	public static void openCase(Case c) {
-		WeightedCollection<CaseOutcome> out = c.getAllOutcomes();
-		caseList.add(new String("lol"));
-		System.out.println(cases);
+		ccase = c;
+		caseOutcomes = c.getAllOutcomes();
+		caseSpd = 300;
 		
-		//Chose the random
-		CaseOutcome chosen = out.next();
-		chosen.onOutcome();
-		
-		chosen.getClass();
+	}
+	/**
+	 * Used By {@code AutoHandler}
+	 */
+	public static void tickCase(Case caseOpening) {
+		caseSpd--;
+
+		if (caseSpd <= 0) {
+			//Open the case
+			
+			
+			ccase = null;
+			return;
+		}
 		
 	}
 }
