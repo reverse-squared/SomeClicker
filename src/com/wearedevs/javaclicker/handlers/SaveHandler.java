@@ -14,7 +14,7 @@ import com.wearedevs.javaclicker.Main;
  */
 public class SaveHandler {
 	
-	static File clicksFile = new File("res/save/clicks.txt");
+	static File clicksFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/clicks.txt");
 	static boolean exists = clicksFile.exists();
 	static BufferedReader reader = null;
 	
