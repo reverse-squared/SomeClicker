@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import com.wearedevs.javaclicker.Main;
-import com.wearedevs.javaclicker.util.RandomUtil;
 
 /**
  * Handles All The Saving and Loading Stuff

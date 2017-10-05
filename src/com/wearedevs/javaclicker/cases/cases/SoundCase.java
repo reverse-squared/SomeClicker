@@ -16,6 +16,7 @@ public class SoundCase extends Case {
 			public void onOutcome() {
 				SoundUnlocker.unlock(new Sound("Bomb", "bomb.wav"));
 			}
+			
 			public String getName() {
 				return "Bomb Click Sound";
 			}
@@ -24,8 +25,9 @@ public class SoundCase extends Case {
 		//Rainbow
 		out.add(30, new CaseOutcome() {
 			public void onOutcome() {
-				//If it gets chosen
+				SoundUnlocker.unlock(new Sound("Airhorn", "rainbow.wav"));
 			}
+			
 			public String getName() {
 				return "Rainbow Click Sound";
 			}
@@ -34,8 +36,9 @@ public class SoundCase extends Case {
 		//Airhorn
 		out.add(10, new CaseOutcome() {
 			public void onOutcome() {
-				//If it gets chosen
+				SoundUnlocker.unlock(new Sound("Airhorn", "airhorn.wav"));
 			}
+			
 			public String getName() {
 				return "Airhorn Click Sound";
 			}
@@ -44,8 +47,9 @@ public class SoundCase extends Case {
 		//Fart
 		out.add(20, new CaseOutcome() {
 			public void onOutcome() {
-				//If it gets chosen
+				SoundUnlocker.unlock(new Sound("Fart", "fart.wav"));
 			}
+			
 			public String getName() {
 				return "Fart Click Sound";
 			}
