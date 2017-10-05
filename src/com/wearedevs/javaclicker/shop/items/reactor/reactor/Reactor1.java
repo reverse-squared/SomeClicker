@@ -1,5 +1,6 @@
 package com.wearedevs.javaclicker.shop.items.reactor.reactor;
 
+import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
