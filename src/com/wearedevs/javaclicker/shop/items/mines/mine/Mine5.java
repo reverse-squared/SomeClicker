@@ -9,7 +9,7 @@ public class Mine5 extends ShopItem{
 	public void onPurchase() {
 		AutoHandler.mine = 16;
 		
-		ShopHandler.unlock(new Mine5());
+		ShopHandler.unlock(new Mine6());
 	}
 
 	public int getPrice() {
