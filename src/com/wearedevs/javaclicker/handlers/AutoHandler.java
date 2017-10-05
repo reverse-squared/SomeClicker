@@ -85,7 +85,7 @@ public class AutoHandler {
 					}
 				}
 				
-				if(caseOpening!=null) {
+				if(caseOpening != null) {
 					CaseHandler.tickCase(caseOpening);
 				}
 				
