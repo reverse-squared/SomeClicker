@@ -25,7 +25,7 @@ public class SaveHandler {
 	public static void save() {		
 		try{
 		    PrintWriter writer = new PrintWriter(file);
-		    writer.println(RandomUtil.randomRange(1, 1000) + Main.clicks + RandomUtil.randomRange(1, 1000));
+		    writer.println(Main.clicks);
 		    writer.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
