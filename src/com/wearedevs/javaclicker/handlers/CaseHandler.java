@@ -22,6 +22,7 @@ public class CaseHandler {
 		caseSpd = 300;
 		
 	}
+	
 	/**
 	 * Used By {@code AutoHandler}
 	 */
@@ -30,7 +31,6 @@ public class CaseHandler {
 
 		if (caseSpd <= 0) {
 			//Open the case
-			
 			
 			ccase = null;
 			return;
