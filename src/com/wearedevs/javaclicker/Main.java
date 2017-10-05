@@ -2,10 +2,12 @@ package com.wearedevs.javaclicker;
 
 import java.awt.EventQueue;
 import java.awt.Rectangle;
+
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
 import com.wearedevs.javaclicker.gui.CasePanel;
+import com.wearedevs.javaclicker.gui.CheaterPanel;
 import com.wearedevs.javaclicker.gui.InfoPanel;
 import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.OptionsPanel;
@@ -15,8 +17,8 @@ import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
 import com.wearedevs.javaclicker.sound.Sound;
 import com.wearedevs.javaclicker.util.NotificationUtil;
-import com.wearedevs.javaclicker.util.RandomUtil;
 import com.wearedevs.javaclicker.util.PlaySound;
+import com.wearedevs.javaclicker.util.RandomUtil;
 
 /**
  * Main, Where Everything Starts
@@ -34,6 +36,7 @@ public class Main extends JFrame {
 	public static OptionsPanel optionsPanel;
 	public static CasePanel casePanel;
 	public static InfoPanel infoPanel;
+	public static CheaterPanel cheaterPanel	;
 	
 	public static final String VERSION = "DEV 0.246";
 	
@@ -66,6 +69,7 @@ public class Main extends JFrame {
 		optionsPanel = new OptionsPanel();
 		casePanel = new CasePanel();
 		infoPanel = new InfoPanel();
+		cheaterPanel = new CheaterPanel();
 		
 		//Frame Properties
 		setResizable(false);
