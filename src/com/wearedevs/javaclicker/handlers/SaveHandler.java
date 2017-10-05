@@ -15,6 +15,7 @@ import com.wearedevs.javaclicker.Main;
 public class SaveHandler {
 	
 	static File clicksFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/clicks.txt");
+	static File clicksPath = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/");
 	static boolean exists = clicksFile.exists();
 	static BufferedReader reader = null;
 	
@@ -23,6 +24,8 @@ public class SaveHandler {
 	 */
 	public static void saveClicks() {		
 		try{
+			clicksPath.mkdirs();
+			
 		    PrintWriter writer = new PrintWriter(clicksFile);
 		    writer.println(Main.clicks);
 		    writer.close();
