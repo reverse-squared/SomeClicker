@@ -6,11 +6,8 @@ import java.awt.Rectangle;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-<<<<<<< HEAD
 import com.wearedevs.javaclicker.cases.cases.ClickCase;
 import com.wearedevs.javaclicker.gui.CaseOpenPanel;
-=======
->>>>>>> 595d3ef02812054c777cb9959bb7766829c9dd02
 import com.wearedevs.javaclicker.gui.CasePanel;
 import com.wearedevs.javaclicker.gui.CheaterPanel;
 import com.wearedevs.javaclicker.gui.InfoPanel;
@@ -58,6 +55,7 @@ public class Main extends JFrame {
 			public void run() {
 				try {
 					main = new Main();
+					CaseHandler.openCase(new ClickCase());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -100,8 +98,6 @@ public class Main extends JFrame {
 		}));
 		
 		AutoHandler.initAutoThread();
-		
-		CaseHandler.openCase(new ClickCase());
 		
 	}
 
