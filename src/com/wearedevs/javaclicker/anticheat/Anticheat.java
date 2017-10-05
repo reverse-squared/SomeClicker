@@ -11,32 +11,6 @@ public class Anticheat {
 	
 	public static void checkCheats() {
 		
-		if(run) {
-			run = false;
-			
-			prevTime = time;
-			
-			if(prevTime == time) {
-				suspic++;
-				
-				if(suspic >= 10) {
-					cheater();
-				}
-			}
-			
-		}else {
-			run = true;
-			
-			addTime();
-		}
-	}
-	
-	public static void addTime() {
-		while(run) {
-			time += 0.0001;
-			
-			System.out.println(time);
-		}
 	}
 	
 	public static void cheater() {

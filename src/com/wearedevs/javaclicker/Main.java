@@ -135,7 +135,6 @@ public class Main extends JFrame {
 		
 		Main.clicks += click * multiplier;
 		updateCounter();
-		Anticheat.checkCheats();
 	}
 
 }
