@@ -2,8 +2,10 @@ package com.wearedevs.javaclicker.handlers;
 
 import java.util.ArrayList;
 
+import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.Case;
 import com.wearedevs.javaclicker.cases.CaseOutcome;
+import com.wearedevs.javaclicker.gui.CaseOpenPanel;
 import com.wearedevs.javaclicker.util.WeightedCollection;
 
 public class CaseHandler {
@@ -21,6 +23,8 @@ public class CaseHandler {
 		caseOutcomes = c.getAllOutcomes();
 		caseSpd = 300;
 		
+		Main.caseOpenPanel = new CaseOpenPanel(c);
+		Main.main.setContentPane(Main.caseOpenPanel);
 	}
 	
 	/**
