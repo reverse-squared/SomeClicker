@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.TreeMap;
 
 /**
- * Probability Stuff
+ * Probability Stuff.
  */
 public class WeightedCollection<E> {
     
