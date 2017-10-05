@@ -1,5 +1,6 @@
 package com.wearedevs.javaclicker.cases.cases;
 
+import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.Case;
 import com.wearedevs.javaclicker.cases.CaseOutcome;
 import com.wearedevs.javaclicker.util.WeightedCollection;
@@ -12,8 +13,9 @@ public class ClickCase extends Case {
 		//500 Clicks
 		out.add(60, new CaseOutcome() {
 			public void onOutcome() {
-				//If it gets chosen
+				Main.clicks += 500;
 			}
+			
 			public String getName() {
 				return "500 Clicks";
 			}
@@ -22,8 +24,9 @@ public class ClickCase extends Case {
 		//1000 Clicks
 		out.add(30, new CaseOutcome() {
 			public void onOutcome() {
-				//If it gets chosen
+				Main.clicks += 1000;
 			}
+			
 			public String getName() {
 				return "1000 Clicks";
 			}
@@ -32,7 +35,7 @@ public class ClickCase extends Case {
 		//5000 Clicks
 		out.add(10, new CaseOutcome() {
 			public void onOutcome() {
-				//If it gets chosen
+				Main.clicks += 5000;
 			}
 			public String getName() {
 				return "5000 Clicks";
