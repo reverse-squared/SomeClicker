@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import com.wearedevs.javaclicker.Main;
+import com.wearedevs.javaclicker.util.RandomUtil;
 
 /**
  * Handles All The Saving and Loading Stuff
@@ -24,7 +25,7 @@ public class SaveHandler {
 	public static void save() {		
 		try{
 		    PrintWriter writer = new PrintWriter(file);
-		    writer.println(Main.clicks);
+		    writer.println(RandomUtil.randomRange(1, 1000) + Main.clicks + RandomUtil.randomRange(1, 1000));
 		    writer.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
