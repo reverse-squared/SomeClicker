@@ -9,6 +9,7 @@ import com.wearedevs.javaclicker.util.WeightedCollection;
 public class CaseHandler {
 	public static ArrayList<Case> caseList = new ArrayList<Case>();
 	public static int caseSpd;
+	
 	/**
 	 * extra c because {@code case} keyword
 	 */
