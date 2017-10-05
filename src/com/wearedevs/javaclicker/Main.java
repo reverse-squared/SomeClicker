@@ -6,7 +6,6 @@ import java.awt.Rectangle;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-import com.wearedevs.javaclicker.anticheat.Anticheat;
 import com.wearedevs.javaclicker.gui.CasePanel;
 import com.wearedevs.javaclicker.gui.CheaterPanel;
 import com.wearedevs.javaclicker.gui.InfoPanel;
