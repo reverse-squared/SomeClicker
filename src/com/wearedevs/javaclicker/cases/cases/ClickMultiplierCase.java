@@ -1,5 +1,6 @@
 package com.wearedevs.javaclicker.cases.cases;
 
+import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.Case;
 import com.wearedevs.javaclicker.cases.CaseOutcome;
 import com.wearedevs.javaclicker.util.WeightedCollection;
@@ -12,8 +13,9 @@ public class ClickMultiplierCase extends Case {
 		//Double Clicks
 		out.add(94, new CaseOutcome() {
 			public void onOutcome() {
-				//If it gets chosen
+				Main.multiplier = 2;
 			}
+			
 			public String getName() {
 				return "Permanent Double Clicks";
 			}
@@ -22,8 +24,9 @@ public class ClickMultiplierCase extends Case {
 		//Triple Clicks
 		out.add(5, new CaseOutcome() {
 			public void onOutcome() {
-				//If it gets chosen
+				Main.multiplier = 3;
 			}
+			
 			public String getName() {
 				return "Permanent Triple Clicks";
 			}
@@ -32,8 +35,9 @@ public class ClickMultiplierCase extends Case {
 		//Quadruple Clicks
 		out.add(1, new CaseOutcome() {
 			public void onOutcome() {
-				//If it gets chosen
+				Main.multiplier = 4;
 			}
+			
 			public String getName() {
 				return "Permanent Quadruple Clicks";
 			}

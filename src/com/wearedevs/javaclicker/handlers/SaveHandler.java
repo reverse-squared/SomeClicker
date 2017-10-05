@@ -14,16 +14,16 @@ import com.wearedevs.javaclicker.Main;
  */
 public class SaveHandler {
 	
-	static File file = new File("clicks.txt");
-	static boolean exists = file.exists();
+	static File clicksFile = new File("res/save/clicks.txt");
+	static boolean exists = clicksFile.exists();
 	static BufferedReader reader = null;
 	
 	/**
-	 * Saves The Game
+	 * Saves The Clicks
 	 */
-	public static void save() {		
+	public static void saveClicks() {		
 		try{
-		    PrintWriter writer = new PrintWriter(file);
+		    PrintWriter writer = new PrintWriter(clicksFile);
 		    writer.println(Main.clicks);
 		    writer.close();
 		} catch (FileNotFoundException e) {
@@ -32,13 +32,13 @@ public class SaveHandler {
 	}
 	
 	/**
-	 * Loads The Game
+	 * Loads The Clicks
 	 */
-	public static void load() {
+	public static void loadClicks() {
 		if(exists) {			
 			try {
 			    try {
-					reader = new BufferedReader(new FileReader(file));
+					reader = new BufferedReader(new FileReader(clicksFile));
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
 				}
@@ -59,7 +59,7 @@ public class SaveHandler {
 				
 			}
 		}else {
-			save();
+			saveClicks();
 		}
 	}
 }
