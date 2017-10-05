@@ -48,9 +48,10 @@ public class ShopHandler {
 						item.onPurchase();
 						PlaySound.playSound("res/sound/buy.wav");
 						items.remove(item);
+						
 						Main.updateCounter();
 						updateLayout();
-						SaveHandler.save();
+						SaveHandler.saveClicks();
 					}
 				}
 			});

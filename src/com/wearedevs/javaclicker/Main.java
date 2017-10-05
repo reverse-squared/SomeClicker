@@ -38,7 +38,7 @@ public class Main extends JFrame {
 	public static InfoPanel infoPanel;
 	public static CheaterPanel cheaterPanel	;
 	
-	public static final String VERSION = "DEV 0.246";
+	public static final String VERSION = "DEV 0.7 Pre";
 	
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
@@ -58,7 +58,7 @@ public class Main extends JFrame {
 	}
 
 	public Main() {	
-		SoundUnlocker.unlock(new Sound("Default", "default.wav"));		
+		SoundUnlocker.unlock(new Sound("Default", "default.wav"));
 		
 		//Init Shop
 		ShopHandler.initializeShop();
@@ -79,15 +79,15 @@ public class Main extends JFrame {
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
 		
-		NotificationUtil.init("Java Clicker "+VERSION, "Java Clicker "+VERSION, "textures/icon.png");
+		NotificationUtil.init("Java Clicker " + VERSION, "Java Clicker " + VERSION, "textures/icon.png");
 		
 		setVisible(true);
 		
-		SaveHandler.load();
+		SaveHandler.loadClicks();
 		
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 			public void run() {
-				SaveHandler.save();
+				SaveHandler.saveClicks();
 			}
 		}));
 	}
@@ -128,9 +128,12 @@ public class Main extends JFrame {
 			click *= 10;
 		}
 		
-		Main.clicks += click * multiplier;
-		if(sound!=null)
+		if(sound!=null) {
 			PlaySound.playSound("res/sound/clickSound/" + sound.fname);	
+		}
+		
+		Main.clicks += click * multiplier;
+		updateCounter();
 	}
 
 }
