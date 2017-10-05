@@ -6,13 +6,16 @@ import java.awt.Rectangle;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-import com.wearedevs.javaclicker.anticheat.Anticheat;
+import com.wearedevs.javaclicker.cases.cases.ClickCase;
+import com.wearedevs.javaclicker.gui.CaseOpenPanel;
 import com.wearedevs.javaclicker.gui.CasePanel;
 import com.wearedevs.javaclicker.gui.CheaterPanel;
 import com.wearedevs.javaclicker.gui.InfoPanel;
 import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.OptionsPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
+import com.wearedevs.javaclicker.handlers.AutoHandler;
+import com.wearedevs.javaclicker.handlers.CaseHandler;
 import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
@@ -37,7 +40,8 @@ public class Main extends JFrame {
 	public static OptionsPanel optionsPanel;
 	public static CasePanel casePanel;
 	public static InfoPanel infoPanel;
-	public static CheaterPanel cheaterPanel	;
+	public static CaseOpenPanel caseOpenPanel = null;
+	public static CheaterPanel cheaterPanel;
 	
 	public static final String VERSION = "DEV 0.7 Pre";
 	
@@ -91,6 +95,11 @@ public class Main extends JFrame {
 				SaveHandler.saveClicks();
 			}
 		}));
+		
+		AutoHandler.initAutoThread();
+		
+		CaseHandler.openCase(new ClickCase());
+		
 	}
 
 	/**
