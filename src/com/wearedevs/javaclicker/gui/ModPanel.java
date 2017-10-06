@@ -14,14 +14,14 @@ import com.wearedevs.javaclicker.Main;
 /**
  * The Visual Panel for Showing Everything that Has to Do With Information About the Game.
  */
-public class InfoPanel extends JPanel {
+public class ModPanel extends JPanel {
 	private static final long serialVersionUID = -1523225555156016420L;
 
-	public InfoPanel() {
+	public ModPanel() {
 		setLayout(null);
 		setBounds(Main.panelSize);
 		
-		JLabel labelTitle = new JLabel("Info");
+		JLabel labelTitle = new JLabel("Mods");
 		labelTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		labelTitle.setFont(new Font("Tahoma", Font.BOLD, 36));
 		labelTitle.setBounds(12, 13, 616, 67);
@@ -29,7 +29,7 @@ public class InfoPanel extends JPanel {
 		
 		JButton backBtn = new JButton("Go Back");
 		backBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {				
+			public void actionPerformed(ActionEvent e) {			
 				Main.main.setContentPane(Main.mainPanel);
 			}
 		});

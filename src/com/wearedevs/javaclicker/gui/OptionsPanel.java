@@ -28,9 +28,6 @@ public class OptionsPanel extends JPanel {
 		JButton backBtn = new JButton("Go Back");
 		backBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Main.updateCounter();
-				
 				Main.main.setContentPane(Main.mainPanel);
 			}
 		});

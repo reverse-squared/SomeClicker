@@ -34,10 +34,7 @@ public class CasePanel extends JPanel {
 		
 		JButton backBtn = new JButton("Go Back");
 		backBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				Main.updateCounter();
-				
+			public void actionPerformed(ActionEvent e) {				
 				Main.main.setContentPane(Main.mainPanel);
 			}
 		});
