@@ -3,7 +3,7 @@ package com.wearedevs.javaclicker.cases;
 import java.awt.TrayIcon.MessageType;
 
 import com.wearedevs.javaclicker.Main;
-import com.wearedevs.javaclicker.cases.cases.ClickCase;
+import com.wearedevs.javaclicker.cases.cases.*;
 import com.wearedevs.javaclicker.handlers.CaseHandler;
 import com.wearedevs.javaclicker.util.NotificationUtil;
 
@@ -33,7 +33,15 @@ public class GetCase {
 	}
 	
 	public static void giveClickCase() {
-			CaseHandler.unlock(new ClickCase());
+		CaseHandler.unlock(new ClickCase());
+	}
+	
+	public static void giveClickMultiplierCase() {
+		CaseHandler.unlock(new ClickMultiplierCase());
+	}
+	
+	public static void giveSoundCase() {
+		CaseHandler.unlock(new SoundCase());
 	}
 }
 
