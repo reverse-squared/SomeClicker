@@ -13,9 +13,6 @@ import javax.swing.SwingConstants;
 
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.Case;
-import com.wearedevs.javaclicker.cases.cases.ClickCase;
-import com.wearedevs.javaclicker.cases.cases.ClickMultiplierCase;
-import com.wearedevs.javaclicker.cases.cases.SoundCase;
 import com.wearedevs.javaclicker.handlers.CaseHandler;
 
 
@@ -61,6 +58,7 @@ public class CasePanel extends JPanel {
 		labelClicks.setBounds(282, 398, 346, 60);
 		add(labelClicks);
 	}
+	
 	public static void updateLayout() {
 		
 		Main.casePanel.casePanel.removeAll();
