@@ -98,14 +98,14 @@ public class MainPanel extends JPanel {
 		toggleReactor.setBounds(12, 170, 270, 40);
 		add(toggleReactor);
 		
-		JButton devButton = new JButton("Dev Button");
-		devButton.setFont(new Font("Tahoma", Font.BOLD, 17));
-		devButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				CaseHandler.openCase(new SoundCase());
-			}
-		});
-		devButton.setBounds(350, 170, 270, 40);
-		add(devButton);
+//		JButton devButton = new JButton("Dev Button");
+//		devButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+//		devButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				CaseHandler.openCase(new SoundCase());
+//			}
+//		});
+//		devButton.setBounds(350, 170, 270, 40);
+//		add(devButton);
 	}	
 }
