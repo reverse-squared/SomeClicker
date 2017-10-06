@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.wearedevs.javaclicker.Main;
+import com.wearedevs.javaclicker.cases.cases.ClickCase;
+import com.wearedevs.javaclicker.handlers.CaseHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 
 /**
@@ -91,5 +93,15 @@ public class MainPanel extends JPanel {
 		});
 		toggleReactor.setBounds(12, 170, 270, 40);
 		add(toggleReactor);
+		
+		JButton devButton = new JButton("Dev Button");
+		devButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+		devButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CaseHandler.openCase(new ClickCase());
+			}
+		});
+		devButton.setBounds(350, 170, 270, 40);
+		add(devButton);
 	}	
 }
