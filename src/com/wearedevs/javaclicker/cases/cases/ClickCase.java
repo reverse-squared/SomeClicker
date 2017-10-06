@@ -42,6 +42,7 @@ public class ClickCase extends Case {
 				return "1000 Clicks";
 			}
 		});
+		
 		//2000 Clicks
 		out.add(30, new CaseOutcome() {
 			public void onOutcome() {
@@ -50,6 +51,16 @@ public class ClickCase extends Case {
 			
 			public String getName() {
 				return "2000 Clicks";
+			}
+		});
+		
+		//4000 Clicks
+		out.add(10, new CaseOutcome() {
+			public void onOutcome() {
+				Main.clicks += 4000;
+			}
+			public String getName() {
+				return "4000 Clicks";
 			}
 		});
 		
@@ -62,6 +73,7 @@ public class ClickCase extends Case {
 				return "5000 Clicks";
 			}
 		});
+		
 		//6000 Clicks
 		out.add(10, new CaseOutcome() {
 			public void onOutcome() {
@@ -69,15 +81,6 @@ public class ClickCase extends Case {
 			}
 			public String getName() {
 				return "6000 Clicks";
-			}
-		});
-		//4000 Clicks
-		out.add(10, new CaseOutcome() {
-			public void onOutcome() {
-				Main.clicks += 4000;
-			}
-			public String getName() {
-				return "4000 Clicks";
 			}
 		});
 		
