@@ -9,9 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.wearedevs.javaclicker.Main;
-import com.wearedevs.javaclicker.cases.cases.SoundCase;
 import com.wearedevs.javaclicker.handlers.AutoHandler;
-import com.wearedevs.javaclicker.handlers.CaseHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 
 /**
