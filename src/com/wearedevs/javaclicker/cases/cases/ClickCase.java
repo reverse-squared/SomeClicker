@@ -11,7 +11,7 @@ public class ClickCase extends Case {
 		WeightedCollection<CaseOutcome> out = new WeightedCollection<CaseOutcome>();
 		
 		//500 Clicks
-		out.add(60, new CaseOutcome() {
+		out.add(75, new CaseOutcome() {
 			public void onOutcome() {
 				Main.clicks += 500;
 			}
@@ -22,7 +22,7 @@ public class ClickCase extends Case {
 		});
 		
 		//750 Clicks
-		out.add(60, new CaseOutcome() {
+		out.add(50, new CaseOutcome() {
 			public void onOutcome() {
 				Main.clicks += 750;
 			}
@@ -33,7 +33,7 @@ public class ClickCase extends Case {
 		});
 		
 		//1000 Clicks
-		out.add(30, new CaseOutcome() {
+		out.add(40, new CaseOutcome() {
 			public void onOutcome() {
 				Main.clicks += 1000;
 			}
@@ -42,6 +42,7 @@ public class ClickCase extends Case {
 				return "1000 Clicks";
 			}
 		});
+		
 		//2000 Clicks
 		out.add(30, new CaseOutcome() {
 			public void onOutcome() {
@@ -50,6 +51,16 @@ public class ClickCase extends Case {
 			
 			public String getName() {
 				return "2000 Clicks";
+			}
+		});
+		
+		//4000 Clicks
+		out.add(20, new CaseOutcome() {
+			public void onOutcome() {
+				Main.clicks += 4000;
+			}
+			public String getName() {
+				return "4000 Clicks";
 			}
 		});
 		
@@ -62,8 +73,9 @@ public class ClickCase extends Case {
 				return "5000 Clicks";
 			}
 		});
+		
 		//6000 Clicks
-		out.add(10, new CaseOutcome() {
+		out.add(5, new CaseOutcome() {
 			public void onOutcome() {
 				Main.clicks += 6000;
 			}
@@ -71,13 +83,15 @@ public class ClickCase extends Case {
 				return "6000 Clicks";
 			}
 		});
-		//4000 Clicks
-		out.add(10, new CaseOutcome() {
+
+		
+		//10000 Clicks
+		out.add(1, new CaseOutcome() {
 			public void onOutcome() {
-				Main.clicks += 4000;
+				Main.clicks += 10000;
 			}
 			public String getName() {
-				return "4000 Clicks";
+				return "10,000 Clicks";
 			}
 		});
 		

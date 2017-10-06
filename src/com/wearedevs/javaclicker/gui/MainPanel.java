@@ -9,6 +9,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.wearedevs.javaclicker.Main;
+import com.wearedevs.javaclicker.cases.cases.SoundCase;
+import com.wearedevs.javaclicker.handlers.AutoHandler;
+import com.wearedevs.javaclicker.handlers.CaseHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 
 /**
@@ -17,6 +20,7 @@ import com.wearedevs.javaclicker.handlers.ShopHandler;
 public class MainPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	public JLabel labelClicks;
+	public JButton toggleReactor;
 	
 	public MainPanel() {
 		setLayout(null);
@@ -41,7 +45,7 @@ public class MainPanel extends JPanel {
 		caseButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		caseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ShopHandler.updateLayout();
+				CasePanel.updateLayout();
 				Main.main.setContentPane(Main.casePanel);
 			}
 		});
@@ -83,13 +87,14 @@ public class MainPanel extends JPanel {
 		optionButton.setBounds(350, 398, 270, 40);
 		add(optionButton);
 		
-		JButton toggleReactor = new JButton("Toggle Reactor");
+		toggleReactor = new JButton("Toggle Reactor");
 		toggleReactor.setFont(new Font("Tahoma", Font.BOLD, 17));
 		toggleReactor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Do Stuff
+				AutoHandler.reactorOn = !AutoHandler.reactorOn;
 			}
 		});
+		toggleReactor.setVisible(false);
 		toggleReactor.setBounds(12, 170, 270, 40);
 		add(toggleReactor);
 		
@@ -97,7 +102,7 @@ public class MainPanel extends JPanel {
 		devButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		devButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Do Dev Test Stuff
+				CaseHandler.openCase(new SoundCase());
 			}
 		});
 		devButton.setBounds(350, 170, 270, 40);
