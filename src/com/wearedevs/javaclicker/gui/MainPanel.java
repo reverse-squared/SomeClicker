@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.wearedevs.javaclicker.Main;
+import com.wearedevs.javaclicker.cases.cases.ClickCase;
+import com.wearedevs.javaclicker.handlers.CaseHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 
 /**
@@ -97,7 +99,7 @@ public class MainPanel extends JPanel {
 		devButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		devButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Do Dev Test Stuff
+				CaseHandler.openCase(new ClickCase());
 			}
 		});
 		devButton.setBounds(350, 170, 270, 40);
