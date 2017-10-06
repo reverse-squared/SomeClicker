@@ -3,6 +3,7 @@ package com.wearedevs.javaclicker.gui;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -98,7 +99,8 @@ public class MainPanel extends JPanel {
 		devButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		devButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CaseHandler.openCase(new ClickCase());
+				//TODO: Make This Work
+//				CaseHandler.openCase(new ClickCase());
 			}
 		});
 		devButton.setBounds(350, 170, 270, 40);

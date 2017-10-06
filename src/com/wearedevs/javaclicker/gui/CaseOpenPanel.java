@@ -16,7 +16,7 @@ public class CaseOpenPanel extends JPanel {
 	
 	/**
 	 * Create the frame.
-	 * @param c 
+	 * @param c The Case Name
 	 */
 	public CaseOpenPanel(Case c) {
 		setLayout(null);
