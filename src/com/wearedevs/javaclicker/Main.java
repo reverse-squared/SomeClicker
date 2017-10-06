@@ -29,7 +29,7 @@ import com.wearedevs.javaclicker.util.RandomUtil;
  */
 public class Main extends JFrame {
 	private static final long serialVersionUID = 1L;
-	public static double clicks = 99;
+	public static double clicks = 0;
 	public static int perClick = 1;
 	public static double multiplier = 1.0;
 	
@@ -43,7 +43,7 @@ public class Main extends JFrame {
 	public static CaseOpenPanel caseOpenPanel = null;
 	public static CheaterPanel cheaterPanel;
 	
-	public static final String VERSION = "DEV 0.7 Pre";
+	public static final String VERSION = "DEV 0.8";
 	
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
