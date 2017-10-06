@@ -1,6 +1,5 @@
 package com.wearedevs.javaclicker.cases.cases;
 
-import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.Case;
 import com.wearedevs.javaclicker.cases.CaseOutcome;
 import com.wearedevs.javaclicker.util.WeightedCollection;

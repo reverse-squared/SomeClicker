@@ -2,7 +2,6 @@ package com.wearedevs.javaclicker.handlers;
 
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.anticheat.Anticheat;
-import com.wearedevs.javaclicker.cases.Case;
 import com.wearedevs.javaclicker.cases.GetCase;
 import com.wearedevs.javaclicker.util.GameLoop;
 
