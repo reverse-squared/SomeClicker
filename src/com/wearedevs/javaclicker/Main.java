@@ -55,7 +55,6 @@ public class Main extends JFrame {
 			public void run() {
 				try {
 					main = new Main();
-					CaseHandler.openCase(new ClickCase());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
