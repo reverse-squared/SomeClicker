@@ -45,13 +45,14 @@ public class CaseHandler {
 			CaseOutcome open = caseOutcomes.next();
 			if(caseDelay<=0) {
 				caseSpd++;
+				PlaySound.playSound("/sound/cases/tick.wav");
 				System.out.println(caseSpd);
 				if(caseSpd>25) {
 					//Stop
 					open.onOutcome();
 					ccase = null;
 					Main.caseOpenPanel.btnGoBack.setVisible(true);
-					PlaySound.playSound("/sound/buy.wav");
+					PlaySound.playSound("/sound/cases/buy.wav");
 				}
 			}
 			
