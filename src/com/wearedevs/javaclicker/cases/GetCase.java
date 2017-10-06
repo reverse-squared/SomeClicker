@@ -16,36 +16,24 @@ public class GetCase {
 	
 	public static void checkCases() {
 		if(Main.clicks >= 100) {
-			if(get100case) {
-				return;
-			}else {
+			if(!get100case) {
 				get100case = true;
+				giveClickCase();
 				NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
-				giveCases();
 			}
-			
 		}
 		
 		if(Main.clicks >= 500) {
-			if(get500case) {
-				return;
-			}else {
+			if(!get500case) {
 				get500case = true;
+				giveClickCase();
 				NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
-				giveCases();
 			}
-			
 		}
 	}
 	
-	public static void giveCases() {
-		if(!get100case) {
+	public static void giveClickCase() {
 			CaseHandler.unlock(new ClickCase());
-		}
-
-		if(!get500case) {
-			CaseHandler.unlock(new ClickCase());
-		}
 	}
 }
 
