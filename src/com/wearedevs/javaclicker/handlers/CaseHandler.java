@@ -50,6 +50,7 @@ public class CaseHandler {
 				if(caseSpd>25) {
 					//Stop
 					open.onOutcome();
+					CaseHandler.caseList.remove(ccase);
 					ccase = null;
 					Main.caseOpenPanel.btnGoBack.setVisible(true);
 					PlaySound.playSound("/sound/cases/buy.wav");

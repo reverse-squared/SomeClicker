@@ -75,7 +75,6 @@ public class CasePanel extends JPanel {
 			button.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					CaseHandler.openCase(c);
-					CaseHandler.caseList.remove(c);
 				}
 			});
 			
