@@ -55,7 +55,7 @@ public class ShopHandler {
 					}
 				}
 			});
-			
+
 			Main.shopPanel.shopPanel.add(button);
 		}
 		
