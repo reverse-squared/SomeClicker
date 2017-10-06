@@ -1,7 +1,17 @@
 package com.wearedevs.javaclicker.util;
 
-import java.awt.*;
+import java.awt.AWTException;
+import java.awt.Image;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
+import java.awt.SystemTray;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
 import java.awt.TrayIcon.MessageType;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import com.wearedevs.javaclicker.Main;
 
 /**
  * Used For Playing Desktop Notifications to Notify The User About a New Event, Such as Getting a New Case.
@@ -26,9 +36,30 @@ public class NotificationUtil {
         //Set tooltip text for the tray icon
         trayIcon.setToolTip(tooltip);
         
+        trayIcon.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		Main.bringToFront();
+    		}
+		});
+        
+        MenuItem openItem = new MenuItem("Open");
+        popup.add(openItem);
+        trayIcon.setPopupMenu(popup);
+        openItem.addActionListener(new ActionListener() {
+		   public void actionPerformed(ActionEvent e) {
+			   Main.openWindow();
+		   }
+		});
+        
         MenuItem exitItem = new MenuItem("Exit");
         popup.add(exitItem);
         trayIcon.setPopupMenu(popup);
+        exitItem.addActionListener(new ActionListener() {
+		   public void actionPerformed(ActionEvent e) {
+			   System.exit(0);
+		   }
+		});
         
         try {
 			tray.add(trayIcon);
