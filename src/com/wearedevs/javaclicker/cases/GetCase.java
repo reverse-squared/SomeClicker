@@ -1,6 +1,13 @@
 package com.wearedevs.javaclicker.cases;
 
+import java.awt.TrayIcon.MessageType;
+
+import javax.management.Notification;
+
 import com.wearedevs.javaclicker.Main;
+import com.wearedevs.javaclicker.cases.cases.ClickCase;
+import com.wearedevs.javaclicker.handlers.CaseHandler;
+import com.wearedevs.javaclicker.util.NotificationUtil;
 
 /**
  * Handles When and What Case a User Should Get.
@@ -11,31 +18,35 @@ public class GetCase {
 	
 	public static void checkCases() {
 		if(Main.clicks >= 100) {
-			if(!get100case) {
+			if(get100case) {
 				return;
+			}else {
+				get100case = true;
+				NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
+				giveCases();
 			}
 			
-			get100case = true;
-			giveCases();
 		}
 		
 		if(Main.clicks >= 500) {
-			if(!get500case) {
+			if(get500case) {
 				return;
+			}else {
+				get500case = true;
+				NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
+				giveCases();
 			}
 			
-			get500case = true;
-			giveCases();
 		}
 	}
 	
 	public static void giveCases() {
-		if(get100case) {
-			//TODO: Add Achieved Cases to an Array?
+		if(!get100case) {
+			CaseHandler.unlock(new ClickCase());
 		}
 
-		if(get500case) {
-			//TODO: Add Achieved Cases to an Array?
+		if(!get500case) {
+			CaseHandler.unlock(new ClickCase());
 		}
 	}
 }
