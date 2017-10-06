@@ -57,5 +57,6 @@ public class OptionsPanel extends JPanel {
 
 	public static void refreshSoundChoice() {
 		clickSound.setModel(new DefaultComboBoxModel<Sound>(SoundUnlocker.clickSounds.toArray(new Sound[] {})));
+		clickSound.setSelectedItem(SoundUnlocker.currentSound);
 	}
 }

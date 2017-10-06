@@ -11,7 +11,7 @@ public class ClickMultiplierCase extends Case {
 		WeightedCollection<CaseOutcome> out = new WeightedCollection<CaseOutcome>();
 		
 		//Double Clicks
-		out.add(94, new CaseOutcome() {
+		out.add(75, new CaseOutcome() {
 			public void onOutcome() {
 				Main.multiplier = 2;
 			}
@@ -22,7 +22,7 @@ public class ClickMultiplierCase extends Case {
 		});
 		
 		//Triple Clicks
-		out.add(5, new CaseOutcome() {
+		out.add(10, new CaseOutcome() {
 			public void onOutcome() {
 				Main.multiplier = 3;
 			}
@@ -33,7 +33,7 @@ public class ClickMultiplierCase extends Case {
 		});
 		
 		//Quadruple Clicks
-		out.add(1, new CaseOutcome() {
+		out.add(5, new CaseOutcome() {
 			public void onOutcome() {
 				Main.multiplier = 4;
 			}

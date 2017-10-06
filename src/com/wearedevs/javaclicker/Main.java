@@ -98,6 +98,7 @@ public class Main extends JFrame {
 		
 		AutoHandler.initAutoThread();
 		
+		CaseHandler.unlock(new ClickCase());
 	}
 
 	/**

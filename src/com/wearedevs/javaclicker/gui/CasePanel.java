@@ -13,9 +13,11 @@ import javax.swing.SwingConstants;
 
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.Case;
+import com.wearedevs.javaclicker.cases.cases.ClickCase;
+import com.wearedevs.javaclicker.cases.cases.ClickMultiplierCase;
+import com.wearedevs.javaclicker.cases.cases.SoundCase;
 import com.wearedevs.javaclicker.handlers.CaseHandler;
-import com.wearedevs.javaclicker.handlers.SaveHandler;
-import com.wearedevs.javaclicker.util.PlaySound;
+
 
 /**
  * The Visual Panel for Showing Everything that Has to Do With Cases.
@@ -61,9 +63,9 @@ public class CasePanel extends JPanel {
 	}
 	public static void updateLayout() {
 		
-		Main.shopPanel.shopPanel.removeAll();
+		Main.casePanel.casePanel.removeAll();
 		
-		Main.shopPanel.shopPanel.repaint();
+		Main.casePanel.casePanel.repaint();
 		
 		for(Case c : CaseHandler.caseList) {
 			JButton button = new JButton(c.getName());
@@ -73,10 +75,11 @@ public class CasePanel extends JPanel {
 			button.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					CaseHandler.openCase(c);
+					CaseHandler.caseList.remove(c);
 				}
 			});
 			
-			Main.shopPanel.shopPanel.add(button);
+			Main.casePanel.casePanel.add(button);
 		}
 		
 	}
