@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-import com.wearedevs.javaclicker.cases.cases.ClickCase;
+import com.wearedevs.javaclicker.cases.cases.*;
 import com.wearedevs.javaclicker.gui.CaseOpenPanel;
 import com.wearedevs.javaclicker.gui.CasePanel;
 import com.wearedevs.javaclicker.gui.CheaterPanel;
