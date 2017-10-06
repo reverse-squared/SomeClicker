@@ -18,9 +18,9 @@ public class PlaySound {
 	public static void playSound(String soundName) {
 		try {
 		     InputStream is = Main.main.getClass().getResourceAsStream(soundName);
-		     AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(is);
+		     AudioInputStream inputStream = AudioSystem.getAudioInputStream(Main.main.getClass().getResource(soundName));
 		     Clip clip = AudioSystem.getClip();
-		     clip.open(audioInputStream);
+		     clip.open(inputStream);
 		     clip.start();
 			
 		} catch(Exception ex) {
