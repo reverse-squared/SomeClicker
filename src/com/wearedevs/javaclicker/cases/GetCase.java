@@ -2,8 +2,6 @@ package com.wearedevs.javaclicker.cases;
 
 import java.awt.TrayIcon.MessageType;
 
-import javax.management.Notification;
-
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.cases.ClickCase;
 import com.wearedevs.javaclicker.handlers.CaseHandler;
