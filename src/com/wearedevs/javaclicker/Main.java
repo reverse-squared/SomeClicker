@@ -6,7 +6,6 @@ import java.awt.Rectangle;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-import com.wearedevs.javaclicker.cases.cases.*;
 import com.wearedevs.javaclicker.gui.CaseOpenPanel;
 import com.wearedevs.javaclicker.gui.CasePanel;
 import com.wearedevs.javaclicker.gui.CheaterPanel;
@@ -15,7 +14,6 @@ import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.OptionsPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
 import com.wearedevs.javaclicker.handlers.AutoHandler;
-import com.wearedevs.javaclicker.handlers.CaseHandler;
 import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
@@ -43,7 +41,7 @@ public class Main extends JFrame {
 	public static CaseOpenPanel caseOpenPanel = null;
 	public static CheaterPanel cheaterPanel;
 	
-	public static final String VERSION = "DEV 0.7 Pre";
+	public static final String VERSION = "DEV 0.8";
 	
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
@@ -79,7 +77,7 @@ public class Main extends JFrame {
 		//Frame Properties
 		setResizable(false);
 		setLayout(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
@@ -96,7 +94,7 @@ public class Main extends JFrame {
 			}
 		}));
 		
-		AutoHandler.initAutoThread();
+		AutoHandler.initAutoThread();		
 	}
 
 	/**
@@ -142,6 +140,15 @@ public class Main extends JFrame {
 		
 		Main.clicks += click * multiplier;
 		updateCounter();
+	}
+	
+	public static void bringToFront() {
+		main.setAlwaysOnTop(true);
+		main.setAlwaysOnTop(false);
+	}
+	
+	public static void openWindow() {
+		main.setVisible(true);
 	}
 
 }
