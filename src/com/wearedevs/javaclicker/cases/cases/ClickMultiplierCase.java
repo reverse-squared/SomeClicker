@@ -11,7 +11,7 @@ public class ClickMultiplierCase extends Case {
 		WeightedCollection<CaseOutcome> out = new WeightedCollection<CaseOutcome>();
 		
 		//Double Clicks
-		out.add(30, new CaseOutcome() {
+		out.add(75, new CaseOutcome() {
 			public void onOutcome() {
 				Main.multiplier = 2;
 			}
