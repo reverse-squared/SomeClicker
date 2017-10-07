@@ -1,11 +1,29 @@
 package com.wearedevs.javaclicker.mod;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 
-public class Modloader {
-	public Mod load(String modname, String jar, String modclass) {
+public class ModLoader {
+	static File modPath = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/");
+	static File modFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt");
+	
+	public Mod Load(String modname, String jar, String modclass) {
+		try{
+			modPath.mkdirs();
+			
+		    PrintWriter writer = new PrintWriter(modFile);
+		    writer.println("Base 0.8");
+		    writer.println("Mini Reactors Mod (Hardcoded in ModLoader.java)");
+		    writer.println("Expanded Sounds (Hardcoded in ModLoader.java)");
+		    writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 		try {
 			URL[] urls = { new URL("jar:file:" + jar+"!/") };
 			URLClassLoader cl = URLClassLoader.newInstance(urls);
