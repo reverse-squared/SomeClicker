@@ -38,6 +38,7 @@ public class CaseHandler {
 	public static void tickCase(Case caseOpening) {
 		if(caseDelay>0) {
 			caseDelay--;
+			PlaySound.playSound("/sound/cases/tick.wav");
 		}
 		caseDelay2--;
 		if(caseDelay2<=0) {
@@ -45,8 +46,9 @@ public class CaseHandler {
 			CaseOutcome open = caseOutcomes.next();
 			if(caseDelay<=0) {
 				caseSpd++;
-				PlaySound.playSound("/sound/cases/tick.wav");
 				System.out.println(caseSpd);
+				PlaySound.playSound("/sound/cases/tick.wav");
+				
 				if(caseSpd>25) {
 					//Stop
 					open.onOutcome();
