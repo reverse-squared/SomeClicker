@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -13,6 +14,7 @@ import javax.swing.UIManager;
 import com.wearedevs.javaclicker.gui.CaseOpenPanel;
 import com.wearedevs.javaclicker.gui.CasePanel;
 import com.wearedevs.javaclicker.gui.CheaterPanel;
+import com.wearedevs.javaclicker.gui.ExtrasPanel;
 import com.wearedevs.javaclicker.gui.InfoPanel;
 import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.ModPanel;
@@ -22,9 +24,7 @@ import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
-import com.wearedevs.javaclicker.mod.Modloader;
 import com.wearedevs.javaclicker.sound.Sound;
-import com.wearedevs.javaclicker.util.NotificationUtil;
 import com.wearedevs.javaclicker.util.PlaySound;
 import com.wearedevs.javaclicker.util.RandomUtil;
 
@@ -47,6 +47,7 @@ public class Main extends JFrame {
 	public static CaseOpenPanel caseOpenPanel = null;
 	public static CheaterPanel cheaterPanel;
 	public static ModPanel modPanel;
+	public static ExtrasPanel extrasPanel;
 	
 	public static final String VERSION = "DEV 0.8";
 	
@@ -82,6 +83,12 @@ public class Main extends JFrame {
 		casePanel = new CasePanel();
 		infoPanel = new InfoPanel();
 		modPanel = new ModPanel();
+		try {
+			extrasPanel = new ExtrasPanel();
+		} catch (URISyntaxException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 		
 		//Frame Properties
 		setResizable(false);
@@ -103,9 +110,7 @@ public class Main extends JFrame {
 			}
 		}));
 		
-		//AutoHandler.initAutoThread();
-		
-		Modloader ml = new Modloader();
+		AutoHandler.initAutoThread();
 		
 		new File(modPath).mkdirs();
 		
