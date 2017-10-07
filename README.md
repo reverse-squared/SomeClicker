@@ -1,3 +1,3 @@
 # Java Clicker Game
 
-This is the code to our Java Clicker. All of this game is written in Java.
+This is the code to our Java Clicker. All of this game is written in Java. It has semi-working support for mods.

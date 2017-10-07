@@ -3,6 +3,8 @@ package com.wearedevs.javaclicker.handlers;
 import java.util.ArrayList;
 
 import com.wearedevs.javaclicker.Main;
+import com.wearedevs.javaclicker.anticheat.Anticheat;
+import com.wearedevs.javaclicker.cases.GetCase;
 import com.wearedevs.javaclicker.mod.TickHook;
 import com.wearedevs.javaclicker.util.GameLoop;
 
@@ -85,6 +87,9 @@ public class AutoHandler {
 						Main.clicks += reactorGen + reactorSuck * 15;
 					}
 				}
+				
+				GetCase.checkCases();
+				Anticheat.checkCheats();
 				
 				if(CaseHandler.ccase != null) {
 					CaseHandler.tickCase(CaseHandler.ccase);
