@@ -18,7 +18,7 @@ import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
-import com.wearedevs.javaclicker.mod.Modloader;
+import com.wearedevs.javaclicker.mod.ModLoader;
 import com.wearedevs.javaclicker.sound.Sound;
 import com.wearedevs.javaclicker.util.NotificationUtil;
 import com.wearedevs.javaclicker.util.PlaySound;
@@ -30,7 +30,7 @@ import com.wearedevs.javaclicker.util.RandomUtil;
 public class Main extends JFrame {
 	private static final long serialVersionUID = 1L;
 	public static double clicks = 0;
-	public static int perClick = 100000;
+	public static int perClick = 1;
 	public static double multiplier = 1.0;
 	
 	public static Main main;
@@ -80,12 +80,12 @@ public class Main extends JFrame {
 		//Frame Properties
 		setResizable(false);
 		setLayout(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
 		
-		//NotificationUtil.init("Java Clicker " + VERSION, "Java Clicker " + VERSION, "textures/icon.png");
+		NotificationUtil.init("Java Clicker " + VERSION, "Java Clicker " + VERSION, "textures/icon.png");
 		
 		setVisible(true);
 		
@@ -99,8 +99,8 @@ public class Main extends JFrame {
 		
 		AutoHandler.initAutoThread();
 		
-		Modloader ml = new Modloader();
-		ml.load("MiniReactor", "E:\\Documents\\MiniReactor.jar", "imdaveead.javaclicker.minireactor.MiniReactorMod");
+		ModLoader ml = new ModLoader();
+		ml.Load("MiniReactor", "E:\\Documents\\MiniReactor.jar", "imdaveead.javaclicker.minireactor.MiniReactorMod");
 	}
 
 	/**
@@ -148,11 +148,17 @@ public class Main extends JFrame {
 		updateCounter();
 	}
 	
+	/**
+	 * Brings the Window on Top of All the Other Windows
+	 */
 	public static void bringToFront() {
 		main.setAlwaysOnTop(true);
 		main.setAlwaysOnTop(false);
 	}
 	
+	/**
+	 * Opens the Window When it Was Previously Disposed
+	 */
 	public static void openWindow() {
 		main.setVisible(true);
 	}
