@@ -1,8 +1,9 @@
 package com.wearedevs.javaclicker.handlers;
 
+import java.util.ArrayList;
+
 import com.wearedevs.javaclicker.Main;
-import com.wearedevs.javaclicker.anticheat.Anticheat;
-import com.wearedevs.javaclicker.cases.GetCase;
+import com.wearedevs.javaclicker.mod.TickHook;
 import com.wearedevs.javaclicker.util.GameLoop;
 
 /**
@@ -27,6 +28,8 @@ public class AutoHandler {
 	
 	public static int ticks = 0;
 	public static double seconds = 0; //large limit :)
+
+	public static ArrayList<TickHook> hooks = new ArrayList<TickHook>();
 	
 	public static void initAutoThread() {
 		if(autoClickStarted) {
@@ -37,6 +40,7 @@ public class AutoHandler {
 		
 		game_loop = new GameLoop(60, new Runnable() {
 
+			@SuppressWarnings("unchecked")
 			public void run() {
 				ticks++;
 				
@@ -86,9 +90,12 @@ public class AutoHandler {
 					CaseHandler.tickCase(CaseHandler.ccase);
 				}
 				
+
+				for(TickHook hook : (ArrayList<TickHook>)hooks.clone()) {
+				    hook.run();
+				}
+
 				Main.updateCounter();
-				GetCase.checkCases();
-				Anticheat.checkCheats();
 			}
 		});
 	}
