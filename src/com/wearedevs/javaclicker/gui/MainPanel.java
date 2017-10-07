@@ -121,7 +121,7 @@ public class MainPanel extends JPanel {
 		devButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		devButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Main.main.setContentPane(Main.modPanel);
+				//Dev Code
 			}
 		});
 		devButton.setBounds(350, 170, 270, 40);
