@@ -2,6 +2,10 @@ package com.wearedevs.javaclicker;
 
 import java.awt.EventQueue;
 import java.awt.Rectangle;
+import java.io.File;
+import java.io.IOException;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
@@ -48,6 +52,8 @@ public class Main extends JFrame {
 	
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
+	
+	public static final String modPath = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/";
 	
 	public static void main(String[] args) throws Exception {
 		System.out.println("Loading Java Clicker "+VERSION);
@@ -97,10 +103,33 @@ public class Main extends JFrame {
 			}
 		}));
 		
-		AutoHandler.initAutoThread();
+		//AutoHandler.initAutoThread();
 		
 		Modloader ml = new Modloader();
-		ml.load("MiniReactor", "E:\\Documents\\MiniReactor.jar", "imdaveead.javaclicker.minireactor.MiniReactorMod");
+		
+		new File(modPath).mkdirs();
+		
+		File[] modfiles = new File(modPath).listFiles();
+		for(File file : modfiles) {
+			if(!file.isDirectory()) {
+				String n = file.getName();
+				System.out.println(n);
+				JarFile jarfile = null;
+				try {
+					jarfile = new JarFile(file);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				JarEntry entry = jarfile.getJarEntry("/test/a.xml");
+				try {
+					String content = jarfile.getInputStream(entry).toString();
+					System.out.println(content);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
 	}
 
 	/**
