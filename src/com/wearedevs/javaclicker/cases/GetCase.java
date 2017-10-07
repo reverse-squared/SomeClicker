@@ -24,7 +24,7 @@ public class GetCase {
 		
 		if(Main.clicks >= 500 && !get500case) {
 			get500case = true;
-			giveClickMultiplierCase();
+			giveClickCase();
 			NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
 		}
 	}
