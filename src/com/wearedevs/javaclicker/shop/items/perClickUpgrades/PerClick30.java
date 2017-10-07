@@ -16,7 +16,7 @@ public class PerClick30 extends ShopItem {
 	}
 
 	public String getName() {
-		return "20 Clicks Per Click";
+		return "30 Clicks Per Click";
 	}
 
 }

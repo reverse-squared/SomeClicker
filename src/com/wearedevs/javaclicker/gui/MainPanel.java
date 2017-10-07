@@ -96,6 +96,27 @@ public class MainPanel extends JPanel {
 		toggleReactor.setBounds(12, 170, 270, 40);
 		add(toggleReactor);
 		
+		JButton modsButton = new JButton("Mods");
+		modsButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+		modsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Main.main.setContentPane(Main.modPanel);
+			}
+		});
+		modsButton.setBounds(12, 300, 270, 40);
+		add(modsButton);
+		
+		JButton extrasButton = new JButton("Extras");
+		extrasButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+		extrasButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ShopHandler.updateLayout();
+				Main.main.setContentPane(Main.extrasPanel);
+			}
+		});
+		extrasButton.setBounds(350, 300, 270, 40);
+		add(extrasButton);
+		
 		JButton devButton = new JButton("Dev Button");
 		devButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		devButton.addActionListener(new ActionListener() {

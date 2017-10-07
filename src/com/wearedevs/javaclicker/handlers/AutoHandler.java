@@ -101,6 +101,8 @@ public class AutoHandler {
 				}
 
 				Main.updateCounter();
+				GetCase.checkCases();
+				Anticheat.checkCheats();
 			}
 		});
 	}
