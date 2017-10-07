@@ -25,7 +25,7 @@ public class SoundCase extends Case {
 		//Rainbow
 		out.add(30, new CaseOutcome() {
 			public void onOutcome() {
-				SoundUnlocker.unlock(new Sound("Airhorn", "rainbow.wav"));
+				SoundUnlocker.unlock(new Sound("Rainbow", "rainbow.wav"));
 			}
 			
 			public String getName() {
