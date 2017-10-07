@@ -23,6 +23,7 @@ public class CasePanel extends JPanel {
 	private static final long serialVersionUID = -2856455613720020251L;
 	public JPanel casePanel;
 	public JLabel labelClicks;
+	
 	public CasePanel() {
 		setLayout(null);
 		setBounds(Main.panelSize);

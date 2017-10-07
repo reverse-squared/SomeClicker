@@ -76,6 +76,7 @@ public class Main extends JFrame {
 		casePanel = new CasePanel();
 		infoPanel = new InfoPanel();
 		modPanel = new ModPanel();
+		cheaterPanel = new CheaterPanel();
 		
 		//Frame Properties
 		setResizable(false);
@@ -100,7 +101,7 @@ public class Main extends JFrame {
 		AutoHandler.initAutoThread();
 		
 		ModLoader ml = new ModLoader();
-		ml.Load("MiniReactor", "E:\\Documents\\MiniReactor.jar", "imdaveead.javaclicker.minireactor.MiniReactorMod");
+//		ml.Load("MiniReactor", "E:\\Documents\\MiniReactor.jar", "imdaveead.javaclicker.minireactor.MiniReactorMod");
 	}
 
 	/**
