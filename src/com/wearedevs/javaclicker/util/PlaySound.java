@@ -1,7 +1,5 @@
 package com.wearedevs.javaclicker.util;
 
-import java.io.InputStream;
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -17,7 +15,6 @@ public class PlaySound {
 	 */
 	public static void playSound(String soundName) {
 		try {
-		     InputStream is = Main.main.getClass().getResourceAsStream(soundName);
 		     AudioInputStream inputStream = AudioSystem.getAudioInputStream(Main.main.getClass().getResource(soundName));
 		     Clip clip = AudioSystem.getClip();
 		     clip.open(inputStream);
