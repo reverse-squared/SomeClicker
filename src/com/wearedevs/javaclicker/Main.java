@@ -77,6 +77,7 @@ public class Main extends JFrame {
 
 	public Main() {
 		new File(path).mkdirs();
+		SaveHandler.savePath.mkdirs();
 		
 		SoundUnlocker.unlock(new Sound("Default", "default.wav"));
 		
@@ -110,10 +111,12 @@ public class Main extends JFrame {
 		setVisible(true);
 		
 		SaveHandler.loadClicks();
+		SaveHandler.loadCases();
 		
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 			public void run() {
 				SaveHandler.saveClicks();
+				SaveHandler.saveCases();
 			}
 		}));
 		
