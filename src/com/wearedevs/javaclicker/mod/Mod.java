@@ -1,5 +1,8 @@
 package com.wearedevs.javaclicker.mod;
 
+/**
+ * Mods
+ */
 public class Mod {
 	
 	/**
