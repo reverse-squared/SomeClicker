@@ -3,6 +3,7 @@ package com.wearedevs.javaclicker;
 import java.awt.EventQueue;
 import java.awt.Rectangle;
 import java.io.File;
+import java.net.URISyntaxException;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
@@ -80,7 +81,11 @@ public class Main extends JFrame {
 		infoPanel = new InfoPanel();
 		modPanel = new ModPanel();
 		cheaterPanel = new CheaterPanel();
-		extrasPanel = new ExtrasPanel();
+		try {
+			extrasPanel = new ExtrasPanel();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
 		
 		//Frame Properties
 		setResizable(false);
