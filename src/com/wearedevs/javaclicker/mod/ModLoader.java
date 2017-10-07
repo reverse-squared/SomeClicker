@@ -8,9 +8,15 @@ import java.net.URL;
 import java.net.URLClassLoader;
 
 public class ModLoader {
-	static File modPath = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/");
+	public static File modPath = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/");
 	static File modFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt");
 	
+	/**
+	 * 
+	 * @param modname The Name of Your Mod
+	 * @param jar Path to Your Jar
+	 * @param modclass Where Your Main Class Is
+	 */
 	public Mod Load(String modname, String jar, String modclass) {
 		try{
 			modPath.mkdirs();
@@ -18,14 +24,14 @@ public class ModLoader {
 		    PrintWriter writer = new PrintWriter(modFile);
 		    writer.println("Base 0.8");
 		    writer.println("Mini Reactors Mod (Hardcoded in ModLoader.java)");
-		    writer.println("Expanded Sounds (Hardcoded in ModLoader.java)");
+		    writer.println("OP Items (Hardcoded in ModLoader.java)");
 		    writer.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		
 		try {
-			URL[] urls = { new URL("jar:file:" + jar+"!/") };
+			URL[] urls = { new URL("jar:file:" + jar + "!/") };
 			URLClassLoader cl = URLClassLoader.newInstance(urls);
 			Class<?> classToLoad = cl.loadClass(modclass);
 			Object instance = classToLoad.newInstance();
@@ -48,6 +54,7 @@ public class ModLoader {
 			System.err.println("Mod '" + modname + "' caused a MalformedURLException.");
 			e.printStackTrace();
 		}
+		
 		return null;
 	}
 }

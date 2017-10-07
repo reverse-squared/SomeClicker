@@ -2,6 +2,7 @@ package com.wearedevs.javaclicker;
 
 import java.awt.EventQueue;
 import java.awt.Rectangle;
+import java.io.File;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
@@ -63,7 +64,7 @@ public class Main extends JFrame {
 		});
 	}
 
-	public Main() {	
+	public Main() {
 		SoundUnlocker.unlock(new Sound("Default", "default.wav"));
 		
 		//Init Shop
@@ -101,7 +102,8 @@ public class Main extends JFrame {
 		AutoHandler.initAutoThread();
 		
 		ModLoader ml = new ModLoader();
-//		ml.Load("MiniReactor", "E:\\Documents\\MiniReactor.jar", "imdaveead.javaclicker.minireactor.MiniReactorMod");
+		ml.Load("Mini Reactor", ModLoader.modPath + "MiniReactor.jar", "imdaveead.javaclicker.minireactor.MiniReactorMod");
+		ml.Load("OP Items", ModLoader.modPath +  "JavaClickerOPItems.jar", "com.expgamer303.opitems.Main");
 	}
 
 	/**
