@@ -15,20 +15,16 @@ public class GetCase {
 	private static boolean get500case = false;
 	
 	public static void checkCases() {
-		if(Main.clicks >= 100) {
-			if(!get100case) {
-				get100case = true;
-				giveClickCase();
-				NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
-			}
+		if(Main.clicks >= 100 && !get100case) {
+			get100case = true;
+			giveClickCase();
+			NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
 		}
 		
-		if(Main.clicks >= 500) {
-			if(!get500case) {
-				get500case = true;
-				giveClickCase();
-				NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
-			}
+		if(Main.clicks >= 500 && !get500case) {
+			get500case = true;
+			giveClickCase();
+			NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
 		}
 	}
 	
