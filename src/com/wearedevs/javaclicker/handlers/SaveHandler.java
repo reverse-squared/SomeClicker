@@ -6,12 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.GetCase;
+import com.wearedevs.javaclicker.sound.Sound;
 
 /**
  * Handles All The Saving and Loading Stuff
@@ -19,9 +19,6 @@ import com.wearedevs.javaclicker.cases.GetCase;
  */
 public class SaveHandler {
 	
-	private static final String line1 = null;
-	private static final String line2 = null;
-
 	public static File savePath = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/");
 	
 	static File clicksFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/clicks.txt");
@@ -32,6 +29,9 @@ public class SaveHandler {
 	
 	static File multiplierFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/multiplier.txt");
 	static boolean multiplierExists = multiplierFile.exists();
+
+	static File soundFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/sounds.txt");
+	static boolean soundExists = soundFile.exists();
 	
 	static BufferedReader reader = null;
 	
@@ -158,6 +158,37 @@ public class SaveHandler {
 			}
 		}else {
 			saveMultiplier();
+		}
+	}
+	
+	/**
+	 * Saves The Sounds
+	 */
+	public static void saveSounds() {
+		try{			
+		    PrintWriter writer = new PrintWriter(soundFile);
+		    
+		    for(int i = 0; i <= (4 - 1); i++) {
+		    	writer.println(SoundUnlocker.clickSounds.get(i));
+		    }
+		    
+		    writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void loadSounds() {
+		if(multiplierExists) {
+			try {
+				String line2 = Files.readAllLines(Paths.get(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/sounds.txt")).get(1);				
+				
+				SoundUnlocker.unlock(new Sound(line2, line2 + ".wav"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}else {
+			saveSounds();
 		}
 	}
 }

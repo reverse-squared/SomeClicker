@@ -7,12 +7,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URISyntaxException;
-import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
+import com.wearedevs.javaclicker.cases.cases.SoundCase;
 import com.wearedevs.javaclicker.gui.CaseOpenPanel;
 import com.wearedevs.javaclicker.gui.CasePanel;
 import com.wearedevs.javaclicker.gui.CheaterPanel;
@@ -23,6 +23,7 @@ import com.wearedevs.javaclicker.gui.ModPanel;
 import com.wearedevs.javaclicker.gui.OptionsPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
 import com.wearedevs.javaclicker.handlers.AutoHandler;
+import com.wearedevs.javaclicker.handlers.CaseHandler;
 import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
@@ -112,12 +113,14 @@ public class Main extends JFrame {
 		SaveHandler.loadClicks();
 		SaveHandler.loadCases();
 		SaveHandler.loadMultiplier();
+		SaveHandler.loadSounds();
 		
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 			public void run() {
 				SaveHandler.saveClicks();
 				SaveHandler.saveCases();
 				SaveHandler.saveMultiplier();
+				SaveHandler.saveSounds();
 			}
 		}));
 		
@@ -160,6 +163,7 @@ public class Main extends JFrame {
 			}
 		}
 		
+		CaseHandler.unlock(new SoundCase());
 	}
 
 	/**
