@@ -30,6 +30,9 @@ public class SaveHandler {
 	static File casesFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/cases.txt");
 	static boolean casesExist = casesFile.exists();
 	
+	static File multiplierFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/multiplier.txt");
+	static boolean multiplierExists = multiplierFile.exists();
+	
 	static BufferedReader reader = null;
 	
 	/**
@@ -95,26 +98,58 @@ public class SaveHandler {
 	 * Load The Cases
 	 */
 	public static void loadCases() {
-		
-		try {
-			String line1 = Files.readAllLines(Paths.get(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/cases.txt")).get(0);
-			String line2 = Files.readAllLines(Paths.get(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/cases.txt")).get(1);
-		} catch (IOException e2) {
-			e2.printStackTrace();
-		}
-		
 		if(casesExist) {			
 			try {
+				String line1 = Files.readAllLines(Paths.get(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/cases.txt")).get(0);
+				String line2 = Files.readAllLines(Paths.get(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/cases.txt")).get(1);
+				
+				boolean saveCase100 = Boolean.parseBoolean(line1);
+		    	boolean saveCase500 = Boolean.parseBoolean(line2);
+		    	
+		    	GetCase.get100case = saveCase100;
+		    	GetCase.get500case = saveCase500;
+		    	
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			}
+		}else {
+			saveCases();
+		}
+	}
+
+	/**
+	 * Saves The Multiplier
+	 */
+	public static void saveMultiplier() {		
+		try{			
+		    PrintWriter writer = new PrintWriter(multiplierFile);
+		    writer.println(Main.multiplier);
+		    writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Loads The Multiplier
+	 */
+	public static void loadMultiplier() {
+		if(multiplierExists) {			
+			try {
 			    try {
-					reader = new BufferedReader(new FileReader(casesFile));
+					reader = new BufferedReader(new FileReader(multiplierFile));
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
 				}
+
+			    String savedMultiplier = null;
 			    
-			    try {			    	
-			    	GetCase.get100case = line1 != null;
-			    	GetCase.get500case = line2 != null;
-				} catch (NumberFormatException e) {
+			    try {
+					while ((savedMultiplier = reader.readLine()) != null) {					    
+					    double loadedMultiplier = Double.parseDouble(savedMultiplier);
+					    Main.multiplier = loadedMultiplier;
+					}
+				} catch (NumberFormatException | IOException e) {
 					e.printStackTrace();
 				}
 			    
@@ -122,7 +157,7 @@ public class SaveHandler {
 				
 			}
 		}else {
-			saveCases();
+			saveMultiplier();
 		}
 	}
 }

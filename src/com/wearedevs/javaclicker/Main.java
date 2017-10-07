@@ -94,7 +94,6 @@ public class Main extends JFrame {
 		try {
 			extrasPanel = new ExtrasPanel();
 		} catch (URISyntaxException e3) {
-			// TODO Auto-generated catch block
 			e3.printStackTrace();
 		}
 		
@@ -112,11 +111,13 @@ public class Main extends JFrame {
 		
 		SaveHandler.loadClicks();
 		SaveHandler.loadCases();
+		SaveHandler.loadMultiplier();
 		
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 			public void run() {
 				SaveHandler.saveClicks();
 				SaveHandler.saveCases();
+				SaveHandler.saveMultiplier();
 			}
 		}));
 		
