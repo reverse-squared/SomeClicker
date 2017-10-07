@@ -12,7 +12,7 @@ public class ModLoader {
 	static File modFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt");
 	
 	/**
-	 * 
+	 * Loads a Mod Jar in the Mods Folder in AppData
 	 * @param modname The Name of Your Mod
 	 * @param jar Path to Your Jar
 	 * @param modclass Where Your Main Class Is
@@ -23,8 +23,7 @@ public class ModLoader {
 			
 		    PrintWriter writer = new PrintWriter(modFile);
 		    writer.println("Base 0.8");
-		    writer.println("Mini Reactors Mod (Hardcoded in ModLoader.java)");
-		    writer.println("OP Items (Hardcoded in ModLoader.java)");
+		    writer.println(modname);
 		    writer.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

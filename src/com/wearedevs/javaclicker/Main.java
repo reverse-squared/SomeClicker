@@ -102,8 +102,8 @@ public class Main extends JFrame {
 		AutoHandler.initAutoThread();
 		
 		ModLoader ml = new ModLoader();
-		ml.Load("Mini Reactor", ModLoader.modPath + "MiniReactor.jar", "imdaveead.javaclicker.minireactor.MiniReactorMod");
-		ml.Load("OP Items", ModLoader.modPath +  "JavaClickerOPItems.jar", "com.expgamer303.opitems.Main");
+		ml.Load("OP Items", "C:\\Users\\Hunter Parcells\\AppData\\Roaming\\WeAreDevs\\JavaClicker\\mods\\JavaClickerOPItems.jar", "com.test.opitems.Main");
+		ml.Load("Mini Reactors", "C:\\Users\\Hunter Parcells\\AppData\\Roaming\\WeAreDevs\\JavaClicker\\mods\\MiniReactor.jar", "imdaveead.javaclicker.minireactor.MiniReactorMod");
 	}
 
 	/**
