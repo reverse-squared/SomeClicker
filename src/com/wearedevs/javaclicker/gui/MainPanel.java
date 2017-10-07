@@ -106,6 +106,17 @@ public class MainPanel extends JPanel {
 		modsButton.setBounds(12, 300, 270, 40);
 		add(modsButton);
 		
+		JButton extrasButton = new JButton("Extras");
+		extrasButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+		extrasButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ShopHandler.updateLayout();
+				Main.main.setContentPane(Main.extrasPanel);
+			}
+		});
+		extrasButton.setBounds(350, 300, 270, 40);
+		add(extrasButton);
+		
 		JButton devButton = new JButton("Dev Button");
 		devButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		devButton.addActionListener(new ActionListener() {
