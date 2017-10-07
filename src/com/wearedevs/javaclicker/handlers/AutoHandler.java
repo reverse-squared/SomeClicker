@@ -3,6 +3,7 @@ package com.wearedevs.javaclicker.handlers;
 import java.util.ArrayList;
 
 import com.wearedevs.javaclicker.Main;
+import com.wearedevs.javaclicker.cases.GetCase;
 import com.wearedevs.javaclicker.mod.TickHook;
 import com.wearedevs.javaclicker.util.GameLoop;
 
@@ -96,6 +97,7 @@ public class AutoHandler {
 				}
 
 				Main.updateCounter();
+				GetCase.checkCases();
 			}
 		});
 	}
