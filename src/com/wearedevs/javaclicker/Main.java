@@ -3,7 +3,9 @@ package com.wearedevs.javaclicker;
 import java.awt.EventQueue;
 import java.awt.Rectangle;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -25,6 +27,7 @@ import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
 import com.wearedevs.javaclicker.sound.Sound;
+import com.wearedevs.javaclicker.util.NotificationUtil;
 import com.wearedevs.javaclicker.util.PlaySound;
 import com.wearedevs.javaclicker.util.RandomUtil;
 
@@ -54,7 +57,9 @@ public class Main extends JFrame {
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
 	
+	public static final String path = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/";
 	public static final String modPath = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/";
+	public static final String modList = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt";
 	
 	public static void main(String[] args) throws Exception {
 		System.out.println("Loading Java Clicker "+VERSION);
@@ -70,7 +75,9 @@ public class Main extends JFrame {
 		});
 	}
 
-	public Main() {	
+	public Main() {
+		new File(path).mkdirs();
+		
 		SoundUnlocker.unlock(new Sound("Default", "default.wav"));
 		
 		//Init Shop
@@ -93,12 +100,12 @@ public class Main extends JFrame {
 		//Frame Properties
 		setResizable(false);
 		setLayout(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
 		
-		//NotificationUtil.init("Java Clicker " + VERSION, "Java Clicker " + VERSION, "textures/icon.png");
+		NotificationUtil.init("Java Clicker " + VERSION, "Java Clicker " + VERSION, "textures/icon.png");
 		
 		setVisible(true);
 		
@@ -117,8 +124,19 @@ public class Main extends JFrame {
 		File[] modfiles = new File(modPath).listFiles();
 		for(File file : modfiles) {
 			if(!file.isDirectory()) {
-				String n = file.getName();
-				System.out.println(n);
+				String n = file.getName().replace(".jar", "");
+				
+				PrintWriter writer = null;
+				try {
+					writer = new PrintWriter(modList);
+				} catch (FileNotFoundException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+				writer.println("Base " + VERSION);
+				writer.println(n);
+				writer.close();
+				
 				JarFile jarfile = null;
 				try {
 					jarfile = new JarFile(file);
@@ -126,6 +144,7 @@ public class Main extends JFrame {
 					e1.printStackTrace();
 				}
 				JarEntry entry = jarfile.getJarEntry("/test/a.xml");
+				
 				try {
 					String content = jarfile.getInputStream(entry).toString();
 					System.out.println(content);
