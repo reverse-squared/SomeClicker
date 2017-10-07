@@ -10,6 +10,7 @@ import javax.swing.UIManager;
 import com.wearedevs.javaclicker.gui.CaseOpenPanel;
 import com.wearedevs.javaclicker.gui.CasePanel;
 import com.wearedevs.javaclicker.gui.CheaterPanel;
+import com.wearedevs.javaclicker.gui.ExtrasPanel;
 import com.wearedevs.javaclicker.gui.InfoPanel;
 import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.ModPanel;
@@ -44,6 +45,7 @@ public class Main extends JFrame {
 	public static CaseOpenPanel caseOpenPanel = null;
 	public static CheaterPanel cheaterPanel;
 	public static ModPanel modPanel;
+	public static ExtrasPanel extrasPanel;
 	
 	public static final String VERSION = "DEV 0.8";
 	
@@ -78,6 +80,7 @@ public class Main extends JFrame {
 		infoPanel = new InfoPanel();
 		modPanel = new ModPanel();
 		cheaterPanel = new CheaterPanel();
+		extrasPanel = new ExtrasPanel();
 		
 		//Frame Properties
 		setResizable(false);
