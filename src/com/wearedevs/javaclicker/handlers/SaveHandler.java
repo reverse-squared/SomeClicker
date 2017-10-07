@@ -168,7 +168,7 @@ public class SaveHandler {
 		try{			
 		    PrintWriter writer = new PrintWriter(soundFile);
 		    
-		    for(int i = 0; i <= (4 - 1); i++) {
+		    for(int i = 0; i <= (SoundUnlocker.clickSounds.size() - 1); i++) {
 		    	writer.println(SoundUnlocker.clickSounds.get(i));
 		    }
 		    
@@ -180,13 +180,13 @@ public class SaveHandler {
 	
 	public static void loadSounds() {
 		if(multiplierExists) {
-			try {
-				String line2 = Files.readAllLines(Paths.get(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/sounds.txt")).get(1);				
-				
-				SoundUnlocker.unlock(new Sound(line2, line2 + ".wav"));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			//TODO: Do This But For The Amount of Sounds You Have
+//			try {
+//				String line2 = Files.readAllLines(Paths.get(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save/sounds.txt")).get(1);				
+//				SoundUnlocker.unlock(new Sound(line2, line2 + ".wav"));
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
 		}else {
 			saveSounds();
 		}

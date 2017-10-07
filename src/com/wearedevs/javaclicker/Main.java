@@ -12,7 +12,6 @@ import java.util.jar.JarFile;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-import com.wearedevs.javaclicker.cases.cases.SoundCase;
 import com.wearedevs.javaclicker.gui.CaseOpenPanel;
 import com.wearedevs.javaclicker.gui.CasePanel;
 import com.wearedevs.javaclicker.gui.CheaterPanel;
@@ -23,7 +22,6 @@ import com.wearedevs.javaclicker.gui.ModPanel;
 import com.wearedevs.javaclicker.gui.OptionsPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
 import com.wearedevs.javaclicker.handlers.AutoHandler;
-import com.wearedevs.javaclicker.handlers.CaseHandler;
 import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
@@ -163,7 +161,6 @@ public class Main extends JFrame {
 			}
 		}
 		
-		CaseHandler.unlock(new SoundCase());
 	}
 
 	/**
