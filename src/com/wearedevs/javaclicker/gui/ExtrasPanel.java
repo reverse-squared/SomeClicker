@@ -16,10 +16,10 @@ import javax.swing.SwingConstants;
 import com.wearedevs.javaclicker.Main;
 
 /**
- * The Visual Panel for Showing Everything that Has to Do With Information About the Game.
+ * The Panel for Extra Stuff
  */
 public class ExtrasPanel extends JPanel {
-	private static final long serialVersionUID = -1523225555156016420L;
+	private static final long serialVersionUID = 1L;
 
 	public ExtrasPanel() throws URISyntaxException {
 		final URI uri = new URI("https://github.com/WeAreDevs/JavaClicker/wiki/Modding");

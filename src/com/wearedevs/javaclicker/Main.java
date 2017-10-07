@@ -37,7 +37,7 @@ import com.wearedevs.javaclicker.util.RandomUtil;
 public class Main extends JFrame {
 	private static final long serialVersionUID = 1L;
 	public static double clicks = 0;
-	public static int perClick = 100000;
+	public static int perClick = 1;
 	public static double multiplier = 1.0;
 	
 	public static Main main;
@@ -92,9 +92,9 @@ public class Main extends JFrame {
 		modPanel = new ModPanel();
 		try {
 			extrasPanel = new ExtrasPanel();
-		} catch (URISyntaxException e2) {
+		} catch (URISyntaxException e3) {
 			// TODO Auto-generated catch block
-			e2.printStackTrace();
+			e3.printStackTrace();
 		}
 		
 		//Frame Properties
@@ -130,9 +130,9 @@ public class Main extends JFrame {
 				try {
 					writer = new PrintWriter(modList);
 				} catch (FileNotFoundException e2) {
-					// TODO Auto-generated catch block
 					e2.printStackTrace();
 				}
+				
 				writer.println("Base " + VERSION);
 				writer.println(n);
 				writer.close();
@@ -143,14 +143,16 @@ public class Main extends JFrame {
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-				JarEntry entry = jarfile.getJarEntry("/test/a.xml");
 				
-				try {
-					String content = jarfile.getInputStream(entry).toString();
-					System.out.println(content);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+//				TODO: Panels Will Not Switch With This Code Below, Fix
+//				JarEntry entry = jarfile.getJarEntry("/test/a.xml");
+//				
+//				try {
+//					String content = jarfile.getInputStream(entry).toString();
+//					System.out.println(content);
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
 			}
 		}
 		
