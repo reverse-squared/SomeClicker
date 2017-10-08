@@ -60,6 +60,8 @@ public class Main extends JFrame {
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
 	
+	public static boolean resetOnClose = false;
+	
 	public static final String path = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/";
 	public static final String modPath = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/";
 	public static final File modFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt");
@@ -116,9 +118,13 @@ public class Main extends JFrame {
 		
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 			public void run() {
-				System.out.println("Saving...");
-				SaveHandler.save();
-				System.out.println("Exiting...");
+				if(resetOnClose) {
+					SaveHandler.saveFile.delete();
+				}else {
+					System.out.println("Saving...");
+					SaveHandler.save();
+					System.out.println("Exiting...");
+				}
 			}
 		}));
 		

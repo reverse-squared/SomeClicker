@@ -16,6 +16,7 @@ public class ShopHandler {
 
 	public static ArrayList<ShopItem> items;
 	public static ArrayList<ShopItem> bought;
+	
 	/**
 	 * Run Once Okey
 	 * @author ImDaveead
@@ -28,9 +29,11 @@ public class ShopHandler {
 		unlock(new PerClick2());
 		
 	}
+	
 	public static void unlock(ShopItem item) {
 		items.add(item);
 	}
+	
 	public static void updateLayout() {
 		
 		Main.shopPanel.shopPanel.removeAll();

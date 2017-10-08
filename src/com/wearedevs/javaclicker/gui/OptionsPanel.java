@@ -3,7 +3,6 @@ package com.wearedevs.javaclicker.gui;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -33,6 +32,16 @@ public class OptionsPanel extends JPanel {
 		});
 		backBtn.setBounds(12, 398, 270, 40);
 		add(backBtn);
+		
+		JButton resetData = new JButton("Reset Save Data");
+		resetData.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Main.resetOnClose = true;
+				System.exit(0);
+			}
+		});
+		resetData.setBounds(350, 398, 270, 40);
+		add(resetData);
 		
 		JLabel lblSelectYourClick = new JLabel("Select Your Click Sound: ");
 		lblSelectYourClick.setFont(new Font("Tahoma", Font.BOLD, 17));
