@@ -22,7 +22,8 @@ public class ExtrasPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	public ExtrasPanel() throws URISyntaxException {
-		final URI uri = new URI("https://github.com/WeAreDevs/JavaClicker/wiki/Modding");
+		final URI moddingUri = new URI("https://github.com/WeAreDevs/JavaClicker/wiki/Modding");
+		final URI ideaUri= new URI("https://goo.gl/forms/LItqqg4Tj3jSViGw1");
 		
 		setLayout(null);
 		setBounds(Main.panelSize);
@@ -50,11 +51,25 @@ public class ExtrasPanel extends JPanel {
 		JButton openLink = new JButton("Click Here!");
 		openLink.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				open(uri);
+				open(moddingUri);
 			}
 		});
 		openLink.setBounds(244, 82, 97, 25);
 		add(openLink);
+		
+		JLabel ideaLabel = new JLabel("Have an Idea for This Game?");
+		ideaLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		ideaLabel.setBounds(12, 115, 240, 28);
+		add(ideaLabel);
+		
+		JButton ideaButton = new JButton("Click Here!");
+		ideaButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				open(ideaUri);
+			}
+		});
+		ideaButton.setBounds(244, 118, 97, 25);
+		add(ideaButton);
 	}
 	
 	private static void open(URI uri) {
