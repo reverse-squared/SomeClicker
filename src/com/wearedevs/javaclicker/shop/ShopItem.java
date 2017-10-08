@@ -1,7 +1,5 @@
 package com.wearedevs.javaclicker.shop;
 
-import java.util.HashMap;
-
 public abstract class ShopItem {
 	public boolean unlocked;
 	
