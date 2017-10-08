@@ -4,9 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URISyntaxException;
-import java.util.Scanner;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -26,7 +24,6 @@ import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
-import com.wearedevs.javaclicker.mod.ModLoader;
 import com.wearedevs.javaclicker.sound.Sound;
 import com.wearedevs.javaclicker.util.NotificationUtil;
 import com.wearedevs.javaclicker.util.PlaySound;
@@ -54,7 +51,6 @@ public class Main extends JFrame {
 	public static ExtrasPanel extrasPanel;
 	
 	public static final String VERSION = "DEV 0.8";
-	public static final int VERSION_NUM = 1;
 	
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
@@ -102,7 +98,7 @@ public class Main extends JFrame {
 		//Frame Properties
 		setResizable(false);
 		setLayout(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
@@ -129,8 +125,6 @@ public class Main extends JFrame {
 		
 		new File(modPath).mkdirs();
 		
-		ModLoader ml = new ModLoader();
-		
 		File[] modfiles = new File(modPath).listFiles();
 		for(File file : modfiles) {
 			if(!file.isDirectory()) {
@@ -150,6 +144,7 @@ public class Main extends JFrame {
 					System.out.println(content);
 				} catch (IOException e) {
 					e.printStackTrace();
+<<<<<<< HEAD
 					
 				if(file.getName().endsWith(".jar")) {
 					JarFile jarfile = null;
@@ -183,9 +178,12 @@ public class Main extends JFrame {
 					} catch (IOException e) {
 						System.err.println("Failed to load mod '"+file.getName()+"': IOException (Missing mod.txt?)");
 					}
+=======
+>>>>>>> parent of e40827d... Merge branch 'master' of https://github.com/WeAreDevs/JavaClicker
 				}
 			}
 		}
+		
 	}
 
 	/**
