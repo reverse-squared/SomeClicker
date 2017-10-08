@@ -148,7 +148,7 @@ public class Main extends JFrame {
 					e1.printStackTrace();
 				}
 				
-				JarEntry entry = jarfile.getJarEntry("com/test/javaclicker.Main");
+				JarEntry entry = jarfile.getJarEntry("mod.txt");
 				
 				try {
 					String content = jarfile.getInputStream(entry).toString();
