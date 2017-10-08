@@ -57,6 +57,8 @@ public class ExtrasPanel extends JPanel {
 		openLink.setBounds(244, 82, 97, 25);
 		add(openLink);
 		
+		
+		
 		JLabel ideaLabel = new JLabel("Have an Idea for This Game?");
 		ideaLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		ideaLabel.setBounds(12, 115, 240, 28);
