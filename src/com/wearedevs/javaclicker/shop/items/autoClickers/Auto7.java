@@ -4,20 +4,20 @@ import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
-public class Auto5 extends ShopItem {
+public class Auto7 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.autoClick = 30;
+		AutoHandler.autoClick = 100;
 		
-		ShopHandler.unlock(new Auto6());
+		ShopHandler.unlock(new Auto8());
 	}
 
 	public int getPrice() {
-		return 10000;
+		return 45000;
 	}
 
 	public String getName() {
-		return "Auto Clicker: Tier 5";
+		return "Auto Clicker: Tier 7";
 	}
 
 }
