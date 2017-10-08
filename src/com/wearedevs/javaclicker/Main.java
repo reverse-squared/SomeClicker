@@ -110,11 +110,14 @@ public class Main extends JFrame {
 		
 		setVisible(true);
 		
+		System.out.println("Loading Save...");
 		SaveHandler.load();
 		
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 			public void run() {
+				System.out.println("Saving...");
 				SaveHandler.save();
+				System.out.println("Exiting...");
 			}
 		}));
 		
