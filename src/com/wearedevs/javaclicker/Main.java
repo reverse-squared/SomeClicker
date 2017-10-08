@@ -61,7 +61,6 @@ public class Main extends JFrame {
 	
 	public static final String path = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/";
 	public static final String modPath = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/";
-	public static final String modList = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt";
 	
 	public static void main(String[] args) throws Exception {
 		System.out.println("Loading Java Clicker "+VERSION);
@@ -79,7 +78,6 @@ public class Main extends JFrame {
 
 	public Main() {
 		new File(path).mkdirs();
-		SaveHandler.savePath.mkdirs();
 		
 		SoundUnlocker.unlock(new Sound("Default", "default.wav"));
 		
@@ -111,17 +109,11 @@ public class Main extends JFrame {
 		
 		setVisible(true);
 		
-		SaveHandler.loadClicks();
-		SaveHandler.loadCases();
-		SaveHandler.loadMultiplier();
-		SaveHandler.loadSounds();
+		SaveHandler.load();
 		
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 			public void run() {
-				SaveHandler.saveClicks();
-				SaveHandler.saveCases();
-				SaveHandler.saveMultiplier();
-				SaveHandler.saveSounds();
+				SaveHandler.save();
 			}
 		}));
 		

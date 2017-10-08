@@ -15,12 +15,14 @@ import com.wearedevs.javaclicker.util.PlaySound;
 public class ShopHandler {
 
 	public static ArrayList<ShopItem> items;
+	public static ArrayList<ShopItem> bought;
 	/**
 	 * Run Once Okey
 	 * @author ImDaveead
 	 */
 	public static void initializeShop() {
 		items = new ArrayList<ShopItem>();
+		bought = new ArrayList<ShopItem>();
 		
 		//Insert All Things By Default;
 		unlock(new PerClick2());
@@ -47,11 +49,11 @@ public class ShopHandler {
 						Main.clicks -= price;
 						item.onPurchase();
 						PlaySound.playSound("/sound/buy.wav");
+						bought.add(item);
 						items.remove(item);
 						
 						Main.updateCounter();
 						updateLayout();
-						SaveHandler.saveClicks();
 					}
 				}
 			});

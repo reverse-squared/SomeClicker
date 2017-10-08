@@ -31,21 +31,15 @@ public class GetCase {
 	
 	public static void giveClickCase() {
 		CaseHandler.unlock(new ClickCase());
-		saveCases();
 	}
 	
 	public static void giveClickMultiplierCase() {
 		CaseHandler.unlock(new ClickMultiplierCase());
-		saveCases();
 	}
 	
 	public static void giveSoundCase() {
 		CaseHandler.unlock(new SoundCase());
-		saveCases();
 	}
-	
-	public static void saveCases() {
-		SaveHandler.saveCases();
-	}
+
 }
 
