@@ -1,9 +1,6 @@
 package com.wearedevs.javaclicker.handlers;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -16,10 +13,13 @@ import com.wearedevs.javaclicker.shop.ShopItem;
 public class SaveHandler {
 
 	public static final String saveFilePath = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save.dat";
+	
 	public static void save() {
 		try {
 			File saveFile = new File(saveFilePath);
-			if(!saveFile.exists()) saveFile.createNewFile();
+			if(!saveFile.exists()) {
+				saveFile.createNewFile();
+			}
 			
 			PrintWriter w = new PrintWriter(saveFile);
 			
