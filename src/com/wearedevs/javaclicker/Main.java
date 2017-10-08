@@ -3,10 +3,9 @@ package com.wearedevs.javaclicker;
 import java.awt.EventQueue;
 import java.awt.Rectangle;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URISyntaxException;
+import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 import javax.swing.JFrame;
@@ -149,15 +148,14 @@ public class Main extends JFrame {
 					e1.printStackTrace();
 				}
 				
-//				TODO: Panels Will Not Switch With This Code Below, Fix
-//				JarEntry entry = jarfile.getJarEntry("mod.txt");
-//				
-//				try {
-//					String content = jarfile.getInputStream(entry).toString();
-//					System.out.println(content);
-//				} catch (IOException e) {
-//					e.printStackTrace();
-//				}
+				JarEntry entry = jarfile.getJarEntry("com/test/javaclicker.Main");
+				
+				try {
+					String content = jarfile.getInputStream(entry).toString();
+					System.out.println(content);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		
