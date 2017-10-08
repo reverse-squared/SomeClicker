@@ -150,7 +150,7 @@ public class Main extends JFrame {
 				}
 				
 //				TODO: Panels Will Not Switch With This Code Below, Fix
-//				JarEntry entry = jarfile.getJarEntry("/test/a.xml");
+//				JarEntry entry = jarfile.getJarEntry("mod.txt");
 //				
 //				try {
 //					String content = jarfile.getInputStream(entry).toString();
