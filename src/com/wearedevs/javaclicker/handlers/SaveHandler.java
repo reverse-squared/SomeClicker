@@ -11,7 +11,6 @@ import java.nio.file.Paths;
 
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.GetCase;
-import com.wearedevs.javaclicker.sound.Sound;
 
 /**
  * Handles All The Saving and Loading Stuff
