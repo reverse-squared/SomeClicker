@@ -60,7 +60,6 @@ public class CaseHandler {
 			}
 			
 			caseDelay2 = caseSpd;
-			//TODO: Sound
 			Main.caseOpenPanel.label_opening.setText(open.getName());
 		}	
 	}
