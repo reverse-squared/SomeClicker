@@ -3,8 +3,10 @@ package com.wearedevs.javaclicker;
 import java.awt.EventQueue;
 import java.awt.Rectangle;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.util.Scanner;
 import java.util.jar.JarEntry;
@@ -59,6 +61,7 @@ public class Main extends JFrame {
 	
 	public static final String path = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/";
 	public static final String modPath = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/";
+	public static final File modFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt");
 	
 	
 	public static void main(String[] args) throws Exception {
@@ -127,6 +130,14 @@ public class Main extends JFrame {
 		
 		ModLoader ml = new ModLoader();
 		
+		PrintWriter writer = null;
+		try {
+			writer = new PrintWriter(modFile);
+			writer.println("Base " + VERSION);
+		} catch (FileNotFoundException e2) {
+			e2.printStackTrace();
+		}
+	    
 		File[] modfiles = new File(modPath).listFiles();
 		for(File file : modfiles) {
 			if(!file.isDirectory()) {				
@@ -167,6 +178,7 @@ public class Main extends JFrame {
 							System.out.println("Loading Mod '" + name + " v" + vers + "'");
 							ml.Load(name + " v" + vers, file.getAbsolutePath(), main);
 							System.out.println("Loaded Mod '" + name + " v" + vers + "'");
+							writer.println(name);
 						}
 					} catch (IOException e) {
 						System.err.println("Failed to Load Mod '" + file.getName() + "': IOException (Missing mod.txt?)");
@@ -174,6 +186,8 @@ public class Main extends JFrame {
 				}
 			}
 		}
+		writer.close();
+		
 	}
 
 	/**
