@@ -4,6 +4,10 @@ import com.wearedevs.javaclicker.cases.Case;
 import com.wearedevs.javaclicker.cases.CaseOutcome;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
 import com.wearedevs.javaclicker.sound.Sound;
+import com.wearedevs.javaclicker.sound.sounds.AirhornSound;
+import com.wearedevs.javaclicker.sound.sounds.BombSound;
+import com.wearedevs.javaclicker.sound.sounds.FartSound;
+import com.wearedevs.javaclicker.sound.sounds.RainbowSound;
 import com.wearedevs.javaclicker.util.WeightedCollection;
 
 public class SoundCase extends Case {
@@ -14,7 +18,7 @@ public class SoundCase extends Case {
 		//Bomb
 		out.add(60, new CaseOutcome() {
 			public void onOutcome() {
-				SoundUnlocker.unlock(new Sound("Bomb", "bomb.wav"));
+				SoundUnlocker.unlock(new BombSound());
 			}
 			
 			public String getName() {
@@ -25,7 +29,7 @@ public class SoundCase extends Case {
 		//Rainbow
 		out.add(30, new CaseOutcome() {
 			public void onOutcome() {
-				SoundUnlocker.unlock(new Sound("Rainbow", "rainbow.wav"));
+				SoundUnlocker.unlock(new RainbowSound());
 			}
 			
 			public String getName() {
@@ -36,7 +40,7 @@ public class SoundCase extends Case {
 		//Airhorn
 		out.add(10, new CaseOutcome() {
 			public void onOutcome() {
-				SoundUnlocker.unlock(new Sound("Airhorn", "airhorn.wav"));
+				SoundUnlocker.unlock(new AirhornSound());
 			}
 			
 			public String getName() {
@@ -47,7 +51,7 @@ public class SoundCase extends Case {
 		//Fart
 		out.add(20, new CaseOutcome() {
 			public void onOutcome() {
-				SoundUnlocker.unlock(new Sound("Fart", "fart.wav"));
+				SoundUnlocker.unlock(new FartSound());
 			}
 			
 			public String getName() {

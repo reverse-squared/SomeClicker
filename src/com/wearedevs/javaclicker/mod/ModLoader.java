@@ -6,10 +6,13 @@ import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.ArrayList;
 
 public class ModLoader {
 	public static File modPath = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/");
 	static File modFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt");
+	
+	public static ArrayList<ClassLoader> classloaders = new ArrayList<ClassLoader>();
 	
 	/**
 	 * Loads a Mod Jar in the Mods Folder in AppData
@@ -32,6 +35,7 @@ public class ModLoader {
 		try {
 			URL[] urls = { new URL("jar:file:" + jar + "!/") };
 			URLClassLoader cl = URLClassLoader.newInstance(urls);
+			classloaders.add(cl);
 			Class<?> classToLoad = cl.loadClass(modclass);
 			Object instance = classToLoad.newInstance();
 			if(instance instanceof Mod) {
@@ -55,5 +59,16 @@ public class ModLoader {
 		}
 		
 		return null;
+	}
+	public static Class<?> loadClass(String name) throws ClassNotFoundException {
+		for(ClassLoader cl : classloaders) {
+			try {
+				return cl.loadClass(name);
+			} catch(ClassNotFoundException e) {
+				continue;
+			}
+		}
+		
+		throw new ClassNotFoundException();
 	}
 }
