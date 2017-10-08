@@ -1,6 +1,7 @@
 package com.wearedevs.javaclicker.shop.items.reactor.reactor;
 
 import com.wearedevs.javaclicker.handlers.AutoHandler;
+import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Reactor8 extends ShopItem {
@@ -8,7 +9,9 @@ public class Reactor8 extends ShopItem {
 	public void onPurchase() {
 		//TODO: Fix This
 		AutoHandler.reactorGen = 10000;
-		AutoHandler.reactorSuck = 10; // 6000 sucked
+		AutoHandler.reactorSuck = 10;
+		
+		ShopHandler.unlock(new Reactor9());
 	}
 
 	public int getPrice() {

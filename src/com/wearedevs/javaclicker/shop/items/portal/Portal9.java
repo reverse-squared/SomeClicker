@@ -5,10 +5,8 @@ import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Portal9 extends ShopItem {
 
-	//TODO: 500 Clicks Every 15 Seconds
-	
 	public void onPurchase() {
-		AutoHandler.portal = 500000;
+		AutoHandler.portal = 25000;
 		
 		//Init AutoClicker
 		AutoHandler.initAutoThread();
@@ -19,7 +17,7 @@ public class Portal9 extends ShopItem {
 	}
 
 	public String getName() {
-		return "Click Portal: Tier 1";
+		return "Click Portal: Tier 9";
 	}
 
 }
