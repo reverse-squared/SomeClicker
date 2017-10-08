@@ -12,8 +12,8 @@ import com.wearedevs.javaclicker.util.NotificationUtil;
  * Handles When and What Case a User Should Get.
  */
 public class GetCase {
-	public static boolean get100case = true;
-	public static boolean get500case = true;
+	public static boolean get100case = false;
+	public static boolean get500case = false;
 	
 	public static void checkCases() {
 		if(Main.clicks >= 100 && !get100case) {
