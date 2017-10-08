@@ -3,8 +3,10 @@ package com.wearedevs.javaclicker;
 import java.awt.EventQueue;
 import java.awt.Rectangle;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.util.Scanner;
 import java.util.jar.JarEntry;
@@ -61,6 +63,7 @@ public class Main extends JFrame {
 	
 	public static final String path = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/";
 	public static final String modPath = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/";
+	public static final String modList = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt";
 	
 	public static void main(String[] args) throws Exception {
 		System.out.println("Loading Java Clicker "+VERSION);
@@ -131,7 +134,7 @@ public class Main extends JFrame {
 		
 		File[] modfiles = new File(modPath).listFiles();
 		for(File file : modfiles) {
-			if(!file.isDirectory()) {
+			if(!file.isDirectory()) {				
 				if(file.getName().endsWith(".jar")) {
 					JarFile jarfile = null;
 					
@@ -156,18 +159,19 @@ public class Main extends JFrame {
 						String[] modtxtarr = str.split(",");
 						
 						if(Integer.parseInt(modtxtarr[0]) != VERSION_NUM) {
-							System.err.println("Failed to load mod '" + file.getName() + "': Version is mismatched (Current is "+VERSION_NUM+")");
+							System.err.println("Failed to Load Mod '" + file.getName() + "': Version is mismatched (Current is "+VERSION_NUM+")");
 							
 							continue;
 						} else {
 							String name = modtxtarr[1];
 							String vers = modtxtarr[2];
 							String main = modtxtarr[3];
-							System.out.println("Loading mod '" + name + " v" + vers + "'");
+							System.out.println("Loading Mod '" + name + " v" + vers + "'");
 							ml.Load(name+" v"+vers, file.getAbsolutePath(), main);
+							System.out.println("Loaded Mod '" + name + " v" + vers + "'");
 						}
 					} catch (IOException e) {
-						System.err.println("Failed to load mod '"+file.getName()+"': IOException (Missing mod.txt?)");
+						System.err.println("Failed to Load Mod '"+file.getName()+"': IOException (Missing mod.txt?)");
 					}
 				}
 			}
