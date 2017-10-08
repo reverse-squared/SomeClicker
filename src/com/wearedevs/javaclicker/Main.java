@@ -133,6 +133,8 @@ public class Main extends JFrame {
 		for(File file : modfiles) {
 			if(!file.isDirectory()) {				
 				if(file.getName().endsWith(".jar")) {
+					System.out.println("Fetching Mods...");
+					
 					JarFile jarfile = null;
 					
 					try {
@@ -141,6 +143,7 @@ public class Main extends JFrame {
 						e1.printStackTrace();
 					}
 					
+					System.out.println("Reading Mods...");
 					JarEntry entry = jarfile.getJarEntry("mod.txt");
 					
 					try {
