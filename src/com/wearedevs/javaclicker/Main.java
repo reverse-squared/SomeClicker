@@ -156,14 +156,14 @@ public class Main extends JFrame {
 						String[] modtxtarr = str.split(",");
 						
 						if(Integer.parseInt(modtxtarr[0]) != VERSION_NUM) {
-							System.err.println("Failed to load mod '"+file.getName()+"': Version is mismatched (Current is "+VERSION_NUM+")");
+							System.err.println("Failed to load mod '" + file.getName() + "': Version is mismatched (Current is "+VERSION_NUM+")");
 							
 							continue;
 						} else {
 							String name = modtxtarr[1];
 							String vers = modtxtarr[2];
 							String main = modtxtarr[3];
-							System.out.println("Loading mod '"+name+" v"+vers+"'");
+							System.out.println("Loading mod '" + name + " v" + vers + "'");
 							ml.Load(name+" v"+vers, file.getAbsolutePath(), main);
 						}
 					} catch (IOException e) {
