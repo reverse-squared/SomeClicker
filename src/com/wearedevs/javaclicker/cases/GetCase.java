@@ -5,7 +5,6 @@ import java.awt.TrayIcon.MessageType;
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.cases.*;
 import com.wearedevs.javaclicker.handlers.CaseHandler;
-import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.util.NotificationUtil;
 
 /**

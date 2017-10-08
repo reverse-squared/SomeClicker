@@ -3,7 +3,6 @@ package com.wearedevs.javaclicker.cases.cases;
 import com.wearedevs.javaclicker.cases.Case;
 import com.wearedevs.javaclicker.cases.CaseOutcome;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
-import com.wearedevs.javaclicker.sound.Sound;
 import com.wearedevs.javaclicker.sound.sounds.AirhornSound;
 import com.wearedevs.javaclicker.sound.sounds.BombSound;
 import com.wearedevs.javaclicker.sound.sounds.FartSound;
