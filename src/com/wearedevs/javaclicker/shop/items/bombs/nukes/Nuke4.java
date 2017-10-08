@@ -9,8 +9,6 @@ public class Nuke4 extends ShopItem {
 
 	public void onPurchase() {
 		AutoHandler.clickBomb = 100000;
-		
-		ShopHandler.unlock(new Portal1());
 	}
 
 	public int getPrice() {
