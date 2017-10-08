@@ -134,19 +134,7 @@ public class Main extends JFrame {
 		File[] modfiles = new File(modPath).listFiles();
 		for(File file : modfiles) {
 			if(!file.isDirectory()) {
-<<<<<<< HEAD
 				String n = file.getName().replace(".jar", "");
-				
-//				PrintWriter writer = null;
-//				try {
-//					writer = new PrintWriter(modList);
-//				} catch (FileNotFoundException e2) {
-//					e2.printStackTrace();
-//				}
-//				
-//				writer.println("Base " + VERSION);
-//				writer.println(n);
-//				writer.close();
 				
 				JarFile jarfile = null;
 				try {
@@ -162,7 +150,7 @@ public class Main extends JFrame {
 					System.out.println(content);
 				} catch (IOException e) {
 					e.printStackTrace();
-=======
+					
 				if(file.getName().endsWith(".jar")) {
 					JarFile jarfile = null;
 					try {
