@@ -15,10 +15,10 @@ import com.wearedevs.javaclicker.sound.Sound;
 public class SaveHandler {
 
 	public static final String saveFilePath = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/save.dat";
+	public static File saveFile = new File(saveFilePath);
 	
 	public static void save() {
 		try {
-			File saveFile = new File(saveFilePath);
 			if(!saveFile.exists()) {
 				saveFile.createNewFile();
 			}

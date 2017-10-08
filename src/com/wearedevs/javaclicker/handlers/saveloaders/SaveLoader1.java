@@ -2,7 +2,6 @@ package com.wearedevs.javaclicker.handlers.saveloaders;
 
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.Case;
-import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.CaseHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
