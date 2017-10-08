@@ -131,16 +131,16 @@ public class Main extends JFrame {
 			if(!file.isDirectory()) {
 				String n = file.getName().replace(".jar", "");
 				
-				PrintWriter writer = null;
-				try {
-					writer = new PrintWriter(modList);
-				} catch (FileNotFoundException e2) {
-					e2.printStackTrace();
-				}
-				
-				writer.println("Base " + VERSION);
-				writer.println(n);
-				writer.close();
+//				PrintWriter writer = null;
+//				try {
+//					writer = new PrintWriter(modList);
+//				} catch (FileNotFoundException e2) {
+//					e2.printStackTrace();
+//				}
+//				
+//				writer.println("Base " + VERSION);
+//				writer.println(n);
+//				writer.close();
 				
 				JarFile jarfile = null;
 				try {
