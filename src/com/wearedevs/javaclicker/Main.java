@@ -106,8 +106,7 @@ public class Main extends JFrame {
 		setResizable(false);
 		setLayout(null);
 		
-		//TODO: Change to JFrame.DISPOSE_ON_CLOSE on Release
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
