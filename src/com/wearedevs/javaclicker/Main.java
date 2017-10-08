@@ -134,6 +134,7 @@ public class Main extends JFrame {
 			if(!file.isDirectory()) {
 				if(file.getName().endsWith(".jar")) {
 					JarFile jarfile = null;
+					
 					try {
 						jarfile = new JarFile(file);
 					} catch (IOException e1) {
@@ -146,13 +147,17 @@ public class Main extends JFrame {
 						InputStream is = jarfile.getInputStream(entry);
 						Scanner s = new Scanner(is);
 						String str = "";
+						
 						while (s.hasNext()) {
 							str += s.nextLine();
 						}
+						
 						s.close();
 						String[] modtxtarr = str.split(",");
+						
 						if(Integer.parseInt(modtxtarr[0]) != VERSION_NUM) {
 							System.err.println("Failed to load mod '"+file.getName()+"': Version is mismatched (Current is "+VERSION_NUM+")");
+							
 							continue;
 						} else {
 							String name = modtxtarr[1];
