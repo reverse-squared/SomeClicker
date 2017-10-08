@@ -65,6 +65,7 @@ public class SaveHandler {
 			e.printStackTrace();
 		}
 	}
+	
 	public static void load() {
 		File saveFile = new File(saveFilePath);
 		if(saveFile.exists()) {

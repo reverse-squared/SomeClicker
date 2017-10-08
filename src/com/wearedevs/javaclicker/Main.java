@@ -60,8 +60,10 @@ public class Main extends JFrame {
 	public static final String path = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/";
 	public static final String modPath = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/";
 	
+	
 	public static void main(String[] args) throws Exception {
-		System.out.println("Loading Java Clicker "+VERSION);
+		System.out.println("Loading Java Clicker " + VERSION);
+		
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -97,6 +99,8 @@ public class Main extends JFrame {
 		//Frame Properties
 		setResizable(false);
 		setLayout(null);
+		
+		//TODO: Change to JFrame.DISPOSE_ON_CLOSE on Release
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
@@ -122,38 +126,47 @@ public class Main extends JFrame {
 		
 		File[] modfiles = new File(modPath).listFiles();
 		for(File file : modfiles) {
-			if(!file.isDirectory()) {
+			if(!file.isDirectory()) {				
 				if(file.getName().endsWith(".jar")) {
+					System.out.println("Fetching Mods...");
+					
 					JarFile jarfile = null;
+					
 					try {
 						jarfile = new JarFile(file);
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
 					
+					System.out.println("Reading Mods...");
 					JarEntry entry = jarfile.getJarEntry("mod.txt");
 					
 					try {
 						InputStream is = jarfile.getInputStream(entry);
 						Scanner s = new Scanner(is);
 						String str = "";
+						
 						while (s.hasNext()) {
 							str += s.nextLine();
 						}
+						
 						s.close();
 						String[] modtxtarr = str.split(",");
+						
 						if(Integer.parseInt(modtxtarr[0]) != VERSION_NUM) {
-							System.err.println("Failed to load mod '"+file.getName()+"': Version is mismatched (Current is "+VERSION_NUM+")");
+							System.err.println("Failed to Load Mod '" + file.getName() + "': Version is Mismatched (Current is " + VERSION_NUM + ")");
+							
 							continue;
 						} else {
 							String name = modtxtarr[1];
 							String vers = modtxtarr[2];
 							String main = modtxtarr[3];
-							System.out.println("Loading mod '"+name+" v"+vers+"'");
-							ml.Load(name+" v"+vers, file.getAbsolutePath(), main);
+							System.out.println("Loading Mod '" + name + " v" + vers + "'");
+							ml.Load(name + " v" + vers, file.getAbsolutePath(), main);
+							System.out.println("Loaded Mod '" + name + " v" + vers + "'");
 						}
 					} catch (IOException e) {
-						System.err.println("Failed to load mod '"+file.getName()+"': IOException (Missing mod.txt?)");
+						System.err.println("Failed to Load Mod '" + file.getName() + "': IOException (Missing mod.txt?)");
 					}
 				}
 			}
