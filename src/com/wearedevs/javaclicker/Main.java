@@ -183,7 +183,6 @@ public class Main extends JFrame {
 					} catch (IOException e) {
 						System.err.println("Failed to load mod '"+file.getName()+"': IOException (Missing mod.txt?)");
 					}
->>>>>>> 5674f5887367c8b91677ced1a7ae319b67bad777
 				}
 			}
 		}
