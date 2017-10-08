@@ -7,9 +7,6 @@ public class Portal9 extends ShopItem {
 
 	public void onPurchase() {
 		AutoHandler.portal = 25000;
-		
-		//Init AutoClicker
-		AutoHandler.initAutoThread();
 	}
 
 	public int getPrice() {
