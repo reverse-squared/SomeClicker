@@ -4,7 +4,9 @@ import java.awt.EventQueue;
 import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
+import java.util.Scanner;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -24,6 +26,7 @@ import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
+import com.wearedevs.javaclicker.mod.ModLoader;
 import com.wearedevs.javaclicker.sound.Sound;
 import com.wearedevs.javaclicker.util.NotificationUtil;
 import com.wearedevs.javaclicker.util.PlaySound;
@@ -51,6 +54,7 @@ public class Main extends JFrame {
 	public static ExtrasPanel extrasPanel;
 	
 	public static final String VERSION = "DEV 0.8";
+	public static final int VERSION_NUM = 1;
 	
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
@@ -98,7 +102,7 @@ public class Main extends JFrame {
 		//Frame Properties
 		setResizable(false);
 		setLayout(null);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
@@ -125,40 +129,46 @@ public class Main extends JFrame {
 		
 		new File(modPath).mkdirs();
 		
+		ModLoader ml = new ModLoader();
+		
 		File[] modfiles = new File(modPath).listFiles();
 		for(File file : modfiles) {
 			if(!file.isDirectory()) {
-				String n = file.getName().replace(".jar", "");
-				
-//				PrintWriter writer = null;
-//				try {
-//					writer = new PrintWriter(modList);
-//				} catch (FileNotFoundException e2) {
-//					e2.printStackTrace();
-//				}
-//				
-//				writer.println("Base " + VERSION);
-//				writer.println(n);
-//				writer.close();
-				
-				JarFile jarfile = null;
-				try {
-					jarfile = new JarFile(file);
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-				
-				JarEntry entry = jarfile.getJarEntry("com/test/javaclicker.Main");
-				
-				try {
-					String content = jarfile.getInputStream(entry).toString();
-					System.out.println(content);
-				} catch (IOException e) {
-					e.printStackTrace();
+				if(file.getName().endsWith(".jar")) {
+					JarFile jarfile = null;
+					try {
+						jarfile = new JarFile(file);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					
+					JarEntry entry = jarfile.getJarEntry("mod.txt");
+					
+					try {
+						InputStream is = jarfile.getInputStream(entry);
+						Scanner s = new Scanner(is);
+						String str = "";
+						while (s.hasNext()) {
+							str += s.nextLine();
+						}
+						s.close();
+						String[] modtxtarr = str.split(",");
+						if(Integer.parseInt(modtxtarr[0]) != VERSION_NUM) {
+							System.err.println("Failed to load mod '"+file.getName()+"': Version is mismatched (Current is "+VERSION_NUM+")");
+							continue;
+						} else {
+							String name = modtxtarr[1];
+							String vers = modtxtarr[2];
+							String main = modtxtarr[3];
+							System.out.println("Loading mod '"+name+" v"+vers+"'");
+							ml.Load(name+" v"+vers, file.getAbsolutePath(), main);
+						}
+					} catch (IOException e) {
+						System.err.println("Failed to load mod '"+file.getName()+"': IOException (Missing mod.txt?)");
+					}
 				}
 			}
 		}
-		
 	}
 
 	/**
