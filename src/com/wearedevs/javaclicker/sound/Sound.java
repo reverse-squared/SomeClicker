@@ -1,15 +1,12 @@
 package com.wearedevs.javaclicker.sound;
 
-public class Sound {
-	public String label;
-	public String fname;
-	
-	public Sound(String label, String fname) {
-		this.label = label;
-		this.fname = fname;
-	}
-	
+public abstract class Sound {
+
 	public String toString() {
-		return label;
+		return getName();
 	}
+
+	public abstract String getName();
+	
+	public abstract String getFileName();
 }
