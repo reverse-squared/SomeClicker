@@ -61,6 +61,7 @@ public class Main extends JFrame {
 	public static final String modPath = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/";
 	public static final String modList = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt";
 	
+	
 	public static void main(String[] args) throws Exception {
 		System.out.println("Loading Java Clicker " + VERSION);
 		
@@ -99,6 +100,8 @@ public class Main extends JFrame {
 		//Frame Properties
 		setResizable(false);
 		setLayout(null);
+		
+		//TODO: Change to JFrame.DISPOSE_ON_CLOSE on Release
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
