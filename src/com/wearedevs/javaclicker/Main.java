@@ -29,6 +29,7 @@ import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
 import com.wearedevs.javaclicker.mod.ModLoader;
 import com.wearedevs.javaclicker.sound.Sound;
+import com.wearedevs.javaclicker.sound.sounds.Default;
 import com.wearedevs.javaclicker.util.NotificationUtil;
 import com.wearedevs.javaclicker.util.PlaySound;
 import com.wearedevs.javaclicker.util.RandomUtil;
@@ -65,8 +66,8 @@ public class Main extends JFrame {
 	
 	
 	public static void main(String[] args) throws Exception {
+		ModLoader.classloaders.add(ClassLoader.getSystemClassLoader());
 		System.out.println("Loading Java Clicker " + VERSION);
-		
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -82,7 +83,7 @@ public class Main extends JFrame {
 	public Main() {
 		new File(path).mkdirs();
 		
-		SoundUnlocker.unlock(new Sound("Default", "default.wav"));
+		SoundUnlocker.unlock(new Default());
 		
 		//Init Shop
 		ShopHandler.initializeShop();
@@ -112,9 +113,6 @@ public class Main extends JFrame {
 		NotificationUtil.init("Java Clicker " + VERSION, "Java Clicker " + VERSION, "textures/icon.png");
 		
 		setVisible(true);
-		
-		System.out.println("Loading Save...");
-		SaveHandler.load();
 		
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 			public void run() {
@@ -188,6 +186,7 @@ public class Main extends JFrame {
 		}
 		writer.close();
 		
+		SaveHandler.load();
 	}
 
 	/**
@@ -228,7 +227,7 @@ public class Main extends JFrame {
 		}
 		
 		if(sound!=null) {
-			PlaySound.playSound("/sound/clickSound/" + sound.fname);	
+			PlaySound.playSound("/sound/clickSound/" + sound.getFileName());	
 		}
 		
 		Main.clicks += click * multiplier;

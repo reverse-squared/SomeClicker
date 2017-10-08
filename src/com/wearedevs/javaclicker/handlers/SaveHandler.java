@@ -3,12 +3,14 @@ package com.wearedevs.javaclicker.handlers;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.Case;
 import com.wearedevs.javaclicker.handlers.saveloaders.SaveLoader1;
 import com.wearedevs.javaclicker.shop.ShopItem;
+import com.wearedevs.javaclicker.sound.Sound;
 
 public class SaveHandler {
 
@@ -26,20 +28,6 @@ public class SaveHandler {
 			w.print(Main.VERSION_NUM+";");
 			
 			w.print(Main.clicks+";");
-			
-			w.print(Main.multiplier+";");
-			
-			w.print(Main.perClick+";");
-			
-			w.print(AutoHandler.autoClick+";");
-			
-			w.print(AutoHandler.clickBomb+";");
-			
-			w.print(AutoHandler.factory+";");
-			
-			w.print(AutoHandler.mine+";");
-			
-			w.print(AutoHandler.portal+";");
 
 			for (ShopItem item : ShopHandler.items) {
 				w.print(item.getClass().getName()+";");
@@ -57,6 +45,12 @@ public class SaveHandler {
 				w.print(ccase.getClass().getName()+";");
 			}
 			
+			w.print("END;");
+			
+			for (Sound snd : SoundUnlocker.clickSounds) {
+				w.print(snd.getClass().getName()+";");
+			}
+			
 			w.print("END");
 			
 			w.close();
@@ -69,6 +63,10 @@ public class SaveHandler {
 	public static void load() {
 		File saveFile = new File(saveFilePath);
 		if(saveFile.exists()) {
+			ShopHandler.items = new ArrayList<ShopItem>();
+			ShopHandler.bought = new ArrayList<ShopItem>();
+			CaseHandler.caseList = new ArrayList<Case>();
+			SoundUnlocker.clickSounds = new ArrayList<Sound>();
 			try {
 				Scanner s = new Scanner(saveFile);
 				
