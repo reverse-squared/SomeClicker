@@ -3,10 +3,12 @@ package com.wearedevs.javaclicker.gui;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.wearedevs.javaclicker.Main;
@@ -36,8 +38,17 @@ public class OptionsPanel extends JPanel {
 		JButton resetData = new JButton("Reset Save Data");
 		resetData.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Main.resetOnClose = true;
-				System.exit(0);
+				int selectedOption = JOptionPane.showConfirmDialog(null, 
+						"Are You Sure You Want To Reset All Save Data?", 
+						"Reset Save Data", 
+						JOptionPane.YES_NO_OPTION); 
+				
+				if (selectedOption == JOptionPane.YES_OPTION) {
+					Main.resetOnClose = true;
+					System.exit(0);
+				}else {
+					return;
+				}
 			}
 		});
 		resetData.setBounds(350, 398, 270, 40);
