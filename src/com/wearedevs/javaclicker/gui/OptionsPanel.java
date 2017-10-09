@@ -39,7 +39,8 @@ public class OptionsPanel extends JPanel {
 		resetData.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedOption = JOptionPane.showConfirmDialog(null, 
-						"Are You Sure You Want To Reset All Save Data?", 
+						"Are You Sure You Want To Reset All Save Data? \n" +
+						"(This Can Not Be Undone!)", 
 						"Reset Save Data", 
 						JOptionPane.YES_NO_OPTION); 
 				
