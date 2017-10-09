@@ -65,6 +65,8 @@ public class Main extends JFrame {
 	public static final String path = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/";
 	public static final String modPath = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/";
 	public static final File modFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt");
+	public static final String lockFileLoc = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/startup.lock";
+	public static File startupLockFile = new File(lockFileLoc);
 	
 	
 	public static void main(String[] args) throws Exception {
@@ -83,6 +85,17 @@ public class Main extends JFrame {
 	}
 
 	public Main() {
+		if(startupLockFile.exists()) {
+			//TODO: Popup Dialog Box
+			System.exit(0);
+		}else {
+			try {
+				startupLockFile.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		new File(path).mkdirs();
 		
 		SoundUnlocker.unlock(new Default());
@@ -119,10 +132,12 @@ public class Main extends JFrame {
 			public void run() {
 				if(resetOnClose) {
 					SaveHandler.saveFile.delete();
+					startupLockFile.delete();
 				}else {
 					System.out.println("Saving...");
 					SaveHandler.save();
 					System.out.println("Exiting...");
+					startupLockFile.delete();
 				}
 			}
 		}));
