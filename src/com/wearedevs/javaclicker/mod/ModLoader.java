@@ -24,6 +24,7 @@ public class ModLoader {
 			classloaders.add(cl);
 			Class<?> classToLoad = cl.loadClass(modclass);
 			Object instance = classToLoad.newInstance();
+			
 			if(instance instanceof Mod) {
 				Mod mod = (Mod) instance;
 				return mod;
@@ -46,6 +47,7 @@ public class ModLoader {
 		
 		return null;
 	}
+	
 	public static Class<?> loadClass(String name) throws ClassNotFoundException {
 		for(ClassLoader cl : classloaders) {
 			try {
