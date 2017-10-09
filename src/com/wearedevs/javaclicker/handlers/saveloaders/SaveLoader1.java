@@ -69,6 +69,7 @@ public class SaveLoader1 {
 			try {
 				Class<?> c = ModLoader.loadClass(savearr[i]);
 				Object o = c.newInstance();
+				
 				if(o instanceof Case) {
 					//Its Good
 					CaseHandler.caseList.add((Case) o);
