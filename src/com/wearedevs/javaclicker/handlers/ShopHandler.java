@@ -13,7 +13,7 @@ import com.wearedevs.javaclicker.shop.items.perClickUpgrades.PerClick2;
 import com.wearedevs.javaclicker.util.PlaySound;
 
 public class ShopHandler {
-
+	public static boolean disable = false;
 	public static ArrayList<ShopItem> items;
 	public static ArrayList<ShopItem> bought;
 	
@@ -31,6 +31,7 @@ public class ShopHandler {
 	}
 	
 	public static void unlock(ShopItem item) {
+		if(disable) return;
 		items.add(item);
 	}
 	

@@ -36,6 +36,7 @@ public class CaseHandler {
 	 * Used By {@code AutoHandler}
 	 */
 	public static void tickCase(Case caseOpening) {
+		if(caseOutcomes==null) return;
 		if(caseDelay>0) {
 			caseDelay--;
 			PlaySound.playSound("/sound/cases/tick.wav");
