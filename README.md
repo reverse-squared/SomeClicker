@@ -19,6 +19,6 @@ Download the files above or [here](https://github.com/WeAreDevs/JavaClicker/arch
 
 Also see [contributors](https://github.com/WeAreDevs/JavaClicker/contributors) for the whole list of people who participated in this project.
 
-##Liscense
+## Liscense
 
 A Liscense - probobly public domain because no one likes legal stuff.
