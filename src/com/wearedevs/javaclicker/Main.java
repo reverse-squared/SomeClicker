@@ -90,18 +90,23 @@ public class Main extends JFrame {
 		});
 	}
 
-	public Main() throws FileNotFoundException, IOException {
+	public Main() {
 		try {
 		    File lockFile = new File(lockFileLoc);
-		    if (lockFile.exists())
-		        lockFile.delete();
+		    
+		    if (lockFile.exists()) {
+		    	lockFile.delete();
+		    }
 		    FileOutputStream lockFileOS = new FileOutputStream(lockFile);
 		    lockFileOS.close();
 		    FileChannel lockChannel = new RandomAccessFile(lockFile,"rw").getChannel();
 		    FileLock lock = lockChannel.tryLock();
-		    if (lock==null) throw new Exception("Unable to obtain lock");
+		    
+		    if (lock == null) {
+		    	throw new Exception("Unable to Obtain Lock");
+		    }
 		} catch (Exception e) {
-		    JOptionPane.showMessageDialog(this,"You cant start two instances of JavaClicker","Warning",JOptionPane.WARNING_MESSAGE);
+		    JOptionPane.showMessageDialog(this,"You Can Only Have One Instance of This Game Runnning!", "Can Not Start Game", JOptionPane.ERROR_MESSAGE);
 		    System.exit(0);
 		}
 		
