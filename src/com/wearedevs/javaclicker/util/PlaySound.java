@@ -13,7 +13,6 @@ public class PlaySound {
 	/**
 	 * @param soundName The Path to the Sound Like {@code sound/clickSound/default.wav}
 	 */
-	@SuppressWarnings("unused")
 	public static void playSound(String soundName) {
 		try {
 		     AudioInputStream inputStream = AudioSystem.getAudioInputStream(Main.main.getClass().getResource(soundName));

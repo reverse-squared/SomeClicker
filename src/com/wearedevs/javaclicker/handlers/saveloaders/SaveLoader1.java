@@ -2,6 +2,7 @@ package com.wearedevs.javaclicker.handlers.saveloaders;
 
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.Case;
+import com.wearedevs.javaclicker.cases.GetCase;
 import com.wearedevs.javaclicker.handlers.CaseHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
@@ -12,7 +13,8 @@ import com.wearedevs.javaclicker.sound.Sound;
 public class SaveLoader1 {
 	public static void load(String[] savearr) {
 		Main.clicks = Double.parseDouble(savearr[1]);
-		int i = 2;
+		GetCase.caseGoal = Double.parseDouble(savearr[2]);
+		int i = 3;
 		
 		//Shop items
 		while(!savearr[i].equals("END")) {

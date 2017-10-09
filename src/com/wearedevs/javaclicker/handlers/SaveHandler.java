@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.Case;
+import com.wearedevs.javaclicker.cases.GetCase;
 import com.wearedevs.javaclicker.handlers.saveloaders.SaveLoader1;
 import com.wearedevs.javaclicker.shop.ShopItem;
 import com.wearedevs.javaclicker.sound.Sound;
@@ -18,6 +19,7 @@ public class SaveHandler {
 	public static File saveFile = new File(saveFilePath);
 	
 	public static void save() {
+		System.out.print("Attempting to Save... ");
 		try {
 			if(!saveFile.exists()) {
 				saveFile.createNewFile();
@@ -28,6 +30,8 @@ public class SaveHandler {
 			w.print(Main.VERSION_NUM+";");
 			
 			w.print(Main.clicks+";");
+
+			w.print(GetCase.caseGoal+";");
 
 			for (ShopItem item : ShopHandler.items) {
 				w.print(item.getClass().getName()+";");
@@ -55,6 +59,7 @@ public class SaveHandler {
 			
 			w.close();
 			
+			System.out.println("Saved");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -63,6 +68,7 @@ public class SaveHandler {
 	public static void load() {
 		File saveFile = new File(saveFilePath);
 		if(saveFile.exists()) {
+			System.out.print("Loading Savefile... ");
 			ShopHandler.items = new ArrayList<ShopItem>();
 			ShopHandler.bought = new ArrayList<ShopItem>();
 			CaseHandler.caseList = new ArrayList<Case>();
@@ -77,13 +83,13 @@ public class SaveHandler {
 				}
 				
 				String[] savearr = str.split(";");
-				
-				int vers = Integer.parseInt(savearr[0]);
-				
-				if(vers == 1) {
+	
+				if(savearr[0].equals("1")) {
+					System.out.println("Version 1.0.0");
 					SaveLoader1.load(savearr);
 				} else {
-					System.err.println("Invalid Save Version");
+					System.out.println("Unknown!");
+					System.err.println("Invalid Save Version (" + savearr[0] + ")");
 				}
 				
 				s.close();
