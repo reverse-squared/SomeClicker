@@ -6,7 +6,9 @@ import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.cases.ClickCase;
 import com.wearedevs.javaclicker.cases.cases.ClickMultiplierCase;
 import com.wearedevs.javaclicker.cases.cases.SoundCase;
+import com.wearedevs.javaclicker.handlers.CaseHandler;
 import com.wearedevs.javaclicker.util.NotificationUtil;
+import com.wearedevs.javaclicker.util.PlaySound;
 import com.wearedevs.javaclicker.util.WeightedCollection;
 
 /**
@@ -24,6 +26,9 @@ public class GetCase {
 			w.add(1, new ClickMultiplierCase());
 			w.add(8, new SoundCase());
 			
+			CaseHandler.unlock(w.next());
+			
+			PlaySound.playSound("/sound/cases/buy.wav");
 			NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
 		}
 	}
