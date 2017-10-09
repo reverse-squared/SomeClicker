@@ -3,7 +3,6 @@ package com.wearedevs.javaclicker;
 import java.awt.EventQueue;
 import java.awt.Rectangle;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -58,7 +57,7 @@ public class Main extends JFrame {
 	public static CheaterPanel cheaterPanel;
 	public static ExtrasPanel extrasPanel;
 	
-	public static final String VERSION = "DEV 0.8";
+	public static final String VERSION = "Beta 1";
 	public static final int VERSION_NUM = 1;
 	
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
@@ -89,21 +88,38 @@ public class Main extends JFrame {
 		});
 	}
 
-	public Main() throws FileNotFoundException, IOException {
+	public Main() {
 		try {
 		    File lockFile = new File(lockFileLoc);
-		    if (lockFile.exists())
-		        lockFile.delete();
+		    
+		    if (lockFile.exists()) {
+		    	lockFile.delete();
+		    }
 		    FileOutputStream lockFileOS = new FileOutputStream(lockFile);
 		    lockFileOS.close();
-		    @SuppressWarnings("resource") //sorry
+		    
+		    @SuppressWarnings("resource")
 			FileChannel lockChannel = new RandomAccessFile(lockFile,"rw").getChannel();
 		    FileLock lock = lockChannel.tryLock();
-		    if (lock==null) throw new Exception("Unable to obtain lock");
+		    
+		    if (lock == null) {
+		    	throw new Exception("Unable to Obtain Lock");
+		    }
 		} catch (Exception e) {
-		    JOptionPane.showMessageDialog(this,"You cant start two instances of JavaClicker","Warning",JOptionPane.WARNING_MESSAGE);
+		    JOptionPane.showMessageDialog(this,"You Can Only Have One Instance of This Game Runnning!", "Can Not Start Game", JOptionPane.ERROR_MESSAGE);
 		    System.exit(0);
 		}
+		
+		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+			public void run() {				
+				if(resetOnClose) {
+					SaveHandler.saveFile.delete();
+				}else {
+					SaveHandler.save();
+				}
+				System.out.println("Exiting!");
+			}
+		}));
 		
 		NotificationUtil.init("Java Clicker " + VERSION, "Java Clicker " + VERSION, "textures/icon.png");
 		
@@ -131,22 +147,11 @@ public class Main extends JFrame {
 		setResizable(false);
 		setLayout(null);
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);		
 		setVisible(true);
-		
-		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-			public void run() {
-				System.out.println("Exiting!");
-				if(resetOnClose) {
-					SaveHandler.saveFile.delete();
-				}else {
-					SaveHandler.save();
-				}
-			}
-		}));
 		
 		AutoHandler.initAutoThread();
 		

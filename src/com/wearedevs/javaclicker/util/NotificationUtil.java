@@ -28,12 +28,9 @@ public class NotificationUtil {
         
         SystemTray tray = SystemTray.getSystemTray();
 		Image image = Toolkit.getDefaultToolkit().createImage(ClassLoader.getSystemClassLoader().getResource(iconPath));
+		
         trayIcon = new TrayIcon(image, name);
-        
-        //Let the system resizes the image if needed
         trayIcon.setImageAutoSize(true);
-        
-        //Set tooltip text for the tray icon
         trayIcon.setToolTip(tooltip);
         
         trayIcon.addActionListener(new ActionListener() {
@@ -64,7 +61,6 @@ public class NotificationUtil {
         try {
 			tray.add(trayIcon);
 		} catch (AWTException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -78,7 +74,7 @@ public class NotificationUtil {
         if (SystemTray.isSupported()) {
         	trayIcon.displayMessage(title, desc, type);
         } else {
-            System.err.println("System tray not supported!");
+            System.err.println("System Tray Not Supported!");
         }
     }
 }

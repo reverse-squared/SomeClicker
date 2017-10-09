@@ -59,7 +59,7 @@ public class SaveHandler {
 			
 			w.close();
 			
-			System.out.println("Saved");
+			System.out.println("Saved!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
