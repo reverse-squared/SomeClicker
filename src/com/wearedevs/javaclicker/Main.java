@@ -4,10 +4,14 @@ import java.awt.EventQueue;
 import java.awt.Rectangle;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.io.RandomAccessFile;
 import java.net.URISyntaxException;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 import java.util.Scanner;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -69,7 +73,6 @@ public class Main extends JFrame {
 	public static final String lockFileLoc = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/startup.lock";
 	
 	public static final File modFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt");
-	public static File startupLockFile = new File(lockFileLoc);
 	
 	
 	public static void main(String[] args) throws Exception {
@@ -87,19 +90,19 @@ public class Main extends JFrame {
 		});
 	}
 
-	public Main() {
-		if(startupLockFile.exists()) {
-			JOptionPane.showMessageDialog(main, 
-					"Only One Instance of This Game Can be Running at a Time.", 
-					"Unable to Start Game", 
-					JOptionPane.PLAIN_MESSAGE);
-			System.exit(0);
-		}else {
-			try {
-				startupLockFile.createNewFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+	public Main() throws FileNotFoundException, IOException {
+		try {
+		    File lockFile = new File(lockFileLoc);
+		    if (lockFile.exists())
+		        lockFile.delete();
+		    FileOutputStream lockFileOS = new FileOutputStream(lockFile);
+		    lockFileOS.close();
+		    FileChannel lockChannel = new RandomAccessFile(lockFile,"rw").getChannel();
+		    FileLock lock = lockChannel.tryLock();
+		    if (lock==null) throw new Exception("Unable to obtain lock");
+		} catch (Exception e) {
+		    JOptionPane.showMessageDialog(this,"You cant start two instances of JavaClicker","Warning",JOptionPane.WARNING_MESSAGE);
+		    System.exit(0);
 		}
 		
 		new File(path).mkdirs();
@@ -125,7 +128,7 @@ public class Main extends JFrame {
 		setResizable(false);
 		setLayout(null);
 		
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
@@ -136,14 +139,11 @@ public class Main extends JFrame {
 		
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 			public void run() {
+				System.out.println("Exiting!");
 				if(resetOnClose) {
 					SaveHandler.saveFile.delete();
-					startupLockFile.delete();
 				}else {
-					System.out.println("Saving...");
 					SaveHandler.save();
-					System.out.println("Exiting...");
-					startupLockFile.delete();
 				}
 			}
 		}));
@@ -153,21 +153,11 @@ public class Main extends JFrame {
 		new File(modPath).mkdirs();
 		
 		ModLoader ml = new ModLoader();
-		
-		PrintWriter writer = null;
-		try {
-			writer = new PrintWriter(modFile);
-			writer.println("Base " + VERSION);
-		} catch (FileNotFoundException e2) {
-			e2.printStackTrace();
-		}
 	    
 		File[] modfiles = new File(modPath).listFiles();
 		for(File file : modfiles) {
 			if(!file.isDirectory()) {				
 				if(file.getName().endsWith(".jar")) {
-					System.out.println("Fetching Mods...");
-					
 					JarFile jarfile = null;
 					
 					try {
@@ -176,7 +166,6 @@ public class Main extends JFrame {
 						e1.printStackTrace();
 					}
 					
-					System.out.println("Reading Mods...");
 					JarEntry entry = jarfile.getJarEntry("mod.txt");
 					
 					try {
@@ -201,8 +190,6 @@ public class Main extends JFrame {
 							String main = modtxtarr[3];
 							System.out.println("Loading Mod '" + name + " v" + vers + "'");
 							ml.Load(name + " v" + vers, file.getAbsolutePath(), main);
-							System.out.println("Loaded Mod '" + name + " v" + vers + "'");
-							writer.println(name);
 						}
 					} catch (IOException e) {
 						System.err.println("Failed to Load Mod '" + file.getName() + "': IOException (Missing mod.txt?)");
@@ -210,8 +197,6 @@ public class Main extends JFrame {
 				}
 			}
 		}
-		writer.close();
-		
 		SaveHandler.load();
 	}
 
