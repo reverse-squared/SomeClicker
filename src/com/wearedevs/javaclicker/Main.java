@@ -110,6 +110,17 @@ public class Main extends JFrame {
 		    System.exit(0);
 		}
 		
+		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+			public void run() {				
+				if(resetOnClose) {
+					SaveHandler.saveFile.delete();
+				}else {
+					SaveHandler.save();
+				}
+				System.out.println("Exiting!");
+			}
+		}));
+		
 		NotificationUtil.init("Java Clicker " + VERSION, "Java Clicker " + VERSION, "textures/icon.png");
 		
 		new File(path).mkdirs();
@@ -141,17 +152,6 @@ public class Main extends JFrame {
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);		
 		setVisible(true);
-		
-		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-			public void run() {
-				System.out.println("Exiting!");
-				if(resetOnClose) {
-					SaveHandler.saveFile.delete();
-				}else {
-					SaveHandler.save();
-				}
-			}
-		}));
 		
 		AutoHandler.initAutoThread();
 		
