@@ -23,7 +23,8 @@ public class ExtrasPanel extends JPanel {
 
 	public ExtrasPanel() throws URISyntaxException {
 		final URI moddingUri = new URI("https://github.com/WeAreDevs/JavaClicker/wiki/Modding");
-		final URI ideaUri= new URI("https://goo.gl/forms/LItqqg4Tj3jSViGw1");
+		final URI ideaUri = new URI("https://goo.gl/forms/LItqqg4Tj3jSViGw1");
+		final URI bugUri = new URI("https://goo.gl/forms/ybr8MuioZHFgtoth1");
 		
 		setLayout(null);
 		setBounds(Main.panelSize);
@@ -72,6 +73,22 @@ public class ExtrasPanel extends JPanel {
 		});
 		ideaButton.setBounds(244, 118, 97, 25);
 		add(ideaButton);
+		
+		
+		
+		JLabel bugLabel = new JLabel("Found a Bug / Glitch?");
+		bugLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		bugLabel.setBounds(12, 150, 240, 28);
+		add(bugLabel);
+		
+		JButton bugButton = new JButton("Click Here!");
+		bugButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				open(bugUri);
+			}
+		});
+		bugButton.setBounds(180, 153, 97, 25);
+		add(bugButton);
 	}
 	
 	private static void open(URI uri) {
