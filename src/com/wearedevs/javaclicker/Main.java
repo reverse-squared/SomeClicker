@@ -3,7 +3,6 @@ package com.wearedevs.javaclicker;
 import java.awt.EventQueue;
 import java.awt.Rectangle;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -58,7 +57,7 @@ public class Main extends JFrame {
 	public static CheaterPanel cheaterPanel;
 	public static ExtrasPanel extrasPanel;
 	
-	public static final String VERSION = "DEV 0.8";
+	public static final String VERSION = "Beta 1";
 	public static final int VERSION_NUM = 1;
 	
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
@@ -98,7 +97,8 @@ public class Main extends JFrame {
 		    }
 		    FileOutputStream lockFileOS = new FileOutputStream(lockFile);
 		    lockFileOS.close();
-		    @SuppressWarnings("resource") //sorry
+		    
+		    @SuppressWarnings("resource")
 			FileChannel lockChannel = new RandomAccessFile(lockFile,"rw").getChannel();
 		    FileLock lock = lockChannel.tryLock();
 		    
@@ -136,7 +136,7 @@ public class Main extends JFrame {
 		setResizable(false);
 		setLayout(null);
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);		
