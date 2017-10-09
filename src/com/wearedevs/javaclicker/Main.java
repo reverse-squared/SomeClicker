@@ -102,7 +102,24 @@ public class Main extends JFrame {
 			}
 		}
 		
+		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+			public void run() {
+				if(resetOnClose) {
+					SaveHandler.saveFile.delete();
+					startupLockFile.delete();
+				}else {
+					System.out.println("Saving...");
+					SaveHandler.save();
+					System.out.println("Exiting...");
+					startupLockFile.delete();
+				}
+			}
+		}));
+		
+		NotificationUtil.init("Java Clicker " + VERSION, "Java Clicker " + VERSION, "textures/icon.png");
+		
 		new File(path).mkdirs();
+		new File(modPath).mkdirs();
 		
 		SoundUnlocker.unlock(new Default());
 		
@@ -128,29 +145,10 @@ public class Main extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
-		setContentPane(mainPanel);
-		
-		NotificationUtil.init("Java Clicker " + VERSION, "Java Clicker " + VERSION, "textures/icon.png");
-		
+		setContentPane(mainPanel);		
 		setVisible(true);
 		
-		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-			public void run() {
-				if(resetOnClose) {
-					SaveHandler.saveFile.delete();
-					startupLockFile.delete();
-				}else {
-					System.out.println("Saving...");
-					SaveHandler.save();
-					System.out.println("Exiting...");
-					startupLockFile.delete();
-				}
-			}
-		}));
-		
 		AutoHandler.initAutoThread();
-		
-		new File(modPath).mkdirs();
 		
 		ModLoader ml = new ModLoader();
 		
