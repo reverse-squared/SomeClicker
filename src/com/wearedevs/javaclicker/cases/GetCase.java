@@ -3,8 +3,9 @@ package com.wearedevs.javaclicker.cases;
 import java.awt.TrayIcon.MessageType;
 
 import com.wearedevs.javaclicker.Main;
-import com.wearedevs.javaclicker.cases.cases.*;
-import com.wearedevs.javaclicker.handlers.CaseHandler;
+import com.wearedevs.javaclicker.cases.cases.ClickCase;
+import com.wearedevs.javaclicker.cases.cases.ClickMultiplierCase;
+import com.wearedevs.javaclicker.cases.cases.SoundCase;
 import com.wearedevs.javaclicker.util.NotificationUtil;
 import com.wearedevs.javaclicker.util.WeightedCollection;
 

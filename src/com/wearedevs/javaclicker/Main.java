@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
 import java.io.RandomAccessFile;
 import java.net.URISyntaxException;
 import java.nio.channels.FileChannel;
@@ -99,7 +98,8 @@ public class Main extends JFrame {
 		    }
 		    FileOutputStream lockFileOS = new FileOutputStream(lockFile);
 		    lockFileOS.close();
-		    FileChannel lockChannel = new RandomAccessFile(lockFile,"rw").getChannel();
+		    @SuppressWarnings("resource") //sorry
+			FileChannel lockChannel = new RandomAccessFile(lockFile,"rw").getChannel();
 		    FileLock lock = lockChannel.tryLock();
 		    
 		    if (lock == null) {
