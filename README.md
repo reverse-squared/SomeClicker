@@ -9,7 +9,7 @@ Download the files above or [here](https://github.com/WeAreDevs/JavaClicker/arch
 
 ### Prerequisites
 
-* Java SE 8u144 [download](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
+* Java SE 8u144 [Download](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
 
 ## Authors
 
@@ -21,4 +21,4 @@ Also see [contributors](https://github.com/WeAreDevs/JavaClicker/contributors) f
 
 ## License
 
-A Liscense - probably public domain because no one likes legal stuff.
+A License - Probably public domain because no one likes legal stuff.
