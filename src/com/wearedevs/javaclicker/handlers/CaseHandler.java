@@ -46,10 +46,9 @@ public class CaseHandler {
 			CaseOutcome open = caseOutcomes.next();
 			if(caseDelay<=0) {
 				caseSpd++;
-				System.out.println(caseSpd);
 				PlaySound.playSound("/sound/cases/tick.wav");
 				
-				if(caseSpd>25) {
+				if(caseSpd >= 30) {
 					//Stop
 					open.onOutcome();
 					CaseHandler.caseList.remove(ccase);
