@@ -13,6 +13,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 import com.wearedevs.javaclicker.gui.CaseOpenPanel;
@@ -86,7 +87,10 @@ public class Main extends JFrame {
 
 	public Main() {
 		if(startupLockFile.exists()) {
-			//TODO: Popup Dialog Box
+			JOptionPane.showMessageDialog(main, 
+					"Only One Instance of This Game Can be Running at a Time.", 
+					"Unable to Start Game", 
+					JOptionPane.PLAIN_MESSAGE);
 			System.exit(0);
 		}else {
 			try {
