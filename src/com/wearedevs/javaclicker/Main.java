@@ -272,11 +272,6 @@ public class Main extends JFrame {
 		updateCounter();
 	}
 
-	public static void bringToFront() {
-		main.setAlwaysOnTop(true);
-		main.setAlwaysOnTop(false);
-	}
-
 	public static void openWindow() {
 		main.setVisible(true);
 	}
