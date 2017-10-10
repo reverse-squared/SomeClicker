@@ -16,4 +16,14 @@ public abstract class Mod {
 	 * 	Use for communication between mods, or something?
 	 */
 	public abstract void postInit();
+	
+	/**
+	 * 	Use to Set the data
+	 */
+	public abstract String[] save();
+	
+	/**
+	 * 	Get the data
+	 */
+	public abstract void load(String[] savefile);
 }
