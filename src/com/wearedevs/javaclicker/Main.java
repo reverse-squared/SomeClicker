@@ -6,10 +6,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.io.RandomAccessFile;
 import java.net.URISyntaxException;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -30,7 +32,9 @@ import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
+import com.wearedevs.javaclicker.mod.Mod;
 import com.wearedevs.javaclicker.mod.ModLoader;
+import com.wearedevs.javaclicker.mod.ModPrintStream;
 import com.wearedevs.javaclicker.sound.Sound;
 import com.wearedevs.javaclicker.sound.sounds.Default;
 import com.wearedevs.javaclicker.util.NotificationUtil;
@@ -45,6 +49,7 @@ public class Main extends JFrame {
 	public static double clicks = 0;
 	public static int perClick = 1;
 	public static double multiplier = 1.0;
+	public static ArrayList<Mod> mods = new ArrayList<Mod>();
 
 	public static Main main;
 
@@ -118,7 +123,9 @@ public class Main extends JFrame {
 										String vers = modtxtarr[2];
 										String main = modtxtarr[3];
 										System.out.println("Loading Mod '" + name + " v" + vers + "'");
-										ml.Load(name + " v" + vers, file.getAbsolutePath(), main);
+										Mod mod = ml.Load(name + " v" + vers, file.getAbsolutePath(), main);
+										mod.name = name;
+										mods.add(mod);
 									}
 								} catch (IOException e) {
 									System.err.println("Failed to Load Mod '" + file.getName() + "': IOException (Missing mod.txt?)");
@@ -126,7 +133,22 @@ public class Main extends JFrame {
 							}
 						}
 					}
+					System.out.println("== Mods PreInit Stage ==");
+					PrintStream ps = System.out;
+					for(Mod mod : mods) {
+						System.setOut(new ModPrintStream(System.out, mod.name));
+						mod.preInit();
+						System.setOut(ps);
+					}
+					System.out.println("== End  PreInit Stage ==");
 					SaveHandler.load();
+					System.out.println("== Mods PostInit Stage ==");
+					for(Mod mod : mods) {
+						System.setOut(new ModPrintStream(System.out, mod.name));
+						mod.preInit();
+						System.setOut(ps);
+					}
+					System.out.println("== Game is Loaded ==");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -199,8 +221,6 @@ public class Main extends JFrame {
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
 		setVisible(true);
-
-		AutoHandler.initAutoThread();
 	}
 
 	/**

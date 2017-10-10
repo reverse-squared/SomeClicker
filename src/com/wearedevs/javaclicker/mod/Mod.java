@@ -5,6 +5,8 @@ package com.wearedevs.javaclicker.mod;
  */
 public abstract class Mod {
 	
+	public String name;
+
 	/**
 	 *  Do all your main code here
 	 */
