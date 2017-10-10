@@ -14,6 +14,8 @@ import com.wearedevs.javaclicker.sound.sounds.Default;
 public class SaveLoader2 {
 	public static void load(String[] savearr) {
 		Main.clicks = Double.parseDouble(savearr[1]);
+		Main.updateCounter();
+		
 		GetCase.caseGoal = Double.parseDouble(savearr[2]);
 		
 		Class<?> sc;

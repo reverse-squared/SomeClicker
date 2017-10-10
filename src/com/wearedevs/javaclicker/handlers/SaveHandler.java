@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 import com.wearedevs.javaclicker.Main;
@@ -79,13 +78,12 @@ public class SaveHandler {
 					String o = String.join(";", b);
 					w.print(o + ";END;");
 				} catch(AbstractMethodError e) {
-					//Not a huge problem
+					//Not a Huge Problem
 					continue;
 				}
 			}
 			
 			w.print("END");
-			
 			w.close();
 			
 			System.out.println("Saved!");
