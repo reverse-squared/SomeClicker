@@ -28,7 +28,6 @@ import com.wearedevs.javaclicker.gui.InfoPanel;
 import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.OptionsPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
-import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
@@ -62,7 +61,7 @@ public class Main extends JFrame {
 	public static CheaterPanel cheaterPanel;
 	public static ExtrasPanel extrasPanel;
 
-	public static final String VERSION = "1.0.0 Beta 4";
+	public static final String VERSION = "Beta 4";
 	public static final int VERSION_NUM = 2;
 
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
@@ -88,6 +87,7 @@ public class Main extends JFrame {
 					main = new Main();
 					ModLoader ml = new ModLoader();
 
+					System.out.println("== Loading Mods ==");
 					File[] modfiles = new File(modPath).listFiles();
 					for(File file : modfiles) {
 						if(!file.isDirectory()) {
@@ -133,6 +133,7 @@ public class Main extends JFrame {
 							}
 						}
 					}
+					
 					System.out.println("== Mods PreInit Stage ==");
 					PrintStream ps = System.out;
 					for(Mod mod : mods) {
@@ -140,9 +141,12 @@ public class Main extends JFrame {
 						mod.preInit();
 						System.setOut(ps);
 					}
-					System.out.println("== End  PreInit Stage ==");
-					SaveHandler.load();
+					
+					System.out.println("== End PreInit Stage ==");
+					
 					System.out.println("== Mods PostInit Stage ==");
+					SaveHandler.load();
+					
 					for(Mod mod : mods) {
 						System.setOut(new ModPrintStream(System.out, mod.name));
 						mod.postInit();
