@@ -24,7 +24,7 @@ public class MainPanel extends JPanel {
 		setLayout(null);
 		setBounds(Main.panelSize);
 		
-		labelClicks = new JLabel("Click the Button!");
+		labelClicks = new JLabel();
 		labelClicks.setFont(new Font("Tahoma", Font.BOLD, 25));
 		labelClicks.setBounds(12, 13, 377, 34);
 		add(labelClicks);
