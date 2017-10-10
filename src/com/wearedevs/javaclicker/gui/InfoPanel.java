@@ -35,6 +35,22 @@ public class InfoPanel extends JPanel {
 		});
 		backBtn.setBounds(12, 398, 270, 40);
 		add(backBtn);
+		
+		JLabel lblWelcomeToOur = new JLabel("We Would like to Thank you by Beta Testing Our Game. Please Report Bugs in Our Extras Panel.");
+		lblWelcomeToOur.setBounds(39, 370, 553, 28);
+		add(lblWelcomeToOur);
+		
+		JLabel lblWelcomeToJavaclicker = new JLabel("In the Shop, You Can Buy Upgrades to Help You Progress Faster and Lazier.");
+		lblWelcomeToJavaclicker.setBounds(93, 93, 433, 16);
+		add(lblWelcomeToJavaclicker);
+		
+		JLabel label = new JLabel("Welcome to JavaClicker! In this Game You Get to Click the Big Button That Says Click Me!");
+		label.setBounds(61, 72, 507, 16);
+		add(label);
+		
+		JLabel lblEverySoOften = new JLabel("Every So Often, You Can Get Cases You Can Open to Get Sweet Rewards!");
+		lblEverySoOften.setBounds(100, 114, 422, 16);
+		add(lblEverySoOften);
 	}
 
 }
