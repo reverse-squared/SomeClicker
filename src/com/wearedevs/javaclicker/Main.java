@@ -145,7 +145,7 @@ public class Main extends JFrame {
 					System.out.println("== Mods PostInit Stage ==");
 					for(Mod mod : mods) {
 						System.setOut(new ModPrintStream(System.out, mod.name));
-						mod.preInit();
+						mod.postInit();
 						System.setOut(ps);
 					}
 					System.out.println("== Game is Loaded ==");
