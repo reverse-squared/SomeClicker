@@ -3,12 +3,15 @@ package com.wearedevs.javaclicker.mod;
 /**
  * Mods
  */
-public class Mod {
+public abstract class Mod {
 	
 	/**
-	 *  Your Changes
+	 *  Do all your main code here
 	 */
-	public Mod() {
-		
-	}
+	public abstract void preInit();
+	
+	/**
+	 * 	Use for communication between mods, or something?
+	 */
+	public abstract void postInit();
 }
