@@ -6,10 +6,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.io.RandomAccessFile;
 import java.net.URISyntaxException;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -30,7 +32,9 @@ import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
+import com.wearedevs.javaclicker.mod.Mod;
 import com.wearedevs.javaclicker.mod.ModLoader;
+import com.wearedevs.javaclicker.mod.ModPrintStream;
 import com.wearedevs.javaclicker.sound.Sound;
 import com.wearedevs.javaclicker.sound.sounds.Default;
 import com.wearedevs.javaclicker.util.NotificationUtil;
@@ -45,9 +49,10 @@ public class Main extends JFrame {
 	public static double clicks = 0;
 	public static int perClick = 1;
 	public static double multiplier = 1.0;
-	
+	public static ArrayList<Mod> mods = new ArrayList<Mod>();
+
 	public static Main main;
-	
+
 	public static MainPanel mainPanel;
 	public static ShopPanel shopPanel;
 	public static OptionsPanel optionsPanel;
@@ -56,24 +61,23 @@ public class Main extends JFrame {
 	public static CaseOpenPanel caseOpenPanel = null;
 	public static CheaterPanel cheaterPanel;
 	public static ExtrasPanel extrasPanel;
-	
-	public static final String VERSION = "Beta 3.1";
 
-	public static final int VERSION_NUM = 1;
-	
+	public static final String VERSION = "1.0.0 Beta 4";
+	public static final int VERSION_NUM = 2;
+
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
-	
+
 	public static boolean resetOnClose = false;
-	
+
 	public static final String path = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/";
-	
+
 	public static final String modPath = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/";
 	public static final String lockFileLoc = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/startup.lock";
-	
+
 	public static final File modFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt");
-	
-	
+
+
 	public static void main(String[] args) throws Exception {
 		ModLoader.classloaders.add(ClassLoader.getSystemClassLoader());
 		System.out.println("Loading Java Clicker " + VERSION);
@@ -82,6 +86,69 @@ public class Main extends JFrame {
 			public void run() {
 				try {
 					main = new Main();
+					ModLoader ml = new ModLoader();
+
+					File[] modfiles = new File(modPath).listFiles();
+					for(File file : modfiles) {
+						if(!file.isDirectory()) {
+							if(file.getName().endsWith(".jar")) {
+								JarFile jarfile = null;
+
+								try {
+									jarfile = new JarFile(file);
+								} catch (IOException e1) {
+									e1.printStackTrace();
+								}
+
+								JarEntry entry = jarfile.getJarEntry("mod.txt");
+
+								try {
+									InputStream is = jarfile.getInputStream(entry);
+									Scanner s = new Scanner(is);
+									String str = "";
+
+									while (s.hasNext()) {
+										str += s.nextLine();
+									}
+
+									s.close();
+									String[] modtxtarr = str.split(",");
+
+									if(Integer.parseInt(modtxtarr[0]) != VERSION_NUM) {
+										System.err.println("Failed to Load Mod '" + file.getName() + "': Version is Mismatched (Current is " + VERSION_NUM + ")");
+
+										continue;
+									} else {
+										String name = modtxtarr[1];
+										String vers = modtxtarr[2];
+										String main = modtxtarr[3];
+										System.out.println("Loading Mod '" + name + " v" + vers + "'");
+										Mod mod = ml.Load(name + " v" + vers, file.getAbsolutePath(), main);
+										mod.name = name;
+										mods.add(mod);
+									}
+								} catch (IOException e) {
+									System.err.println("Failed to Load Mod '" + file.getName() + "': IOException (Missing mod.txt?)");
+								}
+							}
+						}
+					}
+					System.out.println("== Mods PreInit Stage ==");
+					PrintStream ps = System.out;
+					for(Mod mod : mods) {
+						System.setOut(new ModPrintStream(System.out, mod.name));
+						mod.preInit();
+						System.setOut(ps);
+					}
+					System.out.println("== End  PreInit Stage ==");
+					SaveHandler.load();
+					System.out.println("== Mods PostInit Stage ==");
+					for(Mod mod : mods) {
+						System.setOut(new ModPrintStream(System.out, mod.name));
+						mod.postInit();
+						System.setOut(ps);
+					}
+					System.out.println("== Game is Loaded ==");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -92,30 +159,31 @@ public class Main extends JFrame {
 	public Main() {
 		new File(path).mkdirs();
 		new File(modPath).mkdirs();
-		
+
 		try {
 		    File lockFile = new File(lockFileLoc);
-		    
+
 		    if (lockFile.exists()) {
 		    	lockFile.delete();
 		    }
 		    FileOutputStream lockFileOS = new FileOutputStream(lockFile);
 		    lockFileOS.close();
-		    
+
 		    @SuppressWarnings("resource")
 			FileChannel lockChannel = new RandomAccessFile(lockFile,"rw").getChannel();
 		    FileLock lock = lockChannel.tryLock();
-		    
+
 		    if (lock == null) {
 		    	throw new Exception("Unable to Obtain Lock");
 		    }
 		} catch (Exception e) {
-		    JOptionPane.showMessageDialog(this,"You Can Only Have One Instance of This Game Runnning!", "Can Not Start Game", JOptionPane.ERROR_MESSAGE);
+		    e.printStackTrace();
+			JOptionPane.showMessageDialog(this,"You Can Only Have One Instance of This Game Runnning!", "Can Not Start Game", JOptionPane.ERROR_MESSAGE);
 		    System.exit(0);
 		}
-		
+
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-			public void run() {				
+			public void run() {
 				if(resetOnClose) {
 					SaveHandler.saveFile.delete();
 				}else {
@@ -124,14 +192,14 @@ public class Main extends JFrame {
 				System.out.println("Exiting!");
 			}
 		}));
-		
+
 		NotificationUtil.init("Java Clicker " + VERSION, "Java Clicker " + VERSION, "textures/icon.png");
-		
+
 		SoundUnlocker.unlock(new Default());
-		
+
 		//Init Shop
 		ShopHandler.initializeShop();
-		
+
 		//Init all panels
 		mainPanel = new MainPanel();
 		shopPanel = new ShopPanel();
@@ -143,65 +211,16 @@ public class Main extends JFrame {
 		} catch (URISyntaxException e3) {
 			e3.printStackTrace();
 		}
-		
+
 		//Frame Properties
 		setResizable(false);
 		setLayout(null);
-		
+
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
-		setContentPane(mainPanel);		
+		setContentPane(mainPanel);
 		setVisible(true);
-		
-		AutoHandler.initAutoThread();
-		
-		ModLoader ml = new ModLoader();
-	    
-		File[] modfiles = new File(modPath).listFiles();
-		for(File file : modfiles) {
-			if(!file.isDirectory()) {				
-				if(file.getName().endsWith(".jar")) {
-					JarFile jarfile = null;
-					
-					try {
-						jarfile = new JarFile(file);
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
-					
-					JarEntry entry = jarfile.getJarEntry("mod.txt");
-					
-					try {
-						InputStream is = jarfile.getInputStream(entry);
-						Scanner s = new Scanner(is);
-						String str = "";
-						
-						while (s.hasNext()) {
-							str += s.nextLine();
-						}
-						
-						s.close();
-						String[] modtxtarr = str.split(",");
-						
-						if(Integer.parseInt(modtxtarr[0]) != VERSION_NUM) {
-							System.err.println("Failed to Load Mod '" + file.getName() + "': Version is Mismatched (Current is " + VERSION_NUM + ")");
-							
-							continue;
-						} else {
-							String name = modtxtarr[1];
-							String vers = modtxtarr[2];
-							String main = modtxtarr[3];
-							System.out.println("Loading Mod '" + name + " v" + vers + "'");
-							ml.Load(name + " v" + vers, file.getAbsolutePath(), main);
-						}
-					} catch (IOException e) {
-						System.err.println("Failed to Load Mod '" + file.getName() + "': IOException (Missing mod.txt?)");
-					}
-				}
-			}
-		}
-		SaveHandler.load();
 	}
 
 	/**
@@ -212,48 +231,48 @@ public class Main extends JFrame {
 		shopPanel.labelClicks.setText(Math.round(clicks)+" Clicks");
 		casePanel.labelClicks.setText(Math.round(clicks)+" Clicks");
 	}
-	
+
 	/**
 	 * Uses Default Values | Calls The Other Click Method
 	 */
 	public static void click() {
 		click(perClick, SoundUnlocker.currentSound);
 	}
-	
+
 	/**
 	 * Making {@code click(amount of clicks) work.}
 	 */
 	public static void click(double amount) {
 		click(amount, null);
 	}
-	
+
 	/**
 	 * Handles All the Clicking
 	 */
 	public static void click(double ammount, Sound sound) {
 		double click = ammount * multiplier;
-		
+
 		if(RandomUtil.randomRange(1, 20) == 10) {
 			click *= 2;
 		}
-		
+
 		if(RandomUtil.randomRange(1, 500) == 10) {
 			click *= 10;
 		}
-		
+
 		if(sound!=null) {
-			PlaySound.playSound("/sound/clickSound/" + sound.getFileName());	
+			PlaySound.playSound("/sound/clickSound/" + sound.getFileName());
 		}
-		
+
 		Main.clicks += click * multiplier;
 		updateCounter();
 	}
-	
+
 	public static void bringToFront() {
 		main.setAlwaysOnTop(true);
 		main.setAlwaysOnTop(false);
 	}
-	
+
 	public static void openWindow() {
 		main.setVisible(true);
 	}
