@@ -55,7 +55,7 @@ public class CaseHandler {
 					CaseHandler.caseList.remove(ccase);
 					ccase = null;
 					Main.caseOpenPanel.btnGoBack.setVisible(true);
-					PlaySound.playSound("/sound/cases/buy.wav");
+					PlaySound.playSound("/sound/cases/outcome.wav");
 				}
 			}
 			

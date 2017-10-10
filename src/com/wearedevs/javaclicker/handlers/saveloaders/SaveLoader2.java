@@ -24,11 +24,11 @@ public class SaveLoader2 {
 				//Its Good
 				SoundUnlocker.currentSound = (Sound) so;
 			} else {
-				System.err.println(savearr[3]+" does not extend Sound.");
+				System.err.println(savearr[3]+" does not Extend Sound.");
 				SoundUnlocker.currentSound = new Default();
 			}
 		} catch (ClassNotFoundException e1) {
-			System.err.println(savearr[3] + " is missing! Cannot add");
+			System.err.println(savearr[3] + " is Missing! Cannot Add!");
 		} catch (InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
@@ -45,11 +45,11 @@ public class SaveLoader2 {
 					//Its Good
 					ShopHandler.items.add((ShopItem) o);
 				} else {
-					//Not extends
-					System.err.println(savearr[i]+" does not extend ShopItem.");
+					//Not Extends
+					System.err.println(savearr[i]+" does not Extend ShopItem.");
 				}
 			} catch (ClassNotFoundException e) {
-				System.err.println(savearr[i] + " is missing! Cannot add");
+				System.err.println(savearr[i] + " is Missing! Cannot Add!");
 			} catch (InstantiationException e) {
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
@@ -59,6 +59,7 @@ public class SaveLoader2 {
 			i++;
 		}
 		i++;
+		
 		ShopHandler.disable = true;
 		//Shop Bought
 		while(!savearr[i].equals("END")) {
@@ -71,10 +72,10 @@ public class SaveLoader2 {
 					ShopHandler.bought.add((ShopItem) o);
 				} else {
 					//Not extends
-					System.err.println(savearr[i]+" does not extend ShopItem.");
+					System.err.println(savearr[i]+" does not Extend ShopItem.");
 				}
 			} catch (ClassNotFoundException e) {
-				System.err.println(savearr[i] + " is missing! Cannot add");
+				System.err.println(savearr[i] + " is Missing! Cannot Add!");
 			} catch (InstantiationException e) {
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
@@ -96,10 +97,10 @@ public class SaveLoader2 {
 					CaseHandler.caseList.add((Case) o);
 				} else {
 					//Not extends
-					System.err.println(savearr[i]+" does not extend Case.");
+					System.err.println(savearr[i]+" does not Extend Case.");
 				}
 			} catch (ClassNotFoundException e) {
-				System.err.println(savearr[i] + " is missing! Cannot add");
+				System.err.println(savearr[i] + " is Missing! Cannot Add!");
 			} catch (InstantiationException e) {
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
