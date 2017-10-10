@@ -57,8 +57,8 @@ public class Main extends JFrame {
 	public static CheaterPanel cheaterPanel;
 	public static ExtrasPanel extrasPanel;
 	
-	public static final String VERSION = "1.0.0 Beta 1";
-	public static final int VERSION_NUM = 1;
+	public static final String VERSION = "1.0.0 Beta 4";
+	public static final int VERSION_NUM = 2;
 	
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
 	public static final Rectangle panelSize = new Rectangle(0, 0, windowSize.width, windowSize.height);
@@ -81,6 +81,52 @@ public class Main extends JFrame {
 			public void run() {
 				try {
 					main = new Main();
+					ModLoader ml = new ModLoader();
+				    
+					File[] modfiles = new File(modPath).listFiles();
+					for(File file : modfiles) {
+						if(!file.isDirectory()) {				
+							if(file.getName().endsWith(".jar")) {
+								JarFile jarfile = null;
+								
+								try {
+									jarfile = new JarFile(file);
+								} catch (IOException e1) {
+									e1.printStackTrace();
+								}
+								
+								JarEntry entry = jarfile.getJarEntry("mod.txt");
+								
+								try {
+									InputStream is = jarfile.getInputStream(entry);
+									Scanner s = new Scanner(is);
+									String str = "";
+									
+									while (s.hasNext()) {
+										str += s.nextLine();
+									}
+									
+									s.close();
+									String[] modtxtarr = str.split(",");
+									
+									if(Integer.parseInt(modtxtarr[0]) != VERSION_NUM) {
+										System.err.println("Failed to Load Mod '" + file.getName() + "': Version is Mismatched (Current is " + VERSION_NUM + ")");
+										
+										continue;
+									} else {
+										String name = modtxtarr[1];
+										String vers = modtxtarr[2];
+										String main = modtxtarr[3];
+										System.out.println("Loading Mod '" + name + " v" + vers + "'");
+										ml.Load(name + " v" + vers, file.getAbsolutePath(), main);
+									}
+								} catch (IOException e) {
+									System.err.println("Failed to Load Mod '" + file.getName() + "': IOException (Missing mod.txt?)");
+								}
+							}
+						}
+					}
+					SaveHandler.load();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -109,7 +155,8 @@ public class Main extends JFrame {
 		    	throw new Exception("Unable to Obtain Lock");
 		    }
 		} catch (Exception e) {
-		    JOptionPane.showMessageDialog(this,"You Can Only Have One Instance of This Game Runnning!", "Can Not Start Game", JOptionPane.ERROR_MESSAGE);
+		    e.printStackTrace();
+			JOptionPane.showMessageDialog(this,"You Can Only Have One Instance of This Game Runnning!", "Can Not Start Game", JOptionPane.ERROR_MESSAGE);
 		    System.exit(0);
 		}
 		
@@ -154,53 +201,6 @@ public class Main extends JFrame {
 		setVisible(true);
 		
 		AutoHandler.initAutoThread();
-		
-		ModLoader ml = new ModLoader();
-	    
-		File[] modfiles = new File(modPath).listFiles();
-		for(File file : modfiles) {
-			if(!file.isDirectory()) {				
-				if(file.getName().endsWith(".jar")) {
-					JarFile jarfile = null;
-					
-					try {
-						jarfile = new JarFile(file);
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
-					
-					JarEntry entry = jarfile.getJarEntry("mod.txt");
-					
-					try {
-						InputStream is = jarfile.getInputStream(entry);
-						Scanner s = new Scanner(is);
-						String str = "";
-						
-						while (s.hasNext()) {
-							str += s.nextLine();
-						}
-						
-						s.close();
-						String[] modtxtarr = str.split(",");
-						
-						if(Integer.parseInt(modtxtarr[0]) != VERSION_NUM) {
-							System.err.println("Failed to Load Mod '" + file.getName() + "': Version is Mismatched (Current is " + VERSION_NUM + ")");
-							
-							continue;
-						} else {
-							String name = modtxtarr[1];
-							String vers = modtxtarr[2];
-							String main = modtxtarr[3];
-							System.out.println("Loading Mod '" + name + " v" + vers + "'");
-							ml.Load(name + " v" + vers, file.getAbsolutePath(), main);
-						}
-					} catch (IOException e) {
-						System.err.println("Failed to Load Mod '" + file.getName() + "': IOException (Missing mod.txt?)");
-					}
-				}
-			}
-		}
-		SaveHandler.load();
 	}
 
 	/**
