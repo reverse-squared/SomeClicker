@@ -43,6 +43,7 @@ public class SaveLoader1 {
 		}
 		i++;
 		ShopHandler.disable = true;
+		
 		//Shop Bought
 		while(!savearr[i].equals("END")) {
 			try {
@@ -68,6 +69,7 @@ public class SaveLoader1 {
 		}
 		i++;
 		ShopHandler.disable = false;
+		
 		//Cases
 		while(!savearr[i].equals("END")) {
 			try {
