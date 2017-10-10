@@ -182,7 +182,7 @@ public class Main extends JFrame {
 		    }
 		} catch (Exception e) {
 		    e.printStackTrace();
-			JOptionPane.showMessageDialog(this,"You Can Only Have One Instance of This Game Runnning!", "Can Not Start Game", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "You Can Only Have One Instance of This Game Runnning!", "Can Not Start Game", JOptionPane.ERROR_MESSAGE);
 		    System.exit(0);
 		}
 
@@ -190,10 +190,11 @@ public class Main extends JFrame {
 			public void run() {
 				if(resetOnClose) {
 					SaveHandler.saveFile.delete();
+					System.out.println("Exiting and Deleting Save!");
 				}else {
 					SaveHandler.save();
+					System.out.println("Exiting!");
 				}
-				System.out.println("Exiting!");
 			}
 		}));
 
