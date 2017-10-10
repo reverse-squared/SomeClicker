@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import com.wearedevs.javaclicker.Main;
@@ -11,6 +12,7 @@ import com.wearedevs.javaclicker.cases.Case;
 import com.wearedevs.javaclicker.cases.GetCase;
 import com.wearedevs.javaclicker.handlers.saveloaders.SaveLoader1;
 import com.wearedevs.javaclicker.handlers.saveloaders.SaveLoader2;
+import com.wearedevs.javaclicker.mod.Mod;
 import com.wearedevs.javaclicker.shop.ShopItem;
 import com.wearedevs.javaclicker.sound.Sound;
 
@@ -56,6 +58,30 @@ public class SaveHandler {
 			
 			for (Sound snd : SoundUnlocker.clickSounds) {
 				w.print(snd.getClass().getName()+";");
+			}
+			
+			w.print("END;");
+			
+			for (Mod mod : Main.mods) {
+				try {
+					String[] a = mod.save();
+					if(a==null) continue;
+					w.print(mod.getClass().getName()+";");
+					String[] b = a;
+					int i = 0;
+					for(String s : a) {
+						b[i] = s.replaceAll("\\\\", "\\\\\\\\\\\\");
+						b[i] = b[i].replaceAll("END", "\\\\E");
+						b[i] = b[i].replaceAll(":", "\\\\\\\\:");
+						b[i] = b[i].replaceAll(";", "\\\\:");
+						i++;
+					}
+					String o = String.join(";", b);
+					w.print(o + ";END;");
+				} catch(AbstractMethodError e) {
+					//Not a huge problem
+					continue;
+				}
 			}
 			
 			w.print("END");
