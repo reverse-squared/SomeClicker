@@ -89,6 +89,9 @@ public class Main extends JFrame {
 	}
 
 	public Main() {
+		new File(path).mkdirs();
+		new File(modPath).mkdirs();
+		
 		try {
 		    File lockFile = new File(lockFileLoc);
 		    
@@ -122,9 +125,6 @@ public class Main extends JFrame {
 		}));
 		
 		NotificationUtil.init("Java Clicker " + VERSION, "Java Clicker " + VERSION, "textures/icon.png");
-		
-		new File(path).mkdirs();
-		new File(modPath).mkdirs();
 		
 		SoundUnlocker.unlock(new Default());
 		
