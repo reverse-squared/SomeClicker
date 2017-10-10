@@ -57,7 +57,7 @@ public class Main extends JFrame {
 	public static CheaterPanel cheaterPanel;
 	public static ExtrasPanel extrasPanel;
 	
-	public static final String VERSION = "Beta 1";
+	public static final String VERSION = "Beta 3";
 	public static final int VERSION_NUM = 1;
 	
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);

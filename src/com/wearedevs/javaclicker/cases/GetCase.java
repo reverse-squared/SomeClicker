@@ -28,8 +28,6 @@ public class GetCase {
 			
 			CaseHandler.unlock(w.next());
 			
-			CaseHandler.unlock(w.next());
-			
 			PlaySound.playSound("/sound/cases/buy.wav");
 			NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
 		}
