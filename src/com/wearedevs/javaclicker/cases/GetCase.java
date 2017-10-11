@@ -2,6 +2,8 @@ package com.wearedevs.javaclicker.cases;
 
 import java.awt.TrayIcon.MessageType;
 
+import javax.swing.JOptionPane;
+
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.cases.ClickCase;
 import com.wearedevs.javaclicker.cases.cases.ClickMultiplierCase;
@@ -30,6 +32,8 @@ public class GetCase {
 			
 			PlaySound.playSound("/sound/cases/get.wav");
 			NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
+			
+			JOptionPane.showInputDialog(null, "You Have a New Case! Click Cases to Open It", "New Case", JOptionPane.OK_CANCEL_OPTION);
 		}
 	}
 }
