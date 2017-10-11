@@ -28,6 +28,7 @@ import com.wearedevs.javaclicker.gui.InfoPanel;
 import com.wearedevs.javaclicker.gui.MainPanel;
 import com.wearedevs.javaclicker.gui.OptionsPanel;
 import com.wearedevs.javaclicker.gui.ShopPanel;
+import com.wearedevs.javaclicker.handlers.AutoHandler;
 import com.wearedevs.javaclicker.handlers.SaveHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
@@ -153,6 +154,7 @@ public class Main extends JFrame {
 						System.setOut(ps);
 					}
 					System.out.println("== Game is Loaded ==");
+					AutoHandler.initAutoThread();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
