@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.io.RandomAccessFile;
 import java.net.URISyntaxException;
 import java.nio.channels.FileChannel;
@@ -88,11 +89,15 @@ public class Main extends JFrame {
 					main = new Main();
 					ModLoader ml = new ModLoader();
 
+					PrintWriter writer = new PrintWriter(modFile);
+					writer.println("Base " + VERSION);
+					
 					System.out.println("== Loading Mods ==");
 					File[] modfiles = new File(modPath).listFiles();
 					for(File file : modfiles) {
 						if(!file.isDirectory()) {
 							if(file.getName().endsWith(".jar")) {
+								writer.println(file);
 								JarFile jarfile = null;
 
 								try {
@@ -134,6 +139,7 @@ public class Main extends JFrame {
 							}
 						}
 					}
+					writer.close();
 					
 					System.out.println("== Mods PreInit Stage ==");
 					PrintStream ps = System.out;
