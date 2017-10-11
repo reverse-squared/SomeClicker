@@ -1,11 +1,14 @@
 package com.wearedevs.javaclicker.handlers.saveloaders;
 
+import java.util.ArrayList;
+
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.Case;
 import com.wearedevs.javaclicker.cases.GetCase;
 import com.wearedevs.javaclicker.handlers.CaseHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
+import com.wearedevs.javaclicker.mod.Mod;
 import com.wearedevs.javaclicker.mod.ModLoader;
 import com.wearedevs.javaclicker.shop.ShopItem;
 import com.wearedevs.javaclicker.sound.Sound;
@@ -133,6 +136,43 @@ public class SaveLoader2 {
 				e.printStackTrace();
 			}
 			
+			i++;
+		}
+		
+		i++;
+		//Mod's Data
+		while(!savearr[i].equals("END")) {
+			try {
+				Class<?> c = ModLoader.loadClass(savearr[i]);
+				if(c.getSuperclass().getName().equals(Mod.class.getName())) {
+					for (Mod mod : Main.mods) {
+						if(mod.getClass().getName()==c.getName()) {
+							ArrayList<String> a = new ArrayList<String>();
+							
+							i++;
+							while(!savearr[i].equals("END")) {
+								String s = savearr[i];
+								
+								s = s.replaceAll("\\\\\\\\:", ":");
+								s = s.replaceAll("\\\\:", ";");
+								s = s.replaceAll("\\\\E", "END");
+								s = s.replaceAll("\\\\\\\\\\\\", "\\\\");
+
+								a.add(s);
+								
+								i++;
+							}
+							
+							mod.load(a.toArray(new String[] {}));
+						}
+					}
+				}
+			} catch (ClassNotFoundException e) {
+				System.err.println(savearr[i] + " is missing! Cannot load its moddata");
+				while(!savearr[i].equals("END")) {
+					i++;
+				}
+			}
 			i++;
 		}
 	}
