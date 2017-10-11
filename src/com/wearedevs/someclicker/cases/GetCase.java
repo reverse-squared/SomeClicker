@@ -23,8 +23,8 @@ public class GetCase {
 			WeightedCollection<Case> w = new WeightedCollection<Case>();
 			
 			w.add(50, new ClickCase());
-			w.add(3, new ClickMultiplierCase());
-			w.add(50, new SoundCase());
+			w.add(10, new ClickMultiplierCase());
+			w.add(1, new SoundCase());
 			
 			CaseHandler.unlock(w.next());
 			
