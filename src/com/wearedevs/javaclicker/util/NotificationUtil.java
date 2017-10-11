@@ -10,7 +10,6 @@ import java.awt.TrayIcon;
 import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import com.wearedevs.javaclicker.Main;
 
 /**
@@ -34,10 +33,11 @@ public class NotificationUtil {
         trayIcon.setToolTip(tooltip);
         
         trayIcon.addActionListener(new ActionListener() {
-        	@Override
-        	public void actionPerformed(ActionEvent e) {
-        		Main.bringToFront();
-    		}
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Main.openWindow();
+				
+			}
 		});
         
         MenuItem openItem = new MenuItem("Open");

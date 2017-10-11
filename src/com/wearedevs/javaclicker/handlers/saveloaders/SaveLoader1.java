@@ -13,6 +13,8 @@ import com.wearedevs.javaclicker.sound.Sound;
 public class SaveLoader1 {
 	public static void load(String[] savearr) {
 		Main.clicks = Double.parseDouble(savearr[1]);
+		Main.updateCounter();
+		
 		GetCase.caseGoal = Double.parseDouble(savearr[2]);
 		int i = 3;
 		
@@ -41,6 +43,7 @@ public class SaveLoader1 {
 		}
 		i++;
 		ShopHandler.disable = true;
+		
 		//Shop Bought
 		while(!savearr[i].equals("END")) {
 			try {
@@ -66,6 +69,7 @@ public class SaveLoader1 {
 		}
 		i++;
 		ShopHandler.disable = false;
+		
 		//Cases
 		while(!savearr[i].equals("END")) {
 			try {
