@@ -79,14 +79,14 @@ public class Main extends JFrame {
 
 	public static void main(String[] args) throws Exception {
 		ModLoader.classloaders.add(ClassLoader.getSystemClassLoader());
-		System.out.println("Loading Java Clicker " + VERSION);
+		System.out.println("Loading Some Clicker " + VERSION);
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					main = new Main();
 					ModLoader ml = new ModLoader();
-					
+
 					System.out.println("== Loading Mods ==");
 					System.out.println("Loading Mod 'BaseMod'");
 					mods.add(new BaseMod());
@@ -135,7 +135,7 @@ public class Main extends JFrame {
 							}
 						}
 					}
-					
+
 					System.out.println("== Mods PreInit Stage ==");
 					PrintStream ps = System.out;
 					for(Mod mod : mods) {
@@ -143,12 +143,12 @@ public class Main extends JFrame {
 						mod.preInit();
 						System.setOut(ps);
 					}
-					
+
 					System.out.println("== End PreInit Stage ==");
-					
+
 					System.out.println("== Mods PostInit Stage ==");
 					SaveHandler.load();
-					
+
 					for(Mod mod : mods) {
 						System.setOut(new ModPrintStream(System.out, mod.name));
 						mod.postInit();
@@ -201,7 +201,7 @@ public class Main extends JFrame {
 			}
 		}));
 
-		NotificationUtil.init("Java Clicker " + VERSION, "Java Clicker " + VERSION, "textures/icon.png");
+		NotificationUtil.init("Some Clicker " + VERSION, "Some Clicker " + VERSION, "textures/icon.png");
 
 		//Init all panels
 		mainPanel = new MainPanel();
@@ -233,6 +233,9 @@ public class Main extends JFrame {
 		mainPanel.labelClicks.setText("Clicks: " + Math.round(clicks));
 		shopPanel.labelClicks.setText(Math.round(clicks)+" Clicks");
 		casePanel.labelClicks.setText(Math.round(clicks)+" Clicks");
+		for(Mod m : mods) {
+			m.onUpdateCounter(clicks);
+		}
 	}
 
 	/**
@@ -256,15 +259,6 @@ public class Main extends JFrame {
 		double click = ammount;
 		for(Mod m : mods) {
 			click = m.onClick(click);
-		}
-		
-
-		if(RandomUtil.randomRange(1, 20) == 10) {
-			click *= 2;
-		}
-
-		if(RandomUtil.randomRange(1, 500) == 10) {
-			click *= 10;
 		}
 
 		if(sound!=null) {
