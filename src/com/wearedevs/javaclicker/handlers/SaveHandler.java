@@ -10,6 +10,8 @@ import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.Case;
 import com.wearedevs.javaclicker.cases.GetCase;
 import com.wearedevs.javaclicker.handlers.saveloaders.SaveLoader1;
+import com.wearedevs.javaclicker.handlers.saveloaders.SaveLoader2;
+import com.wearedevs.javaclicker.mod.Mod;
 import com.wearedevs.javaclicker.shop.ShopItem;
 import com.wearedevs.javaclicker.sound.Sound;
 
@@ -32,6 +34,8 @@ public class SaveHandler {
 			w.print(Main.clicks+";");
 
 			w.print(GetCase.caseGoal+";");
+			
+			w.print(SoundUnlocker.currentSound.getClass().getName()+";");
 
 			for (ShopItem item : ShopHandler.items) {
 				w.print(item.getClass().getName()+";");
@@ -55,8 +59,31 @@ public class SaveHandler {
 				w.print(snd.getClass().getName()+";");
 			}
 			
-			w.print("END");
+			w.print("END;");
 			
+			for (Mod mod : Main.mods) {
+				try {
+					String[] a = mod.save();
+					if(a==null) continue;
+					w.print(mod.getClass().getName()+";");
+					String[] b = a;
+					int i = 0;
+					for(String s : a) {
+						b[i] = s.replaceAll("\\\\", "\\\\\\\\\\\\");
+						b[i] = b[i].replaceAll("END", "\\\\E");
+						b[i] = b[i].replaceAll(":", "\\\\\\\\:");
+						b[i] = b[i].replaceAll(";", "\\\\:");
+						i++;
+					}
+					String o = String.join(";", b);
+					w.print(o + ";END;");
+				} catch(AbstractMethodError e) {
+					//Not a Huge Problem
+					continue;
+				}
+			}
+			
+			w.print("END");
 			w.close();
 			
 			System.out.println("Saved!");
@@ -85,8 +112,11 @@ public class SaveHandler {
 				String[] savearr = str.split(";");
 	
 				if(savearr[0].equals("1")) {
-					System.out.println("Version 1.0.0");
+					System.out.println("Version > 1.0.0 Beta 1");
 					SaveLoader1.load(savearr);
+				} else if(savearr[0].equals("2")) {
+					System.out.println("Version > 1.0.0 Beta 4");
+					SaveLoader2.load(savearr);
 				} else {
 					System.out.println("Unknown!");
 					System.err.println("Invalid Save Version (" + savearr[0] + ")");
