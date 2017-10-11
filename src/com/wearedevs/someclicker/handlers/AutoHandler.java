@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import com.wearedevs.someclicker.Main;
 import com.wearedevs.someclicker.anticheat.Anticheat;
-import com.wearedevs.someclicker.cases.GetCase;
 import com.wearedevs.someclicker.mod.Mod;
 import com.wearedevs.someclicker.mod.TickHook;
 import com.wearedevs.someclicker.util.GameLoop;
@@ -29,6 +28,7 @@ public class AutoHandler {
 		game_loop = new GameLoop(60, new Runnable() {
 			@SuppressWarnings("unchecked")
 			public void run() {
+				double old = Main.clicks;
 				if(CaseHandler.ccase != null) {
 					CaseHandler.tickCase(CaseHandler.ccase);
 				}
@@ -41,9 +41,10 @@ public class AutoHandler {
 					mod.onTick();
 				}
 				
-				GetCase.checkCases();
+				CaseHandler.checkCases();
 				Anticheat.checkCheats();
-				Main.updateCounter();
+				
+				if(old!=Main.clicks) Main.updateCounter();
 			}
 		});
 	}

@@ -1,5 +1,9 @@
 package com.wearedevs.someclicker;
 
+import com.wearedevs.someclicker.cases.cases.ClickCase;
+import com.wearedevs.someclicker.cases.cases.ClickMultiplierCase;
+import com.wearedevs.someclicker.cases.cases.SoundCase;
+import com.wearedevs.someclicker.handlers.CaseHandler;
 import com.wearedevs.someclicker.handlers.ShopHandler;
 import com.wearedevs.someclicker.handlers.SoundUnlocker;
 import com.wearedevs.someclicker.mod.Mod;
@@ -22,11 +26,16 @@ public class BaseMod extends Mod {
 
 	public void preInit() {
 		SoundUnlocker.unlock(new Default());
+	
 		ShopHandler.unlock(new PerClick2());
+	
+		CaseHandler.registerCase(100, new ClickCase());
+		CaseHandler.registerCase(20, new SoundCase());
+		CaseHandler.registerCase(3, new ClickMultiplierCase());
 	}
 
 	public void postInit() {
-
+		
 	}
 
 	public String[] save() {
