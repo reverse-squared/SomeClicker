@@ -2,6 +2,8 @@ package com.wearedevs.javaclicker.cases;
 
 import java.awt.TrayIcon.MessageType;
 
+import javax.swing.JOptionPane;
+
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.cases.ClickCase;
 import com.wearedevs.javaclicker.cases.cases.ClickMultiplierCase;
@@ -23,12 +25,14 @@ public class GetCase {
 			WeightedCollection<Case> w = new WeightedCollection<Case>();
 			
 			w.add(50, new ClickCase());
-			w.add(1, new ClickMultiplierCase());
-			w.add(10, new SoundCase());
+			w.add(3, new ClickMultiplierCase());
+			w.add(50, new SoundCase());
 			
 			CaseHandler.unlock(w.next());
 			
 			PlaySound.playSound("/sound/cases/get.wav");
+			
+			//TODO: Fix
 			NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
 		}
 	}
