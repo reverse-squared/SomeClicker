@@ -9,7 +9,6 @@ import javax.swing.JButton;
 
 import com.wearedevs.someclicker.Main;
 import com.wearedevs.someclicker.shop.ShopItem;
-import com.wearedevs.someclicker.shop.items.perClickUpgrades.PerClick2;
 import com.wearedevs.someclicker.util.PlaySound;
 
 public class ShopHandler {

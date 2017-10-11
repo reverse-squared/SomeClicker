@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.wearedevs.someclicker.Main;
-import com.wearedevs.someclicker.handlers.AutoHandler;
 import com.wearedevs.someclicker.handlers.ShopHandler;
 
 /**

@@ -2,7 +2,6 @@ package com.wearedevs.someclicker.handlers.saveloaders;
 
 import com.wearedevs.someclicker.Main;
 import com.wearedevs.someclicker.cases.Case;
-import com.wearedevs.someclicker.cases.GetCase;
 import com.wearedevs.someclicker.handlers.CaseHandler;
 import com.wearedevs.someclicker.handlers.ShopHandler;
 import com.wearedevs.someclicker.handlers.SoundUnlocker;
@@ -15,7 +14,7 @@ public class SaveLoader1 {
 		Main.clicks = Double.parseDouble(savearr[1]);
 		Main.updateCounter();
 		
-		GetCase.caseGoal = Double.parseDouble(savearr[2]);
+		CaseHandler.caseGoal = Double.parseDouble(savearr[2]);
 		int i = 3;
 		
 		//Shop items

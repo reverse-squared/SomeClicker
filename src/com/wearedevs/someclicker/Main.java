@@ -30,16 +30,13 @@ import com.wearedevs.someclicker.gui.OptionsPanel;
 import com.wearedevs.someclicker.gui.ShopPanel;
 import com.wearedevs.someclicker.handlers.AutoHandler;
 import com.wearedevs.someclicker.handlers.SaveHandler;
-import com.wearedevs.someclicker.handlers.ShopHandler;
 import com.wearedevs.someclicker.handlers.SoundUnlocker;
 import com.wearedevs.someclicker.mod.Mod;
 import com.wearedevs.someclicker.mod.ModLoader;
 import com.wearedevs.someclicker.mod.ModPrintStream;
 import com.wearedevs.someclicker.sound.Sound;
-import com.wearedevs.someclicker.sound.sounds.Default;
 import com.wearedevs.someclicker.util.NotificationUtil;
 import com.wearedevs.someclicker.util.PlaySound;
-import com.wearedevs.someclicker.util.RandomUtil;
 
 /**
  * Main, Where Everything Starts

@@ -1,11 +1,13 @@
 package com.wearedevs.someclicker.handlers;
 
+import java.awt.TrayIcon.MessageType;
 import java.util.ArrayList;
 
 import com.wearedevs.someclicker.Main;
 import com.wearedevs.someclicker.cases.Case;
 import com.wearedevs.someclicker.cases.CaseOutcome;
 import com.wearedevs.someclicker.gui.CaseOpenPanel;
+import com.wearedevs.someclicker.util.NotificationUtil;
 import com.wearedevs.someclicker.util.PlaySound;
 import com.wearedevs.someclicker.util.WeightedCollection;
 
@@ -14,7 +16,9 @@ public class CaseHandler {
 	public static int caseSpd;
 	public static int caseDelay;
 	public static int caseDelay2;
-	
+	public static double caseGoal = 100;
+	public static WeightedCollection<Case> cases = new WeightedCollection<Case>();
+		
 	/**
 	 * extra c because {@code case} keyword
 	 */
@@ -66,5 +70,29 @@ public class CaseHandler {
 	public static void unlock(Case c) {
 		caseList.add(c);
 		Main.casePanel.updateUI();
+	}
+
+	public static void checkCases() {
+		if(Main.clicks >= caseGoal) {
+			caseGoal *= 2;
+			
+			CaseHandler.unlock(cases.next());
+			
+			PlaySound.playSound("/sound/cases/get.wav");
+			
+			//TODO: Fix
+			NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
+		}
+	}
+	public static void registerCase(Case c) {
+		registerCase(100, c);
+	}
+	/**
+	 * Adds a case to the random case giver.
+	 * @param weight Weight for the case's appearence (100 for default chance)
+	 * @param c The Case
+	 */
+	public static void registerCase(int weight, Case c) {
+		cases.add(weight, c);
 	}
 }
