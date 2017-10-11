@@ -1,13 +1,13 @@
 package com.wearedevs.javaclicker.shop.items.factories;
 
-import com.wearedevs.javaclicker.handlers.AutoHandler;
+import com.wearedevs.javaclicker.BaseMod;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Factory7 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.factory = 70;
+		BaseMod.factory = 70;
 		ShopHandler.unlock(new Factory8());
 	}
 

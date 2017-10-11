@@ -1,13 +1,13 @@
 package com.wearedevs.javaclicker.shop.items.mines.mine;
 
-import com.wearedevs.javaclicker.handlers.AutoHandler;
+import com.wearedevs.javaclicker.BaseMod;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Mine3 extends ShopItem{
 	
 	public void onPurchase() {
-		AutoHandler.mine = 8;
+		BaseMod.mine = 8;
 		
 		ShopHandler.unlock(new Mine4());
 	}
