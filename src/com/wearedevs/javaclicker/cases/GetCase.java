@@ -31,9 +31,9 @@ public class GetCase {
 			CaseHandler.unlock(w.next());
 			
 			PlaySound.playSound("/sound/cases/get.wav");
-			NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
 			
-			JOptionPane.showInputDialog(null, "You Have a New Case! Click Cases to Open It", "New Case", JOptionPane.OK_CANCEL_OPTION);
+			//TODO: Fix
+			NotificationUtil.displayCaseNotif("New Case!", "You Have a New Case! Click Cases to Open It!", MessageType.INFO);
 		}
 	}
 }
