@@ -1,0 +1,23 @@
+package com.wearedevs.javaclicker.shop.items.bombs.nukes;
+
+import com.wearedevs.javaclicker.BaseMod;
+import com.wearedevs.javaclicker.handlers.ShopHandler;
+import com.wearedevs.javaclicker.shop.ShopItem;
+
+public class Nuke2 extends ShopItem {
+
+	public void onPurchase() {
+		BaseMod.clickBomb = 2000;
+		
+		ShopHandler.unlock(new Nuke3());
+	}
+
+	public int getPrice() {
+		return 40000;
+	}
+
+	public String getName() {
+		return "Click Nuke: Tier 2";
+	}
+
+}
