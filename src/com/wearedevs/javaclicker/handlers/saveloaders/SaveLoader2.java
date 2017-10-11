@@ -1,22 +1,44 @@
 package com.wearedevs.javaclicker.handlers.saveloaders;
 
+import java.util.ArrayList;
+
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.Case;
 import com.wearedevs.javaclicker.cases.GetCase;
 import com.wearedevs.javaclicker.handlers.CaseHandler;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.handlers.SoundUnlocker;
+import com.wearedevs.javaclicker.mod.Mod;
 import com.wearedevs.javaclicker.mod.ModLoader;
 import com.wearedevs.javaclicker.shop.ShopItem;
 import com.wearedevs.javaclicker.sound.Sound;
+import com.wearedevs.javaclicker.sound.sounds.Default;
 
-public class SaveLoader1 {
+public class SaveLoader2 {
 	public static void load(String[] savearr) {
 		Main.clicks = Double.parseDouble(savearr[1]);
 		Main.updateCounter();
 		
 		GetCase.caseGoal = Double.parseDouble(savearr[2]);
-		int i = 3;
+		
+		Class<?> sc;
+		try {
+			sc = ModLoader.loadClass(savearr[3]);
+			Object so = sc.newInstance();
+			if(so instanceof Sound) {
+				//Its Good
+				SoundUnlocker.currentSound = (Sound) so;
+			} else {
+				System.err.println(savearr[3]+" does not Extend Sound.");
+				SoundUnlocker.currentSound = new Default();
+			}
+		} catch (ClassNotFoundException e1) {
+			System.err.println(savearr[3] + " is Missing! Cannot Add!");
+		} catch (InstantiationException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		
+		int i = 4;
 		
 		//Shop items
 		while(!savearr[i].equals("END")) {
@@ -28,11 +50,11 @@ public class SaveLoader1 {
 					//Its Good
 					ShopHandler.items.add((ShopItem) o);
 				} else {
-					//Not extends
-					System.err.println(savearr[i]+" does not extend ShopItem.");
+					//Not Extends
+					System.err.println(savearr[i]+" does not Extend ShopItem.");
 				}
 			} catch (ClassNotFoundException e) {
-				System.err.println(savearr[i] + " is missing! Cannot add");
+				System.err.println(savearr[i] + " is Missing! Cannot Add!");
 			} catch (InstantiationException e) {
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
@@ -42,8 +64,8 @@ public class SaveLoader1 {
 			i++;
 		}
 		i++;
-		ShopHandler.disable = true;
 		
+		ShopHandler.disable = true;
 		//Shop Bought
 		while(!savearr[i].equals("END")) {
 			try {
@@ -55,10 +77,10 @@ public class SaveLoader1 {
 					ShopHandler.bought.add((ShopItem) o);
 				} else {
 					//Not extends
-					System.err.println(savearr[i]+" does not extend ShopItem.");
+					System.err.println(savearr[i]+" does not Extend ShopItem.");
 				}
 			} catch (ClassNotFoundException e) {
-				System.err.println(savearr[i] + " is missing! Cannot add");
+				System.err.println(savearr[i] + " is Missing! Cannot Add!");
 			} catch (InstantiationException e) {
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
@@ -69,7 +91,6 @@ public class SaveLoader1 {
 		}
 		i++;
 		ShopHandler.disable = false;
-		
 		//Cases
 		while(!savearr[i].equals("END")) {
 			try {
@@ -81,10 +102,10 @@ public class SaveLoader1 {
 					CaseHandler.caseList.add((Case) o);
 				} else {
 					//Not extends
-					System.err.println(savearr[i]+" does not extend Case.");
+					System.err.println(savearr[i]+" does not Extend Case.");
 				}
 			} catch (ClassNotFoundException e) {
-				System.err.println(savearr[i] + " is missing! Cannot add");
+				System.err.println(savearr[i] + " is Missing! Cannot Add!");
 			} catch (InstantiationException e) {
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
@@ -115,6 +136,43 @@ public class SaveLoader1 {
 				e.printStackTrace();
 			}
 			
+			i++;
+		}
+		
+		i++;
+		//Mod's Data
+		while(!savearr[i].equals("END")) {
+			try {
+				Class<?> c = ModLoader.loadClass(savearr[i]);
+				if(c.getSuperclass().getName().equals(Mod.class.getName())) {
+					for (Mod mod : Main.mods) {
+						if(mod.getClass().getName()==c.getName()) {
+							ArrayList<String> a = new ArrayList<String>();
+							
+							i++;
+							while(!savearr[i].equals("END")) {
+								String s = savearr[i];
+								
+								s = s.replaceAll("\\\\\\\\:", ":");
+								s = s.replaceAll("\\\\:", ";");
+								s = s.replaceAll("\\\\E", "END");
+								s = s.replaceAll("\\\\\\\\\\\\", "\\\\");
+
+								a.add(s);
+								
+								i++;
+							}
+							
+							mod.load(a.toArray(new String[] {}));
+						}
+					}
+				}
+			} catch (ClassNotFoundException e) {
+				System.err.println(savearr[i] + " is missing! Cannot load its moddata");
+				while(!savearr[i].equals("END")) {
+					i++;
+				}
+			}
 			i++;
 		}
 	}
