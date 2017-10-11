@@ -10,6 +10,7 @@ import javax.swing.SwingConstants;
 
 import com.wearedevs.javaclicker.Main;
 import com.wearedevs.javaclicker.cases.Case;
+
 import javax.swing.JButton;
 
 public class CaseOpenPanel extends JPanel {

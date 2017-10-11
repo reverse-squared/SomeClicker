@@ -48,7 +48,6 @@ public class Main extends JFrame {
 	private static final long serialVersionUID = 1L;
 	public static double clicks = 0;
 	public static int perClick = 1;
-	public static double multiplier = 1.0;
 	public static ArrayList<Mod> mods = new ArrayList<Mod>();
 
 	public static Main main;
@@ -87,8 +86,10 @@ public class Main extends JFrame {
 				try {
 					main = new Main();
 					ModLoader ml = new ModLoader();
-
+					
 					System.out.println("== Loading Mods ==");
+					System.out.println("Loading Mod 'BaseMod'");
+					mods.add(new BaseMod());
 					File[] modfiles = new File(modPath).listFiles();
 					for(File file : modfiles) {
 						if(!file.isDirectory()) {
@@ -193,7 +194,7 @@ public class Main extends JFrame {
 				if(resetOnClose) {
 					SaveHandler.saveFile.delete();
 					System.out.println("Exiting and Deleting Save!");
-				}else {
+				} else {
 					SaveHandler.save();
 					System.out.println("Exiting!");
 				}
@@ -201,11 +202,6 @@ public class Main extends JFrame {
 		}));
 
 		NotificationUtil.init("Java Clicker " + VERSION, "Java Clicker " + VERSION, "textures/icon.png");
-
-		SoundUnlocker.unlock(new Default());
-
-		//Init Shop
-		ShopHandler.initializeShop();
 
 		//Init all panels
 		mainPanel = new MainPanel();
@@ -257,7 +253,11 @@ public class Main extends JFrame {
 	 * Handles All the Clicking
 	 */
 	public static void click(double ammount, Sound sound) {
-		double click = ammount * multiplier;
+		double click = ammount;
+		for(Mod m : mods) {
+			click = m.onClick(click);
+		}
+		
 
 		if(RandomUtil.randomRange(1, 20) == 10) {
 			click *= 2;
@@ -271,7 +271,7 @@ public class Main extends JFrame {
 			PlaySound.playSound("/sound/clickSound/" + sound.getFileName());
 		}
 
-		Main.clicks += click * multiplier;
+		Main.clicks += click;
 		updateCounter();
 	}
 

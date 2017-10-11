@@ -1,13 +1,13 @@
 package com.wearedevs.javaclicker.shop.items.autoClickers;
 
-import com.wearedevs.javaclicker.handlers.AutoHandler;
+import com.wearedevs.javaclicker.BaseMod;
 import com.wearedevs.javaclicker.handlers.ShopHandler;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Auto5 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.autoClick = 30;
+		BaseMod.autoClick = 30;
 		
 		ShopHandler.unlock(new Auto6());
 	}

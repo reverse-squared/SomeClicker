@@ -10,6 +10,7 @@ import java.awt.TrayIcon;
 import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import com.wearedevs.javaclicker.Main;
 
 /**

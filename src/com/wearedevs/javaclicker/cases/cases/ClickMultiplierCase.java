@@ -13,7 +13,7 @@ public class ClickMultiplierCase extends Case {
 		//Double Clicks
 		out.add(75, new CaseOutcome() {
 			public void onOutcome() {
-				Main.multiplier = 2;
+				//Main.multiplier = 2;
 			}
 			
 			public String getName() {
@@ -24,7 +24,7 @@ public class ClickMultiplierCase extends Case {
 		//Triple Clicks
 		out.add(10, new CaseOutcome() {
 			public void onOutcome() {
-				Main.multiplier = 3;
+				//Main.multiplier = 3;
 			}
 			
 			public String getName() {
@@ -35,7 +35,7 @@ public class ClickMultiplierCase extends Case {
 		//Quadruple Clicks
 		out.add(5, new CaseOutcome() {
 			public void onOutcome() {
-				Main.multiplier = 4;
+				//Main.multiplier = 4;
 			}
 			
 			public String getName() {

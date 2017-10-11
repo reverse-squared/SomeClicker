@@ -1,12 +1,12 @@
 package com.wearedevs.javaclicker.shop.items.portal;
 
-import com.wearedevs.javaclicker.handlers.AutoHandler;
+import com.wearedevs.javaclicker.BaseMod;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Portal9 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.portal = 25000;
+		BaseMod.portal = 25000;
 	}
 
 	public int getPrice() {

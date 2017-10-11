@@ -1,12 +1,12 @@
 package com.wearedevs.javaclicker.shop.items.autoClickers;
 
-import com.wearedevs.javaclicker.handlers.AutoHandler;
+import com.wearedevs.javaclicker.BaseMod;
 import com.wearedevs.javaclicker.shop.ShopItem;
 
 public class Auto9 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.autoClick = 300;
+		BaseMod.autoClick = 300;
 	}
 
 	public int getPrice() {
