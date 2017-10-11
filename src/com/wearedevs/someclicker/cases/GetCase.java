@@ -2,8 +2,6 @@ package com.wearedevs.someclicker.cases;
 
 import java.awt.TrayIcon.MessageType;
 
-import javax.swing.JOptionPane;
-
 import com.wearedevs.someclicker.Main;
 import com.wearedevs.someclicker.cases.cases.ClickCase;
 import com.wearedevs.someclicker.cases.cases.ClickMultiplierCase;
