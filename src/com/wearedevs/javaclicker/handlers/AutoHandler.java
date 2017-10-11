@@ -88,21 +88,17 @@ public class AutoHandler {
 					}
 				}
 				
-				GetCase.checkCases();
-				Anticheat.checkCheats();
-				
 				if(CaseHandler.ccase != null) {
 					CaseHandler.tickCase(CaseHandler.ccase);
 				}
 				
-
 				for(TickHook hook : (ArrayList<TickHook>)hooks.clone()) {
 				    hook.run();
 				}
-
-				Main.updateCounter();
+				
 				GetCase.checkCases();
 				Anticheat.checkCheats();
+				Main.updateCounter();
 			}
 		});
 	}
