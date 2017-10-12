@@ -5,7 +5,6 @@ import java.awt.TrayIcon.MessageType;
 import com.wearedevs.someclicker.Main;
 import com.wearedevs.someclicker.cases.cases.ClickCase;
 import com.wearedevs.someclicker.cases.cases.ClickMultiplierCase;
-import com.wearedevs.someclicker.cases.cases.MEMESoundCase;
 import com.wearedevs.someclicker.cases.cases.MLGSoundCase;
 import com.wearedevs.someclicker.cases.cases.SoundCase;
 import com.wearedevs.someclicker.handlers.CaseHandler;
@@ -28,7 +27,9 @@ public class GetCase {
 			w.add(10, new ClickMultiplierCase());
 			w.add(30, new SoundCase());
 			w.add(20, new MLGSoundCase());
-			w.add(20, new MEMESoundCase());
+			
+			//TODO: Add More Sounds
+//			w.add(20, new MEMESoundCase());
 			
 			CaseHandler.unlock(w.next());
 			
