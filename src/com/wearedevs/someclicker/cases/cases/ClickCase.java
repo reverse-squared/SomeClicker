@@ -9,92 +9,21 @@ public class ClickCase extends Case {
 
 	public WeightedCollection<CaseOutcome> getAllOutcomes() {
 		WeightedCollection<CaseOutcome> out = new WeightedCollection<CaseOutcome>();
-		
-		//500 Clicks
-		out.add(75, new CaseOutcome() {
-			public void onOutcome() {
-				Main.clicks += 500;
-			}
+		final double clicks = 100 * Math.round(Main.clicks / 100);
+		double w = 100;
+		for (int i = 0; i <= clicks * 2; i += 1) {
+			final int j = i;
+			w-=0.003;
+			out.add((int) w, new CaseOutcome() {
+				public void onOutcome() {
+					Main.clicks += clicks + j;
+				}
+				public String getName() {
+					return (int)(clicks + j) + " Clicks";
+				}
+			});
 			
-			public String getName() {
-				return "500 Clicks";
-			}
-		});
-		
-		//750 Clicks
-		out.add(50, new CaseOutcome() {
-			public void onOutcome() {
-				Main.clicks += 750;
-			}
-			
-			public String getName() {
-				return "750 Clicks";
-			}
-		});
-		
-		//1000 Clicks
-		out.add(40, new CaseOutcome() {
-			public void onOutcome() {
-				Main.clicks += 1000;
-			}
-			
-			public String getName() {
-				return "1000 Clicks";
-			}
-		});
-		
-		//2000 Clicks
-		out.add(30, new CaseOutcome() {
-			public void onOutcome() {
-				Main.clicks += 2000;
-			}
-			
-			public String getName() {
-				return "2000 Clicks";
-			}
-		});
-		
-		//4000 Clicks
-		out.add(20, new CaseOutcome() {
-			public void onOutcome() {
-				Main.clicks += 4000;
-			}
-			public String getName() {
-				return "4000 Clicks";
-			}
-		});
-		
-		//5000 Clicks
-		out.add(10, new CaseOutcome() {
-			public void onOutcome() {
-				Main.clicks += 5000;
-			}
-			public String getName() {
-				return "5000 Clicks";
-			}
-		});
-		
-		//6000 Clicks
-		out.add(5, new CaseOutcome() {
-			public void onOutcome() {
-				Main.clicks += 6000;
-			}
-			public String getName() {
-				return "6000 Clicks";
-			}
-		});
-
-		
-		//10000 Clicks
-		out.add(1, new CaseOutcome() {
-			public void onOutcome() {
-				Main.clicks += 10000;
-			}
-			public String getName() {
-				return "10,000 Clicks";
-			}
-		});
-		
+		}
 		return out;
 	}
 

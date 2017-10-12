@@ -9,7 +9,7 @@ public class RainbowSound extends Sound {
 	}
 
 	public String getFileName() {
-		return "rainbow";
+		return "rainbow.wav";
 	}
 
 }
