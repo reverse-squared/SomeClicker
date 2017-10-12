@@ -43,7 +43,7 @@ import com.wearedevs.someclicker.util.PlaySound;
  */
 public class Main extends JFrame {
 	private static final long serialVersionUID = 1L;
-	public static double clicks = 1000000;
+	public static double clicks = 0;
 	public static int perClick = 1;
 	public static ArrayList<Mod> mods = new ArrayList<Mod>();
 
@@ -58,7 +58,7 @@ public class Main extends JFrame {
 	public static CheaterPanel cheaterPanel;
 	public static ExtrasPanel extrasPanel;
 
-	public static final String VERSION = "Beta 5";
+	public static final String VERSION = "Beta 5.1";
 	public static final int VERSION_NUM = 2;
 
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
@@ -230,6 +230,7 @@ public class Main extends JFrame {
 		mainPanel.labelClicks.setText("Clicks: " + Math.round(clicks));
 		shopPanel.labelClicks.setText(Math.round(clicks)+" Clicks");
 		casePanel.labelClicks.setText(Math.round(clicks)+" Clicks");
+		
 		for(Mod m : mods) {
 			m.onUpdateCounter(clicks);
 		}
