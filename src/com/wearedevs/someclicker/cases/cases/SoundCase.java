@@ -60,7 +60,7 @@ public class SoundCase extends Case {
 		});
 				
 		//Discord Message
-		out.add(20, new CaseOutcome() {
+		out.add(25, new CaseOutcome() {
 			public void onOutcome() {
 				SoundUnlocker.unlock(new DiscordMessageSound());
 			}

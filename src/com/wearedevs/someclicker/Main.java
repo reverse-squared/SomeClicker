@@ -47,7 +47,7 @@ import com.wearedevs.someclicker.util.RandomUtil;
  */
 public class Main extends JFrame {
 	private static final long serialVersionUID = 1L;
-	public static double clicks = 213123123;
+	public static double clicks = 1000000;
 	public static int perClick = 1;
 	public static double multiplier = 1.0;
 	public static ArrayList<Mod> mods = new ArrayList<Mod>();
