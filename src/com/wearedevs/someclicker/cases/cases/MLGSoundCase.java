@@ -27,7 +27,7 @@ public class MLGSoundCase extends Case {
 		});
 		
 		//Wow
-		out.add(60, new CaseOutcome() {
+		out.add(35, new CaseOutcome() {
 			public void onOutcome() {
 				SoundUnlocker.unlock(new MLG_WowSound());
 			}
@@ -60,7 +60,7 @@ public class MLGSoundCase extends Case {
 		});
 		
 		//Spooky
-		out.add(340312, new CaseOutcome() {
+		out.add(20, new CaseOutcome() {
 			public void onOutcome() {
 				SoundUnlocker.unlock(new MLG_SpookySound());
 			}
