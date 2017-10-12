@@ -1,13 +1,13 @@
 package com.wearedevs.someclicker.shop.items.portal;
 
-import com.wearedevs.someclicker.handlers.AutoHandler;
+import com.wearedevs.someclicker.BaseMod;
 import com.wearedevs.someclicker.handlers.ShopHandler;
 import com.wearedevs.someclicker.shop.ShopItem;
 
 public class Portal7 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.portal = 10000;
+		BaseMod.portal = 10000;
 		
 		ShopHandler.unlock(new Portal8());
 	}

@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.wearedevs.someclicker.Main;
-import com.wearedevs.someclicker.handlers.AutoHandler;
 import com.wearedevs.someclicker.handlers.ShopHandler;
 
 /**
@@ -84,17 +83,6 @@ public class MainPanel extends JPanel {
 		});
 		optionButton.setBounds(350, 398, 270, 40);
 		add(optionButton);
-		
-		toggleReactor = new JButton("Toggle Reactor");
-		toggleReactor.setFont(new Font("Tahoma", Font.BOLD, 17));
-		toggleReactor.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				AutoHandler.reactorOn = !AutoHandler.reactorOn;
-			}
-		});
-		toggleReactor.setVisible(false);
-		toggleReactor.setBounds(12, 170, 270, 40);
-		add(toggleReactor);
 		
 		JButton extrasButton = new JButton("Extras");
 		extrasButton.setFont(new Font("Tahoma", Font.BOLD, 17));

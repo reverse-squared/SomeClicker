@@ -29,7 +29,7 @@ public class ModLoader {
 				Mod mod = (Mod) instance;
 				return mod;
 			} else {
-				System.err.println("Mod '" + modname + "' does not extend Mod (com.wearedevs.javaclicker.mod.Mod)");
+				System.err.println("Mod '" + modname + "' does not extend Mod (com.wearedevs.someclicker.mod.Mod)");
 			}
 		} catch (ClassNotFoundException e) {
 			System.err.println("Mod '" + modname + "' caused a ClassNotFoundException.");
