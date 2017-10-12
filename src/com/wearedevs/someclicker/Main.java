@@ -85,7 +85,7 @@ public class Main extends JFrame {
 					ModLoader ml = new ModLoader();
 
 					System.out.println("== Loading Mods ==");
-					System.out.println("Loading Mod 'BaseMod'");
+					System.out.println("Loading Mod 'Base Mod " + VERSION + "'");
 					mods.add(new BaseMod());
 					File[] modfiles = new File(modPath).listFiles();
 					for(File file : modfiles) {
