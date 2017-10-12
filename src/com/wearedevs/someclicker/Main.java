@@ -43,7 +43,7 @@ import com.wearedevs.someclicker.util.PlaySound;
  */
 public class Main extends JFrame {
 	private static final long serialVersionUID = 1L;
-	public static double clicks = 0;
+	public static double clicks = 1000000;
 	public static int perClick = 1;
 	public static ArrayList<Mod> mods = new ArrayList<Mod>();
 

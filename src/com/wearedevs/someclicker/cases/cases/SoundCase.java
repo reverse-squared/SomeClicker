@@ -5,6 +5,7 @@ import com.wearedevs.someclicker.cases.CaseOutcome;
 import com.wearedevs.someclicker.handlers.SoundUnlocker;
 import com.wearedevs.someclicker.sound.sounds.AirhornSound;
 import com.wearedevs.someclicker.sound.sounds.BombSound;
+import com.wearedevs.someclicker.sound.sounds.DiscordMessageSound;
 import com.wearedevs.someclicker.sound.sounds.FartSound;
 import com.wearedevs.someclicker.sound.sounds.RainbowSound;
 import com.wearedevs.someclicker.util.WeightedCollection;
@@ -55,6 +56,17 @@ public class SoundCase extends Case {
 			
 			public String getName() {
 				return "Fart Click Sound";
+			}
+		});
+				
+		//Discord Message
+		out.add(25, new CaseOutcome() {
+			public void onOutcome() {
+				SoundUnlocker.unlock(new DiscordMessageSound());
+			}
+			
+			public String getName() {
+				return "Discord Message Sound";
 			}
 		});
 		
