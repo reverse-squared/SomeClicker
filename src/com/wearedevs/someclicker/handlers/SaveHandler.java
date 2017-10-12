@@ -111,10 +111,10 @@ public class SaveHandler {
 				String[] savearr = str.split(";");
 	
 				if(savearr[0].equals("1")) {
-					System.out.println("Version > 1.0.0 Beta 1");
+					System.out.println("Version Beta 1");
 					SaveLoader1.load(savearr);
 				} else if(savearr[0].equals("2")) {
-					System.out.println("Version > 1.0.0 Beta 4");
+					System.out.println("Version Beta 4");
 					SaveLoader2.load(savearr);
 				} else {
 					System.out.println("Unknown!");
