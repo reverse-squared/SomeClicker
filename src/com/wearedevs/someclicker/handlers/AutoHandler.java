@@ -29,6 +29,7 @@ public class AutoHandler {
 			@SuppressWarnings("unchecked")
 			public void run() {
 				double old = Main.clicks;
+				
 				if(CaseHandler.ccase != null) {
 					CaseHandler.tickCase(CaseHandler.ccase);
 				}
@@ -44,7 +45,9 @@ public class AutoHandler {
 				CaseHandler.checkCases();
 				Anticheat.checkCheats();
 				
-				if(old!=Main.clicks) Main.updateCounter();
+				if(old != Main.clicks) {
+					Main.updateCounter();
+				}
 			}
 		});
 	}
