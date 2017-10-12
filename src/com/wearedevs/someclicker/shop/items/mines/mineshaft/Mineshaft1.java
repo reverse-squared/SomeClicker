@@ -1,12 +1,12 @@
 package com.wearedevs.someclicker.shop.items.mines.mineshaft;
 
-import com.wearedevs.someclicker.handlers.AutoHandler;
+import com.wearedevs.someclicker.BaseMod;
 import com.wearedevs.someclicker.shop.ShopItem;
 
 public class Mineshaft1 extends ShopItem{
 	
 	public void onPurchase() {
-		AutoHandler.mine = 250;
+		BaseMod.mine = 250;
 	}
 
 	public int getPrice() {

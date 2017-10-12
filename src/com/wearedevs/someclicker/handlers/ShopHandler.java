@@ -9,26 +9,12 @@ import javax.swing.JButton;
 
 import com.wearedevs.someclicker.Main;
 import com.wearedevs.someclicker.shop.ShopItem;
-import com.wearedevs.someclicker.shop.items.perClickUpgrades.PerClick2;
 import com.wearedevs.someclicker.util.PlaySound;
 
 public class ShopHandler {
 	public static boolean disable = false;
-	public static ArrayList<ShopItem> items;
-	public static ArrayList<ShopItem> bought;
-	
-	/**
-	 * Run Once Okey
-	 * @author ImDaveead
-	 */
-	public static void initializeShop() {
-		items = new ArrayList<ShopItem>();
-		bought = new ArrayList<ShopItem>();
-		
-		//Insert All Things By Default;
-		unlock(new PerClick2());
-		
-	}
+	public static ArrayList<ShopItem> items = new ArrayList<ShopItem>();
+	public static ArrayList<ShopItem> bought = new ArrayList<ShopItem>();
 	
 	public static void unlock(ShopItem item) {
 		if(disable) return;

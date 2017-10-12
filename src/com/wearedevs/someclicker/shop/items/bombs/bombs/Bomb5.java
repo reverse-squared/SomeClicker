@@ -1,13 +1,13 @@
 package com.wearedevs.someclicker.shop.items.bombs.bombs;
 
-import com.wearedevs.someclicker.handlers.AutoHandler;
+import com.wearedevs.someclicker.BaseMod;
 import com.wearedevs.someclicker.handlers.ShopHandler;
 import com.wearedevs.someclicker.shop.ShopItem;
 
 public class Bomb5 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.clickBomb = 5000;
+		BaseMod.clickBomb = 5000;
 		
 		ShopHandler.unlock(new Bomb6());
 	}

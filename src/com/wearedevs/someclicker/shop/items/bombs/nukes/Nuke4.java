@@ -1,12 +1,12 @@
 package com.wearedevs.someclicker.shop.items.bombs.nukes;
 
-import com.wearedevs.someclicker.handlers.AutoHandler;
+import com.wearedevs.someclicker.BaseMod;
 import com.wearedevs.someclicker.shop.ShopItem;
 
 public class Nuke4 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.clickBomb = 100000;
+		BaseMod.clickBomb = 100000;
 	}
 
 	public int getPrice() {
