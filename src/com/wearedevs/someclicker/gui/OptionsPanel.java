@@ -61,7 +61,7 @@ public class OptionsPanel extends JPanel {
 		add(lblSelectYourClick);
 		
 		clickSound = new JComboBox<Sound>();
-		clickSound.setBounds(224, 17, 97, 22);
+		clickSound.setBounds(224, 17, 150, 22);
 		clickSound.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SoundUnlocker.currentSound = (Sound) clickSound.getSelectedItem();
