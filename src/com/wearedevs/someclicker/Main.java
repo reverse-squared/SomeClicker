@@ -199,7 +199,7 @@ public class Main extends JFrame {
 			}
 		}));
 
-		NotificationUtil.init("Some Clicker " + VERSION, "Some Clicker " + VERSION, "textures/icons/traycon.png");
+		NotificationUtil.init("Some Clicker " + VERSION, "Some Clicker " + VERSION, "textures/icons/trayIcon.png");
 
 		//Init all panels
 		mainPanel = new MainPanel();
