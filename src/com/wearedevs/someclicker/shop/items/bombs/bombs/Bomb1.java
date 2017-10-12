@@ -1,6 +1,6 @@
 package com.wearedevs.someclicker.shop.items.bombs.bombs;
 
-import com.wearedevs.someclicker.handlers.AutoHandler;
+import com.wearedevs.someclicker.BaseMod;
 import com.wearedevs.someclicker.handlers.ShopHandler;
 import com.wearedevs.someclicker.shop.ShopItem;
 import com.wearedevs.someclicker.shop.items.factories.Factory1;
@@ -8,7 +8,7 @@ import com.wearedevs.someclicker.shop.items.factories.Factory1;
 public class Bomb1 extends ShopItem {
 
 	public void onPurchase() {
-		AutoHandler.clickBomb = 100;
+		BaseMod.clickBomb = 100;
 		
 		ShopHandler.unlock(new Bomb2());
 		ShopHandler.unlock(new Factory1());

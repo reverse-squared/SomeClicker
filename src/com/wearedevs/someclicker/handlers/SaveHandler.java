@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 import com.wearedevs.someclicker.Main;
 import com.wearedevs.someclicker.cases.Case;
-import com.wearedevs.someclicker.cases.GetCase;
 import com.wearedevs.someclicker.handlers.saveloaders.SaveLoader1;
 import com.wearedevs.someclicker.handlers.saveloaders.SaveLoader2;
 import com.wearedevs.someclicker.mod.Mod;
@@ -33,7 +32,7 @@ public class SaveHandler {
 			
 			w.print(Main.clicks+";");
 
-			w.print(GetCase.caseGoal+";");
+			w.print(CaseHandler.caseGoal+";");
 			
 			w.print(SoundUnlocker.currentSound.getClass().getName()+";");
 
@@ -112,10 +111,10 @@ public class SaveHandler {
 				String[] savearr = str.split(";");
 	
 				if(savearr[0].equals("1")) {
-					System.out.println("Beta 1");
+					System.out.println("Version > 1.0.0 Beta 1");
 					SaveLoader1.load(savearr);
 				} else if(savearr[0].equals("2")) {
-					System.out.println("Beta 4");
+					System.out.println("Version > 1.0.0 Beta 4");
 					SaveLoader2.load(savearr);
 				} else {
 					System.out.println("Unknown!");

@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.io.PrintWriter;
 import java.io.RandomAccessFile;
 import java.net.URISyntaxException;
 import java.nio.channels.FileChannel;
@@ -31,16 +30,13 @@ import com.wearedevs.someclicker.gui.OptionsPanel;
 import com.wearedevs.someclicker.gui.ShopPanel;
 import com.wearedevs.someclicker.handlers.AutoHandler;
 import com.wearedevs.someclicker.handlers.SaveHandler;
-import com.wearedevs.someclicker.handlers.ShopHandler;
 import com.wearedevs.someclicker.handlers.SoundUnlocker;
 import com.wearedevs.someclicker.mod.Mod;
 import com.wearedevs.someclicker.mod.ModLoader;
 import com.wearedevs.someclicker.mod.ModPrintStream;
 import com.wearedevs.someclicker.sound.Sound;
-import com.wearedevs.someclicker.sound.sounds.Default;
 import com.wearedevs.someclicker.util.NotificationUtil;
 import com.wearedevs.someclicker.util.PlaySound;
-import com.wearedevs.someclicker.util.RandomUtil;
 
 /**
  * Main, Where Everything Starts
@@ -49,7 +45,6 @@ public class Main extends JFrame {
 	private static final long serialVersionUID = 1L;
 	public static double clicks = 1000000;
 	public static int perClick = 1;
-	public static double multiplier = 1.0;
 	public static ArrayList<Mod> mods = new ArrayList<Mod>();
 
 	public static Main main;
@@ -63,7 +58,7 @@ public class Main extends JFrame {
 	public static CheaterPanel cheaterPanel;
 	public static ExtrasPanel extrasPanel;
 
-	public static final String VERSION = "Beta 4.2";
+	public static final String VERSION = "Beta 5";
 	public static final int VERSION_NUM = 2;
 
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
@@ -89,15 +84,13 @@ public class Main extends JFrame {
 					main = new Main();
 					ModLoader ml = new ModLoader();
 
-					PrintWriter writer = new PrintWriter(modFile);
-					writer.println("Base " + VERSION);
-					
 					System.out.println("== Loading Mods ==");
+					System.out.println("Loading Mod 'BaseMod'");
+					mods.add(new BaseMod());
 					File[] modfiles = new File(modPath).listFiles();
 					for(File file : modfiles) {
 						if(!file.isDirectory()) {
 							if(file.getName().endsWith(".jar")) {
-								writer.println(file);
 								JarFile jarfile = null;
 
 								try {
@@ -139,8 +132,7 @@ public class Main extends JFrame {
 							}
 						}
 					}
-					writer.close();
-					
+
 					System.out.println("== Mods PreInit Stage ==");
 					PrintStream ps = System.out;
 					for(Mod mod : mods) {
@@ -148,12 +140,12 @@ public class Main extends JFrame {
 						mod.preInit();
 						System.setOut(ps);
 					}
-					
+
 					System.out.println("== End PreInit Stage ==");
-					
+
 					System.out.println("== Mods PostInit Stage ==");
 					SaveHandler.load();
-					
+
 					for(Mod mod : mods) {
 						System.setOut(new ModPrintStream(System.out, mod.name));
 						mod.postInit();
@@ -199,7 +191,7 @@ public class Main extends JFrame {
 				if(resetOnClose) {
 					SaveHandler.saveFile.delete();
 					System.out.println("Exiting and Deleting Save!");
-				}else {
+				} else {
 					SaveHandler.save();
 					System.out.println("Exiting!");
 				}
@@ -207,11 +199,6 @@ public class Main extends JFrame {
 		}));
 
 		NotificationUtil.init("Some Clicker " + VERSION, "Some Clicker " + VERSION, "textures/icon.png");
-
-		SoundUnlocker.unlock(new Default());
-
-		//Init Shop
-		ShopHandler.initializeShop();
 
 		//Init all panels
 		mainPanel = new MainPanel();
@@ -231,7 +218,7 @@ public class Main extends JFrame {
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
-		setTitle("Some Clicker " + VERSION);
+		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
 		setVisible(true);
 	}
@@ -243,6 +230,9 @@ public class Main extends JFrame {
 		mainPanel.labelClicks.setText("Clicks: " + Math.round(clicks));
 		shopPanel.labelClicks.setText(Math.round(clicks)+" Clicks");
 		casePanel.labelClicks.setText(Math.round(clicks)+" Clicks");
+		for(Mod m : mods) {
+			m.onUpdateCounter(clicks);
+		}
 	}
 
 	/**
@@ -263,21 +253,16 @@ public class Main extends JFrame {
 	 * Handles All the Clicking
 	 */
 	public static void click(double ammount, Sound sound) {
-		double click = ammount * multiplier;
-
-		if(RandomUtil.randomRange(1, 20) == 10) {
-			click *= 2;
-		}
-
-		if(RandomUtil.randomRange(1, 500) == 10) {
-			click *= 10;
+		double click = ammount;
+		for(Mod m : mods) {
+			click = m.onClick(click);
 		}
 
 		if(sound!=null) {
 			PlaySound.playSound("/sound/clickSound/" + sound.getFileName());
 		}
 
-		Main.clicks += click * multiplier;
+		Main.clicks += click;
 		updateCounter();
 	}
 
