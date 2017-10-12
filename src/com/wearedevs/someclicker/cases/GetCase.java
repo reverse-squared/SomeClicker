@@ -26,7 +26,7 @@ public class GetCase {
 			
 			w.add(100, new ClickCase());
 			w.add(10, new ClickMultiplierCase());
-			w.add(20, new SoundCase());
+			w.add(30, new SoundCase());
 			w.add(20, new MLGSoundCase());
 			w.add(20, new MEMESoundCase());
 			

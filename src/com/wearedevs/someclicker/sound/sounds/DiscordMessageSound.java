@@ -9,7 +9,7 @@ public class DiscordMessageSound extends Sound {
 	}
 
 	public String getFileName() {
-		return "discordmessage";
+		return "discordmessage.wav";
 	}
 
 }
