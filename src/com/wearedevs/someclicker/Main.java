@@ -16,6 +16,7 @@ import java.util.Scanner;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -198,7 +199,7 @@ public class Main extends JFrame {
 			}
 		}));
 
-		NotificationUtil.init("Some Clicker " + VERSION, "Some Clicker " + VERSION, "textures/icon.png");
+		NotificationUtil.init("Some Clicker " + VERSION, "Some Clicker " + VERSION, "textures/icons/traycon.png");
 
 		//Init all panels
 		mainPanel = new MainPanel();
@@ -220,6 +221,7 @@ public class Main extends JFrame {
 		setBounds(mainPanel.getBounds()); //Set Bounds Identical to Panel
 		setTitle("Java Clicker " + VERSION);
 		setContentPane(mainPanel);
+		setIconImage(new ImageIcon(getClass().getClassLoader().getResource("textures/icon.png")));
 		setVisible(true);
 	}
 
