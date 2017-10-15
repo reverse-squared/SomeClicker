@@ -6,7 +6,6 @@ public class GameLoop {
 	
 	/**
 	 * A Game Loop
-	 * set running to false to stop
 	 * 
 	 * @param tps The Speed of calling tick.run()
 	 * @param tick A <code>Runnable</code> that is ran `tps` times a second
@@ -46,7 +45,6 @@ public class GameLoop {
 	
 	/**
 	 * A Game Loop
-	 * set running to false to stop
 	 * 
 	 * @param tps The Speed of calling tick.run()
 	 * @param tick A <code>Runnable</code> that is ran `tps` times a second
