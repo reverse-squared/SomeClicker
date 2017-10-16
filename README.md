@@ -5,7 +5,7 @@ This is the code to our Java Clicker. All of this game is written in Java. It ha
 
 ## Getting Started
 
-Download the files above or [here](https://github.com/WeAreDevs/JavaClicker/archive/master.zip) and follow the build instructions below, or the latest build [here](https://github.com/WeAreDevs/JavaClicker/releases/download/beta51/JavaClicker-Beta51.jar). `Beta 5.1`.
+Download the files above or [here](https://github.com/WeAreDevs/SomeClicker/archive/master.zip) and follow the build instructions below, or the latest build [here](https://github.com/WeAreDevs/SomeClicker/releases/download/beta51/SomeClicker-Beta51.jar). `Beta 5.1`.
 
 ### Prerequisites
 
@@ -13,7 +13,7 @@ Download the files above or [here](https://github.com/WeAreDevs/JavaClicker/arch
 
 ## Authors
 
-* **EXPGamer303** - *Main Developer* - [EXPGamer303](https://github.com/EXPGamer303)
+* **FallenEXP** - *Main Developer* - [FallenEXP](https://github.com/FallenEXP)
 * **ImDaveead** - *Main Developer* - [ImDaveead](https://github.com/ImDaveead)
 * **Filip Kin** - *Fixer of README.md* - [Filip9696](https://github.com/Filip9696)
 
