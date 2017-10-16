@@ -22,7 +22,7 @@ public class ExtrasPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	public ExtrasPanel() throws URISyntaxException {
-		final URI moddingUri = new URI("https://github.com/WeAreDevs/JavaClicker/wiki/Modding");
+		final URI moddingUri = new URI("https://github.com/WeAreDevs/SomeClicker/wiki/Modding");
 		final URI ideaUri = new URI("https://goo.gl/forms/LItqqg4Tj3jSViGw1");
 		final URI bugUri = new URI("https://goo.gl/forms/ybr8MuioZHFgtoth1");
 		
