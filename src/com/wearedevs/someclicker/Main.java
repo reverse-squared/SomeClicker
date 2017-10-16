@@ -66,12 +66,12 @@ public class Main extends JFrame {
 
 	public static boolean resetOnClose = false;
 
-	public static final String path = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/";
+	public static final String path = System.getenv("APPDATA") + "/WeAreDevs/SomeClicker/";
 
-	public static final String modPath = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/";
-	public static final String lockFileLoc = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/startup.lock";
+	public static final String modPath = System.getenv("APPDATA") + "/WeAreDevs/SomeClicker/mods/";
+	public static final String lockFileLoc = System.getenv("APPDATA") + "/WeAreDevs/SomeClicker/startup.lock";
 
-	public static final File modFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt");
+	public static final File modFile = new File(System.getenv("APPDATA") + "/WeAreDevs/SomeClicker/mods/modlist.txt");
 
 
 	public static void main(String[] args) throws Exception {
