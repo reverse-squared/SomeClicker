@@ -3,6 +3,7 @@ package com.wearedevs.someclicker.gui;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.function.Consumer;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -75,6 +76,10 @@ public class OptionsPanel extends JPanel {
 
 	public static void refreshSoundChoice() {
 		clickSound.setModel(new DefaultComboBoxModel<Sound>(SoundUnlocker.clickSounds.toArray(new Sound[] {})));
-		clickSound.setSelectedItem(SoundUnlocker.currentSound);
+		SoundUnlocker.clickSounds.forEach(new Consumer<Sound>() {
+			public void accept(Sound t) {
+				if(t.getClass().getName() == SoundUnlocker.currentSound.getClass().getName()) clickSound.setSelectedItem(t);
+			}
+		});
 	}
 }
