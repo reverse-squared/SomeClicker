@@ -28,9 +28,6 @@ public class GetCase {
 			w.add(30, new SoundCase());
 			w.add(20, new MLGSoundCase());
 			
-			//TODO: Add More Sounds
-//			w.add(20, new MEMESoundCase());
-			
 			CaseHandler.unlock(w.next());
 			
 			PlaySound.playSound("/sound/cases/get.wav");

@@ -2,7 +2,6 @@ package com.wearedevs.someclicker;
 
 import com.wearedevs.someclicker.cases.cases.ClickCase;
 import com.wearedevs.someclicker.cases.cases.ClickMultiplierCase;
-import com.wearedevs.someclicker.cases.cases.MEMESoundCase;
 import com.wearedevs.someclicker.cases.cases.MLGSoundCase;
 import com.wearedevs.someclicker.cases.cases.SoundCase;
 import com.wearedevs.someclicker.handlers.CaseHandler;
@@ -35,7 +34,6 @@ public class BaseMod extends Mod {
 		CaseHandler.registerCase(30, new SoundCase());
 		CaseHandler.registerCase(3, new ClickMultiplierCase());
 		CaseHandler.registerCase(20, new MLGSoundCase());
-		CaseHandler.registerCase(20, new MEMESoundCase());
 	}
 
 	public void postInit() {
