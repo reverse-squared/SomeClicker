@@ -58,7 +58,7 @@ public class Main extends JFrame {
 	public static CheaterPanel cheaterPanel;
 	public static ExtrasPanel extrasPanel;
 
-	public static final String VERSION = "Beta 5";
+	public static final String VERSION = "Beta 5.2";
 	public static final int VERSION_NUM = 2;
 
 	public static final Rectangle windowSize = new Rectangle(100, 100, 640, 480);
@@ -66,12 +66,12 @@ public class Main extends JFrame {
 
 	public static boolean resetOnClose = false;
 
-	public static final String path = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/";
+	public static final String path = System.getenv("APPDATA") + "/WeAreDevs/SomeClicker/";
 
-	public static final String modPath = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/";
-	public static final String lockFileLoc = System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/startup.lock";
+	public static final String modPath = System.getenv("APPDATA") + "/WeAreDevs/SomeClicker/mods/";
+	public static final String lockFileLoc = System.getenv("APPDATA") + "/WeAreDevs/SomeClicker/startup.lock";
 
-	public static final File modFile = new File(System.getenv("APPDATA") + "/WeAreDevs/JavaClicker/mods/modlist.txt");
+	public static final File modFile = new File(System.getenv("APPDATA") + "/WeAreDevs/SomeClicker/mods/modlist.txt");
 
 
 	public static void main(String[] args) throws Exception {
@@ -85,7 +85,7 @@ public class Main extends JFrame {
 					ModLoader ml = new ModLoader();
 
 					System.out.println("== Loading Mods ==");
-					System.out.println("Loading Mod 'BaseMod'");
+					System.out.println("Loading Mod 'Base Mod " + VERSION + "'");
 					mods.add(new BaseMod());
 					File[] modfiles = new File(modPath).listFiles();
 					for(File file : modfiles) {
@@ -198,7 +198,7 @@ public class Main extends JFrame {
 			}
 		}));
 
-		NotificationUtil.init("Some Clicker " + VERSION, "Some Clicker " + VERSION, "textures/icon.png");
+		NotificationUtil.init("Some Clicker " + VERSION, "Some Clicker " + VERSION, "textures/icons/trayIcon.png");
 
 		//Init all panels
 		mainPanel = new MainPanel();
@@ -230,6 +230,7 @@ public class Main extends JFrame {
 		mainPanel.labelClicks.setText("Clicks: " + Math.round(clicks));
 		shopPanel.labelClicks.setText(Math.round(clicks)+" Clicks");
 		casePanel.labelClicks.setText(Math.round(clicks)+" Clicks");
+		
 		for(Mod m : mods) {
 			m.onUpdateCounter(clicks);
 		}

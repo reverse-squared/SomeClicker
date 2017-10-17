@@ -2,6 +2,8 @@ package com.wearedevs.someclicker;
 
 import com.wearedevs.someclicker.cases.cases.ClickCase;
 import com.wearedevs.someclicker.cases.cases.ClickMultiplierCase;
+import com.wearedevs.someclicker.cases.cases.MEMESoundCase;
+import com.wearedevs.someclicker.cases.cases.MLGSoundCase;
 import com.wearedevs.someclicker.cases.cases.SoundCase;
 import com.wearedevs.someclicker.handlers.CaseHandler;
 import com.wearedevs.someclicker.handlers.ShopHandler;
@@ -22,7 +24,7 @@ public class BaseMod extends Mod {
 	public static int portal = 0;
 
 	public static int ticks = 0;
-	public static double seconds = 0; //large limit :)
+	public static double seconds = 0; //Large Limit :)
 
 	public void preInit() {
 		SoundUnlocker.unlock(new Default());
@@ -30,8 +32,10 @@ public class BaseMod extends Mod {
 		ShopHandler.unlock(new PerClick2());
 	
 		CaseHandler.registerCase(100, new ClickCase());
-		CaseHandler.registerCase(20, new SoundCase());
+		CaseHandler.registerCase(30, new SoundCase());
 		CaseHandler.registerCase(3, new ClickMultiplierCase());
+		CaseHandler.registerCase(20, new MLGSoundCase());
+		CaseHandler.registerCase(20, new MEMESoundCase());
 	}
 
 	public void postInit() {
@@ -54,6 +58,7 @@ public class BaseMod extends Mod {
 		if(RandomUtil.randomRange(1, 500) == 10) {
 			click *= 10;
 		}
+		
 		return click;
 	}
 	
