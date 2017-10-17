@@ -49,5 +49,7 @@ public abstract class Mod {
 	 *  Called 60 times a second.
 	 *  Alternative to using TickHooks.
 	 */
-	public void onTick() {}
+	public void onTick() {
+		
+	}
 }

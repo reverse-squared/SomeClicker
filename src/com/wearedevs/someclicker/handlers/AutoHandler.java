@@ -23,12 +23,17 @@ public class AutoHandler {
 	public static ArrayList<TickHook> hooks = new ArrayList<TickHook>();
 	
 	public static void initAutoThread() {
-		if(autoClickStarted) return;
+		if(autoClickStarted) {
+			return;
+		}
+		
 		autoClickStarted = true;
+		
 		game_loop = new GameLoop(60, new Runnable() {
 			@SuppressWarnings("unchecked")
 			public void run() {
 				double old = Main.clicks;
+				
 				if(CaseHandler.ccase != null) {
 					CaseHandler.tickCase(CaseHandler.ccase);
 				}
@@ -44,7 +49,9 @@ public class AutoHandler {
 				CaseHandler.checkCases();
 				Anticheat.checkCheats();
 				
-				if(old!=Main.clicks) Main.updateCounter();
+				if(old != Main.clicks) {
+					Main.updateCounter();
+				}
 			}
 		});
 	}
